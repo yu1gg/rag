@@ -7,13 +7,19 @@ export async function request<T>(
   path: string,
   init?: RequestInit,
 ): Promise<ApiEnvelope<T>> {
-  const response = await fetch(`${API_BASE_URL}${path}`, {
-    headers: {
-      'Content-Type': 'application/json',
-      ...(init?.headers ?? {}),
-    },
-    ...init,
-  })
+  let response: Response
+  try {
+    response = await fetch(`${API_BASE_URL}${path}`, {
+      signal: AbortSignal.timeout(30000),
+      headers: {
+        'Content-Type': 'application/json',
+        ...(init?.headers ?? {}),
+      },
+      ...init,
+    })
+  } catch (err) {
+    throw new Error('网络连接失败，请检查后端服务是否启动。')
+  }
 
   const rawText = await response.text()
   let payload: ApiEnvelope<T> | null = null
@@ -43,13 +49,19 @@ export async function* requestStream(
   init?: RequestInit,
 ): AsyncGenerator<string, void, undefined> {
   const url = `${API_BASE_URL}${path}`
-  const response = await fetch(url, {
-    ...init,
-    headers: {
-      'Content-Type': 'application/json',
-      ...(init?.headers as Record<string, string> | undefined),
-    },
-  })
+  let response: Response
+  try {
+    response = await fetch(url, {
+      signal: AbortSignal.timeout(120000),
+      ...init,
+      headers: {
+        'Content-Type': 'application/json',
+        ...(init?.headers as Record<string, string> | undefined),
+      },
+    })
+  } catch (err) {
+    throw new Error('网络连接失败，请检查后端服务是否启动。')
+  }
 
   if (!response.ok) {
     const text = await response.text()

@@ -9,5 +9,9 @@ export function getErrorMessage(
     }
   }
 
+  if (error instanceof TypeError) {
+    return '网络连接失败，请检查网络后重试。'
+  }
+
   return fallback
 }
