@@ -70,9 +70,11 @@ class LLMClient:
             stream=True,
         )
         for chunk in response:
-            delta = chunk.choices[0].delta.content if chunk.choices else ""
-            if delta:
-                yield delta
+            choice = chunk.choices[0] if chunk.choices else None
+            delta = choice.delta.content if (choice and choice.delta) else ""
+            if not delta:
+                continue
+            yield delta
 
     def answer_stream(self, prompt: str, **kwargs):
         """流式单轮问答。"""
