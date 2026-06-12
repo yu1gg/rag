@@ -30,15 +30,3 @@ class SummaryRequest(BaseModel):
         return stripped
 
 
-class SearchRequest(BaseModel):
-    question: str
-    top_k: int = Field(default=5, ge=1, le=10)
-
-    @field_validator("question")
-    @classmethod
-    def validate_question(cls, value: str) -> str:
-        stripped = value.strip()
-        if not stripped:
-            raise ValueError("question 不能为空")
-        return stripped
-

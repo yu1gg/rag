@@ -1,6 +1,6 @@
 # project_X Ver 2.0
 
-仓库已完成 Ver 2.0 第三轮优化，当前正式入口分为：
+仓库已完成 Ver 2.0 优化，当前正式入口分为：
 
 - `backend/`：FastAPI 后端
 - `frontend/`：Vue 3 + Vite 前端
@@ -45,7 +45,6 @@ npm run dev -- --host 127.0.0.1 --port 3001
 - `/`
 - `/qa`
 - `/summary`
-- `/search`
 
 ## 文档
 

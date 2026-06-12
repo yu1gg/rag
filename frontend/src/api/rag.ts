@@ -3,8 +3,6 @@ import type {
   ApiEnvelope,
   QaPayload,
   QaResult,
-  SearchPayload,
-  SearchResult,
   SummaryPayload,
   SummaryResult,
 } from '../types/api'
@@ -25,12 +23,5 @@ export function fetchSummary(
   })
 }
 
-export function fetchSearch(
-  payload: SearchPayload,
-): Promise<ApiEnvelope<SearchResult>> {
-  return request<SearchResult>('/rag/search', {
-    method: 'POST',
-    body: JSON.stringify(payload),
-  })
-}
+
 

@@ -337,16 +337,6 @@ class RagService:
             raise ServiceUnavailableError(str(exc)) from exc
         return {"summary": summary}
 
-    def search(self, question: str, top_k: int) -> dict:
-        # Search 不调用 LLM，因此它的耗时基本就是纯检索链路的真实表现。
-        total_start = perf_counter()
-        results, metrics = self._retrieve_results_with_metrics(question, top_k)
-        metrics["total_s"] = round(perf_counter() - total_start, 4)
-        logger.info("Search timing: question=%r metrics=%s", question[:80], metrics)
-        return {
-            "query": question,
-            "references": self._build_references(results),
-        }
 
 
 @lru_cache(maxsize=1)

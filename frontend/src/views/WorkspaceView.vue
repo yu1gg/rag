@@ -59,7 +59,7 @@
           <p class="eyebrow">{{ appTitle }}</p>
           <h1>聊天式 RAG 工作台</h1>
           <p class="workspace-subtitle">
-            前端已成为主要人工交互入口。你可以在同一会话里切换问答、摘要和检索。
+            前端已成为主要人工交互入口。你可以在同一会话里切换问答和摘要。
           </p>
         </div>
 
@@ -76,8 +76,8 @@
           <p class="section-tag">Start Here</p>
           <h2>默认是聊天界面，不再是工具表单页</h2>
           <p>
-            输入框上方可以切换 <code>QA</code>、<code>Summary</code>、
-            <code>Search</code> 三种模式。当前模式决定这次发送会调用哪个后端接口。
+            输入框上方可以切换 <code>QA</code> 和 <code>Summary</code>
+            两种模式。当前模式决定这次发送会调用哪个后端接口。
           </p>
 
           <div class="welcome-grid">
@@ -88,10 +88,6 @@
             <article>
               <h3>Summary</h3>
               <p>适合长文本压缩，右侧展示输入/输出长度和模式说明。</p>
-            </article>
-            <article>
-              <h3>Search</h3>
-              <p>适合直接检查检索结果质量，右侧展示命中片段详情。</p>
             </article>
           </div>
         </div>
@@ -154,7 +150,7 @@
             />
           </label>
 
-          <label v-if="currentMode !== 'search'" class="compact-field">
+          <label class="compact-field">
             <span>Temperature</span>
             <input
               v-model.number="temperature"
@@ -285,9 +281,7 @@
 
           <template v-else>
             <p class="detail-note">
-              {{ latestAssistantMessage.mode === 'qa'
-                ? 'QA 模式展示用于生成答案的参考片段。'
-                : 'Search 模式展示最近一次检索命中的参考片段。' }}
+              QA 模式展示用于生成答案的参考片段。
             </p>
             <ReferenceList
               :items="latestAssistantMessage.meta.references ?? []"
@@ -311,7 +305,7 @@ import { computed, nextTick, onMounted, reactive, ref, watch } from 'vue'
 import { RouterLink, useRoute, useRouter } from 'vue-router'
 
 import { getErrorMessage } from '../api/error'
-import { fetchQa, fetchSearch, fetchSummary } from '../api/rag'
+import { fetchQa, fetchSummary } from '../api/rag'
 import { fetchDatasetStats, fetchHealth, fetchIndexStatus } from '../api/state'
 import ReferenceList from '../components/ReferenceList.vue'
 import { appTitle } from '../stores/app'
@@ -321,7 +315,6 @@ import type {
   HealthResult,
   IndexStatusResult,
   QaPayload,
-  SearchPayload,
   SummaryPayload,
 } from '../types/api'
 import type { ChatMessage, ChatSession, ToolMode } from '../types/chat'
@@ -334,28 +327,24 @@ type StatusSlice<T> = {
 const modeLabelMap: Record<ToolMode, string> = {
   qa: 'QA',
   summary: 'Summary',
-  search: 'Search',
 }
 
 const placeholderMap: Record<ToolMode, string> = {
   qa: '例如：什么是 RAG，它为什么适合构建知识问答系统？',
   summary: '粘贴需要摘要的长文本，发送后会返回压缩结果。',
-  search: '例如：Transformer 架构的核心特点是什么？',
 }
 
 const modeHints: Record<ToolMode, string> = {
   qa: '问答模式会调用 /rag/qa，返回答案正文和参考片段。',
   summary: '摘要模式会调用 /rag/summary，适合整理长文本内容。',
-  search: '检索模式会调用 /rag/search，右侧重点展示 references。',
 }
 
 const modeToRoute: Record<ToolMode, string> = {
   qa: '/qa',
   summary: '/summary',
-  search: '/search',
 }
 
-const modes: ToolMode[] = ['qa', 'summary', 'search']
+const modes: ToolMode[] = ['qa', 'summary']
 const draft = ref('')
 const topK = ref(5)
 const temperature = ref(0.7)
@@ -411,7 +400,7 @@ const docsUrl = computed(() => {
 })
 
 function normalizeMode(value: unknown): ToolMode {
-  return value === 'summary' || value === 'search' ? value : 'qa'
+  return value === 'summary' ? value : 'qa'
 }
 
 function formatTime(value: string): string {
@@ -520,23 +509,6 @@ function buildSummaryPayload(): SummaryPayload | null {
   }
 }
 
-function buildSearchPayload(): SearchPayload | null {
-  const question = draft.value.trim()
-  if (!question) {
-    validationError.value = '请输入检索问题后再发送。'
-    return null
-  }
-  if (!Number.isInteger(topK.value) || topK.value < 1 || topK.value > 10) {
-    validationError.value = 'Top-K 必须是 1 到 10 之间的整数。'
-    return null
-  }
-
-  return {
-    question,
-    top_k: topK.value,
-  }
-}
-
 async function handleSubmit(): Promise<void> {
   validationError.value = ''
 
@@ -547,9 +519,7 @@ async function handleSubmit(): Promise<void> {
   const payload =
     currentMode.value === 'qa'
       ? buildQaPayload()
-      : currentMode.value === 'summary'
-        ? buildSummaryPayload()
-        : buildSearchPayload()
+      : buildSummaryPayload()
 
   if (!payload) {
     return
@@ -590,7 +560,7 @@ async function handleSubmit(): Promise<void> {
           temperature: (payload as QaPayload).temperature,
         },
       })
-    } else if (currentMode.value === 'summary') {
+    } else {
       const response = await fetchSummary(payload as SummaryPayload)
       const summary = response.data?.summary?.trim() ?? ''
       updateMessage(session.id, pendingMessage.id, {
@@ -600,18 +570,6 @@ async function handleSubmit(): Promise<void> {
           inputLength: (payload as SummaryPayload).text.length,
           outputLength: summary.length,
           temperature: (payload as SummaryPayload).temperature,
-        },
-      })
-    } else {
-      const response = await fetchSearch(payload as SearchPayload)
-      const references = response.data?.references ?? []
-      updateMessage(session.id, pendingMessage.id, {
-        text: `已检索到 ${references.length} 条参考片段，请查看右侧详情。`,
-        status: 'success',
-        meta: {
-          references,
-          query: response.data?.query?.trim() || (payload as SearchPayload).question,
-          topK: (payload as SearchPayload).top_k,
         },
       })
     }

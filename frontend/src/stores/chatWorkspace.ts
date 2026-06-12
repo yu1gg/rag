@@ -41,7 +41,7 @@ function trimSessions(items: ChatSession[]): ChatSession[] {
 }
 
 function normalizeMode(value: unknown): ToolMode {
-  if (value === 'summary' || value === 'search') {
+  if (value === 'summary') {
     return value
   }
   return 'qa'

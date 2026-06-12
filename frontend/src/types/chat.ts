@@ -1,6 +1,6 @@
 import type { ReferenceItem } from './api'
 
-export type ToolMode = 'qa' | 'summary' | 'search'
+export type ToolMode = 'qa' | 'summary'
 export type ChatRole = 'user' | 'assistant'
 export type ChatMessageStatus = 'success' | 'loading' | 'error'
 

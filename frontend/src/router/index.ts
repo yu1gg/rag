@@ -30,15 +30,6 @@ const routes = [
       defaultMode: 'summary',
     },
   },
-  {
-    path: '/search',
-    name: 'search',
-    component: () => import('../views/WorkspaceView.vue'),
-    meta: {
-      title: `${appTitle} | Search`,
-      defaultMode: 'search',
-    },
-  },
 ]
 
 const router = createRouter({

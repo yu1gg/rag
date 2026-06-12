@@ -9,7 +9,7 @@
         <RouterLink to="/">首页</RouterLink>
         <RouterLink to="/qa">问答</RouterLink>
         <RouterLink to="/summary">摘要</RouterLink>
-        <RouterLink to="/search">检索</RouterLink>
+
       </nav>
     </header>
 

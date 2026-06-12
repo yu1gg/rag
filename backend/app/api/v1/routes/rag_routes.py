@@ -5,7 +5,7 @@ from __future__ import annotations
 from fastapi import APIRouter, Depends
 
 from backend.app.core.response import success_response
-from backend.app.schemas.rag import QaRequest, SearchRequest, SummaryRequest
+from backend.app.schemas.rag import QaRequest, SummaryRequest
 from backend.app.services.rag_service import RagService, get_rag_service
 
 router = APIRouter(prefix="/rag", tags=["rag"])
@@ -33,13 +33,3 @@ def summary(
     return success_response(result)
 
 
-@router.post("/search")
-def search(
-    payload: SearchRequest,
-    service: RagService = Depends(get_rag_service),
-) -> dict:
-    result = service.search(
-        question=payload.question,
-        top_k=payload.top_k,
-    )
-    return success_response(result)

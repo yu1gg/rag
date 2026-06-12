@@ -32,16 +32,6 @@ export interface SummaryResult {
   summary: string
 }
 
-export interface SearchPayload {
-  question: string
-  top_k?: number
-}
-
-export interface SearchResult {
-  query: string
-  references: ReferenceItem[]
-}
-
 export interface HealthResult {
   status: string
   version: string

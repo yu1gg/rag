@@ -25,20 +25,6 @@ class FakeRagService:
     def summarize(self, text: str, temperature: float) -> dict:
         return {"summary": f"mock-summary:{len(text)}:{temperature}"}
 
-    def search(self, question: str, top_k: int) -> dict:
-        return {
-            "query": question,
-            "references": [
-                {
-                    "index": 1,
-                    "chunk_id": "chunk_002",
-                    "doc_id": "doc_002",
-                    "score": 0.88,
-                    "excerpt": "search excerpt",
-                }
-            ],
-        }
-
 
 class FailingRagService:
     def answer_question(self, question: str, top_k: int, temperature: float) -> dict:
@@ -46,9 +32,6 @@ class FailingRagService:
 
     def summarize(self, text: str, temperature: float) -> dict:
         raise ServiceUnavailableError("摘要服务暂不可用")
-
-    def search(self, question: str, top_k: int) -> dict:
-        raise ServiceUnavailableError("检索服务暂不可用")
 
 
 def make_client(service) -> TestClient:
@@ -94,20 +77,6 @@ def test_summary_success_response():
     payload = response.json()
     assert payload["code"] == 0
     assert payload["data"]["summary"].startswith("mock-summary")
-
-
-def test_search_success_response():
-    with make_client(FakeRagService()) as client:
-        response = client.post(
-            "/api/v1/rag/search",
-            json={"question": "Transformer", "top_k": 4},
-        )
-
-    assert response.status_code == 200
-    payload = response.json()
-    assert payload["code"] == 0
-    assert payload["data"]["query"] == "Transformer"
-    assert payload["data"]["references"][0]["doc_id"] == "doc_002"
 
 
 def test_validation_error_uses_response_envelope():
