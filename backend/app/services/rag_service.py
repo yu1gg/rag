@@ -357,6 +357,66 @@ class RagService:
             raise ServiceUnavailableError(str(exc)) from exc
         return {"summary": summary}
 
+    def generate_answer_stream(
+        self,
+        mode: str,
+        question: str,
+        context: str,
+        temperature: float,
+        max_tokens: int | None = None,
+        history: str = "",
+    ):
+        prompt = self._get_prompts().format_prompt(
+            mode, question, context, history=history
+        )
+        yield from self._get_llm().answer_stream(
+            prompt, temperature=temperature, max_tokens=max_tokens
+        )
+
+    def answer_question_stream(
+        self,
+        question: str,
+        top_k: int,
+        temperature: float,
+        method: str = "vector",
+        history: list[dict] | None = None,
+    ):
+        """流式 QA：先检索，然后逐 chunk 输出 LLM 回答。"""
+        import json
+
+        total_start = perf_counter()
+        results, metrics = self._retrieve_results_with_metrics(question, top_k, method=method)
+
+        context, _ = self.build_qa_context(results)
+        history_str = self._format_chat_history(history) if history else ""
+
+        yield json.dumps({"type": "meta", "metrics": {"result_count": len(results)}}) + "\n"
+
+        for chunk in self.generate_answer_stream(
+            "qa", question, context, temperature,
+            max_tokens=max(1, self.settings.qa_max_tokens),
+            history=history_str,
+        ):
+            yield json.dumps({"type": "chunk", "text": chunk}) + "\n"
+
+        yield json.dumps({
+            "type": "done",
+            "references": self._build_references(results),
+            "metrics": {"total_s": round(perf_counter() - total_start, 4)},
+        }) + "\n"
+
+    @staticmethod
+    def _format_chat_history(history: list[dict]) -> str:
+        """将对话历史格式化为 prompt 可用的字符串。"""
+        if not history:
+            return ""
+        lines = ["【对话历史】"]
+        for turn in history[-6:]:
+            role = "用户" if turn.get("role") == "user" else "助手"
+            content = turn.get("content", "")
+            lines.append(f"{role}：{content}")
+        lines.append("")
+        return "\n".join(lines)
 
 
 @lru_cache(maxsize=1)
