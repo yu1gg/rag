@@ -57,7 +57,7 @@ class FakePromptTemplate:
         self.last_context = "||".join(result.content for result in results)
         return self.last_context
 
-    def format_prompt(self, mode: str, question: str, context: str) -> str:
+    def format_prompt(self, mode: str, question: str, context: str, history: str = "") -> str:
         self.last_mode = mode
         self.last_question = question
         self.last_context = context
@@ -126,7 +126,7 @@ def test_qa_uses_limited_context_but_returns_full_references():
         for index in range(5)
     ]
 
-    service._retrieve_results_with_metrics = lambda question, top_k: (results, {})  # type: ignore[method-assign]
+    service._retrieve_results_with_metrics = lambda question, top_k, method="vector": (results, {})  # type: ignore[method-assign]
 
     response = service.answer_question("什么是RAG", top_k=5, temperature=0.7)
 
