@@ -43,7 +43,7 @@ class LLMClient:
             except Exception as exc:  # pragma: no cover - network failures vary
                 last_error = exc
                 if attempt < self._max_retries - 1:
-                    time.sleep(2**attempt)
+                    time.sleep(0.5)
 
         raise RuntimeError(f"LLM API 调用失败（重试 {self._max_retries} 次后）: {last_error}")
 
