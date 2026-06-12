@@ -20,6 +20,7 @@ const MAX_SESSIONS = 20
 const sessions = ref<ChatSession[]>([])
 const activeSessionId = ref('')
 const currentMode = ref<ToolMode>('qa')
+const selectedMessageId = ref('')
 const hydrated = ref(false)
 
 const activeSession = computed<ChatSession | null>(
@@ -294,6 +295,7 @@ export function useChatWorkspace() {
     activeSessionId,
     activeSession,
     currentMode,
+    selectedMessageId,
     hydrateWorkspace,
     createSession,
     setCurrentMode,

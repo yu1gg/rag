@@ -100,7 +100,9 @@
             :class="[
               `chat-message--${message.role}`,
               `chat-message--${message.status}`,
+              { 'chat-message--selected': message.id === selectedMessageId },
             ]"
+            @click="selectedMessageId = message.id"
           >
             <div class="chat-message__meta">
               <span>{{ message.role === 'user' ? '你' : '助手' }}</span>
@@ -276,22 +278,22 @@
           </div>
         </div>
 
-        <div v-if="latestAssistantMessage" class="detail-block">
+        <div v-if="selectedDetailMessage" class="detail-block">
           <div class="detail-block__meta">
-            <span class="mode-badge">{{ modeLabelMap[latestAssistantMessage.mode] }}</span>
-            <span>{{ latestAssistantMessage.status === 'error' ? '错误' : latestAssistantMessage.status === 'loading' ? '处理中' : '已完成' }}</span>
-            <time>{{ formatTime(latestAssistantMessage.createdAt) }}</time>
+            <span class="mode-badge">{{ modeLabelMap[selectedDetailMessage.mode] }}</span>
+            <span>{{ selectedDetailMessage.status === 'error' ? '错误' : selectedDetailMessage.status === 'loading' ? '处理中' : '已完成' }}</span>
+            <time>{{ formatTime(selectedDetailMessage.createdAt) }}</time>
           </div>
 
-          <template v-if="latestAssistantMessage.mode === 'summary'">
+          <template v-if="selectedDetailMessage.mode === 'summary'">
             <div class="summary-stats">
               <article>
                 <span>输入长度</span>
-                <strong>{{ latestAssistantMessage.meta.inputLength ?? 0 }}</strong>
+                <strong>{{ selectedDetailMessage.meta.inputLength ?? 0 }}</strong>
               </article>
               <article>
                 <span>摘要长度</span>
-                <strong>{{ latestAssistantMessage.meta.outputLength ?? 0 }}</strong>
+                <strong>{{ selectedDetailMessage.meta.outputLength ?? 0 }}</strong>
               </article>
             </div>
             <p class="detail-note">
@@ -304,8 +306,8 @@
               QA 模式展示用于生成答案的参考片段。
             </p>
             <ReferenceList
-              :items="latestAssistantMessage.meta.references ?? []"
-              :empty-text="latestAssistantMessage.status === 'loading'
+              :items="selectedDetailMessage.meta.references ?? []"
+              :empty-text="selectedDetailMessage.status === 'loading'
                 ? '正在等待后端返回参考片段。'
                 : '当前结果没有可展示的参考片段。'"
             />
@@ -391,6 +393,7 @@ const {
   deleteSession,
   appendMessage,
   updateMessage,
+  selectedMessageId,
 } = useChatWorkspace()
 
 const healthState = reactive<StatusSlice<HealthResult>>({
@@ -406,8 +409,12 @@ const datasetState = reactive<StatusSlice<DatasetStatsResult>>({
   error: '',
 })
 
-const latestAssistantMessage = computed<ChatMessage | null>(() => {
+const selectedDetailMessage = computed<ChatMessage | null>(() => {
   const messages = activeSession.value?.messages ?? []
+  if (selectedMessageId.value) {
+    return messages.find((m) => m.id === selectedMessageId.value) ?? null
+  }
+  // Fall back to latest assistant message
   for (let index = messages.length - 1; index >= 0; index -= 1) {
     if (messages[index].role === 'assistant') {
       return messages[index]
@@ -507,11 +514,27 @@ function buildQaPayload(): QaPayload | null {
     return null
   }
 
+  // Build history from current session's last messages (up to 6 turns)
+  const session = activeSession.value
+  const history: { role: 'user' | 'assistant'; content: string }[] = []
+  if (session) {
+    const recentMessages = session.messages.slice(-6)
+    for (const msg of recentMessages) {
+      if (msg.status !== 'loading') {
+        history.push({
+          role: msg.role,
+          content: msg.text,
+        })
+      }
+    }
+  }
+
   return {
     question,
     top_k: topK.value,
     temperature: temperature.value,
     method: retrievalMethod.value,
+    history,
   }
 }
 

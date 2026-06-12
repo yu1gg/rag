@@ -654,3 +654,13 @@ pre {
     max-width: 100%;
   }
 }
+
+.chat-message {
+  cursor: pointer;
+  transition: outline 0.15s;
+}
+
+.chat-message--selected {
+  outline: 2px solid #14213d;
+  border-radius: 8px;
+}
