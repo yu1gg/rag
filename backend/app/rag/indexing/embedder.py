@@ -25,6 +25,7 @@ class Embedder:
         self._fallback_reason = ""
         self._fallback_logged = False
         self._ready_logged = False
+        self._query_cache: dict[str, np.ndarray] = {}
 
     def _ensure_model(self) -> None:
         if self._model is not None or self._use_fallback:
@@ -120,11 +121,25 @@ class Embedder:
         return np.asarray(vectors, dtype=np.float32)
 
     def encode_query(self, query: str) -> np.ndarray:
+        # Check cache first (LRU, max 128 entries)
+        cache_key = hashlib.md5(query.encode("utf-8")).hexdigest()
+        if cache_key in self._query_cache:
+            return self._query_cache[cache_key]
+
         self._ensure_model()
         if self._use_fallback:
-            return self._encode_fallback([query]).flatten()
-        vec = self._model.encode(
-            [query],
-            normalize_embeddings=True,
-        )
-        return np.asarray(vec, dtype=np.float32).flatten()
+            vec = self._encode_fallback([query]).flatten()
+        else:
+            vec = self._model.encode(
+                [query],
+                normalize_embeddings=True,
+            )
+            vec = np.asarray(vec, dtype=np.float32).flatten()
+
+        # Store in cache, evict oldest if full
+        if len(self._query_cache) >= 128:
+            oldest_key = next(iter(self._query_cache))
+            del self._query_cache[oldest_key]
+        self._query_cache[cache_key] = vec
+
+        return vec
