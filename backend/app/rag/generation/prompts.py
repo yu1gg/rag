@@ -10,6 +10,7 @@ class PromptTemplate:
 2. 如果参考资料不足以回答，请明确告知"该问题超出了我目前的知识范围"
 3. 回答应清晰易懂，适合学生理解
 
+{history}
 参考资料：
 {context}
 
@@ -26,6 +27,7 @@ class PromptTemplate:
 
 摘要总长度应控制在原文的15%-30%之间。
 
+{history}
 原文：
 {context}"""
 
@@ -35,6 +37,7 @@ class PromptTemplate:
 2. 在答案中标注所引用的来源编号，例如"根据[来源1]和[来源3]..."
 3. 如果参考资料中不包含相关信息，请明确说明
 
+{history}
 参考资料：
 {context}
 
@@ -47,7 +50,7 @@ class PromptTemplate:
             parts.append(f"[来源{i}] chunk_id: {result.chunk_id}\n{result.content}")
         return "\n\n---\n\n".join(parts)
 
-    def format_prompt(self, mode: str, question: str, context: str) -> str:
+    def format_prompt(self, mode: str, question: str, context: str, history: str = "") -> str:
         templates = {
             "qa": self.QA_TEMPLATE,
             "summary": self.SUMMARY_TEMPLATE,
@@ -56,5 +59,5 @@ class PromptTemplate:
         template = templates.get(mode)
         if template is None:
             raise ValueError(f"未知模式: {mode}，可选: qa, summary, knowledge_qa")
-        return template.format(context=context, question=question)
+        return template.format(context=context, question=question, history=history)
 
