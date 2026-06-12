@@ -30,6 +30,11 @@ const routes = [
       defaultMode: 'summary',
     },
   },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'not-found',
+    redirect: '/',
+  },
 ]
 
 const router = createRouter({
