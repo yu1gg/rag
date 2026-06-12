@@ -24,6 +24,24 @@ export interface QaResult {
   references: ReferenceItem[]
 }
 
+export interface QaStreamMeta {
+  type: 'meta'
+  metrics: { result_count: number }
+}
+
+export interface QaStreamChunk {
+  type: 'chunk'
+  text: string
+}
+
+export interface QaStreamDone {
+  type: 'done'
+  references: ReferenceItem[]
+  metrics: { total_s: number }
+}
+
+export type QaStreamEvent = QaStreamMeta | QaStreamChunk | QaStreamDone
+
 export interface SummaryPayload {
   text: string
   temperature?: number

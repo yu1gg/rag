@@ -325,7 +325,7 @@ import { computed, nextTick, onMounted, reactive, ref, watch } from 'vue'
 import { RouterLink, useRoute, useRouter } from 'vue-router'
 
 import { getErrorMessage } from '../api/error'
-import { fetchQa, fetchSummary } from '../api/rag'
+import { fetchQaStream, fetchSummary } from '../api/rag'
 import { fetchDatasetStats, fetchHealth, fetchIndexStatus } from '../api/state'
 import ReferenceList from '../components/ReferenceList.vue'
 import { appTitle } from '../stores/app'
@@ -335,6 +335,7 @@ import type {
   HealthResult,
   IndexStatusResult,
   QaPayload,
+  ReferenceItem,
   SummaryPayload,
 } from '../types/api'
 import type { ChatMessage, ChatSession, ToolMode } from '../types/chat'
@@ -547,8 +548,6 @@ async function handleSubmit(): Promise<void> {
     return
   }
 
-  isSubmitting.value = true
-
   appendMessage({
     role: 'user',
     mode: currentMode.value,
@@ -567,22 +566,43 @@ async function handleSubmit(): Promise<void> {
 
   await scrollToBottom()
 
+  draft.value = ''
+  isSubmitting.value = false
+
   try {
     if (currentMode.value === 'qa') {
-      const response = await fetchQa(payload as QaPayload)
-      const answer = response.data?.answer?.trim() ?? ''
-      const references = response.data?.references ?? []
-      updateMessage(session.id, pendingMessage.id, {
-        text: answer || '问答接口已返回，但答案为空。',
-        status: 'success',
-        meta: {
-          references,
-          query: (payload as QaPayload).question,
-          topK: (payload as QaPayload).top_k,
-          temperature: (payload as QaPayload).temperature,
-          method: (payload as QaPayload).method,
-        },
-      })
+      const qaPayload = payload as QaPayload
+      let accumulatedText = ''
+      let streamReferences: ReferenceItem[] = []
+
+      for await (const event of fetchQaStream(qaPayload)) {
+        if (event.type === 'chunk') {
+          accumulatedText += event.text
+          updateMessage(session.id, pendingMessage.id, {
+            text: accumulatedText,
+            status: 'success',
+            meta: {
+              query: qaPayload.question,
+              topK: qaPayload.top_k,
+              temperature: qaPayload.temperature,
+              method: qaPayload.method,
+            },
+          })
+        } else if (event.type === 'done') {
+          streamReferences = event.references
+          updateMessage(session.id, pendingMessage.id, {
+            text: accumulatedText || '问答接口已返回，但答案为空。',
+            status: 'success',
+            meta: {
+              references: streamReferences,
+              query: qaPayload.question,
+              topK: qaPayload.top_k,
+              temperature: qaPayload.temperature,
+              method: qaPayload.method,
+            },
+          })
+        }
+      }
     } else {
       const response = await fetchSummary(payload as SummaryPayload)
       const summary = response.data?.summary?.trim() ?? ''
@@ -596,17 +616,13 @@ async function handleSubmit(): Promise<void> {
         },
       })
     }
-
-    draft.value = ''
   } catch (error) {
     updateMessage(session.id, pendingMessage.id, {
       text: getErrorMessage(error),
       status: 'error',
       meta: {},
     })
-    draft.value = rawInput
   } finally {
-    isSubmitting.value = false
     await scrollToBottom()
   }
 }

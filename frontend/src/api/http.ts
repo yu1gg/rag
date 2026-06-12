@@ -37,3 +37,51 @@ export async function request<T>(
   }
   return payload
 }
+
+export async function* requestStream(
+  path: string,
+  init?: RequestInit,
+): AsyncGenerator<string, void, undefined> {
+  const url = `${API_BASE_URL}${path}`
+  const response = await fetch(url, {
+    ...init,
+    headers: {
+      'Content-Type': 'application/json',
+      ...(init?.headers as Record<string, string> | undefined),
+    },
+  })
+
+  if (!response.ok) {
+    const text = await response.text()
+    throw new Error(text || `请求失败（HTTP ${response.status}）`)
+  }
+
+  if (!response.body) {
+    throw new Error('服务不支持流式响应')
+  }
+
+  const reader = response.body.getReader()
+  const decoder = new TextDecoder()
+  let buffer = ''
+
+  try {
+    while (true) {
+      const { done, value } = await reader.read()
+      if (done) break
+
+      buffer += decoder.decode(value, { stream: true })
+      const lines = buffer.split('\n')
+      buffer = lines.pop() || ''
+
+      for (const line of lines) {
+        if (line.startsWith('data: ')) {
+          const data = line.slice(6)
+          if (data === '[DONE]') return
+          yield data
+        }
+      }
+    }
+  } finally {
+    reader.releaseLock()
+  }
+}
