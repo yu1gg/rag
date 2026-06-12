@@ -21,7 +21,9 @@ if __package__ in (None, ""):
     if str(project_root) not in sys.path:
         sys.path.insert(0, str(project_root))
 
+import json
 import logging
+from datetime import datetime, timezone
 
 import uvicorn
 from fastapi import FastAPI, Request
@@ -36,10 +38,22 @@ from backend.app.core.exceptions import AppError
 from backend.app.core.response import error_response, success_response
 from backend.app.services.rag_service import get_rag_service
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
-)
+class JsonFormatter(logging.Formatter):
+    def format(self, record: logging.LogRecord) -> str:
+        log_entry = {
+            "ts": datetime.now(timezone.utc).isoformat(),
+            "level": record.levelname,
+            "logger": record.name,
+            "msg": record.getMessage(),
+        }
+        if record.exc_info and record.exc_info[1]:
+            log_entry["error"] = str(record.exc_info[1])
+        return json.dumps(log_entry, ensure_ascii=False)
+
+
+handler = logging.StreamHandler()
+handler.setFormatter(JsonFormatter())
+logging.basicConfig(level=logging.INFO, handlers=[handler])
 # 模块级 logger 统一复用，方便后续从启动日志里排查预热或接口异常。
 logger = logging.getLogger(__name__)
 
