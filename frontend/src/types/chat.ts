@@ -11,6 +11,7 @@ export interface ChatMessageMeta {
   query?: string
   topK?: number
   temperature?: number
+  method?: string
 }
 
 export interface ChatMessage {

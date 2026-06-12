@@ -1,7 +1,7 @@
 """RAG 主服务编排层。
 
-这一层不关心 HTTP，也不直接处理前端页面，而是把“索引加载、检索、重排、提示词构造、
-LLM 调用、结果格式化”这些步骤串成统一服务，供路由层直接调用。
+这一层不关心 HTTP，也不直接处理前端页面，而是把"索引加载、检索、重排、提示词构造、
+LLM 调用、结果格式化"这些步骤串成统一服务，供路由层直接调用。
 """
 
 from __future__ import annotations
@@ -18,6 +18,7 @@ from backend.app.rag.generation.llm_client import LLMClient
 from backend.app.rag.generation.prompts import PromptTemplate
 from backend.app.rag.indexing.embedder import Embedder
 from backend.app.rag.indexing.vector_store import VectorStore
+from backend.app.rag.retrieval.keyword_retriever import KeywordRetriever
 from backend.app.rag.retrieval.reranker import Reranker
 from backend.app.rag.retrieval.retriever import Retriever, SearchResult
 
@@ -37,6 +38,7 @@ class RagService:
         self._store: VectorStore | None = None
         self._embedder: Embedder | None = None
         self._retriever: Retriever | None = None
+        self._keyword_retriever: KeywordRetriever | None = None
         self._reranker: Reranker | None = None
         self._prompts: PromptTemplate | None = None
         self._llm: LLMClient | None = None
@@ -65,7 +67,7 @@ class RagService:
             self._loaded_index_signature = current_signature
 
     def _get_index_signature(self) -> tuple:
-        # 用“路径 + 修改时间 + 文件大小”作为轻量签名，足够判断索引是否已经更新。
+        # 用"路径 + 修改时间 + 文件大小"作为轻量签名，足够判断索引是否已经更新。
         def stat_key(path: Path) -> tuple:
             stat = path.stat()
             return (str(path), stat.st_mtime_ns, stat.st_size)
@@ -88,9 +90,14 @@ class RagService:
     def _get_retriever(self) -> Retriever:
         self._ensure_index()
         if self._retriever is None:
-            # Retriever 依赖“编码器 + 向量库”，只要索引没变就可以一直复用。
             self._retriever = Retriever(self._get_embedder(), self._store)
         return self._retriever
+
+    def _get_keyword_retriever(self) -> KeywordRetriever:
+        self._ensure_index()
+        if self._keyword_retriever is None:
+            self._keyword_retriever = KeywordRetriever(self._store.metadata)
+        return self._keyword_retriever
 
     def _get_reranker(self) -> Reranker | None:
         # 当前默认关闭 rerank，优先换取响应速度；需要更高排序质量时可再开启。
@@ -132,7 +139,7 @@ class RagService:
 
         这里故意不预热外部 LLM：
         - 预热索引 / embedding / reranker 可以明显降低首问冷启动成本。
-        - 但如果启动时就探测外部 LLM，会把网络抖动变成“服务起不来”的问题。
+        - 但如果启动时就探测外部 LLM，会把网络抖动变成"服务起不来"的问题。
         """
 
         if self._prewarm_summary is not None:
@@ -175,28 +182,37 @@ class RagService:
         self._prewarm_summary = summary
         return summary
 
-    def _retrieve_results_with_metrics(self, question: str, top_k: int) -> tuple[list[SearchResult], dict]:
+    def _retrieve_results_with_metrics(
+        self, question: str, top_k: int, method: str = "vector"
+    ) -> tuple[list[SearchResult], dict]:
         """执行检索并收集阶段耗时。
 
-        这些 metrics 主要用于区分“慢在索引/嵌入/重排/LLM 哪一段”，
+        这些 metrics 主要用于区分"慢在索引/嵌入/重排/LLM 哪一段"，
         后续排查性能问题时，日志能直接告诉我们瓶颈在哪。
         """
 
-        metrics: dict[str, float | int | bool | str] = {}
+        metrics: dict[str, float | int | bool | str] = {"retrieval_method": method}
 
         t0 = perf_counter()
         self._ensure_index()
         metrics["index_load_s"] = round(perf_counter() - t0, 4)
 
-        retriever = self._get_retriever()
-        t0 = perf_counter()
-        query_vec = retriever.encode_query(question)
-        metrics["embed_s"] = round(perf_counter() - t0, 4)
+        if method == "keyword":
+            t0 = perf_counter()
+            keyword_retriever = self._get_keyword_retriever()
+            results = keyword_retriever.retrieve(question, k=top_k)
+            metrics["retrieve_s"] = round(perf_counter() - t0, 4)
+            metrics["embed_s"] = 0.0
+        else:
+            retriever = self._get_retriever()
+            t0 = perf_counter()
+            query_vec = retriever.encode_query(question)
+            metrics["embed_s"] = round(perf_counter() - t0, 4)
 
-        t0 = perf_counter()
-        raw_results = retriever.search_vector(query_vec, k=top_k)
-        metrics["retrieve_s"] = round(perf_counter() - t0, 4)
-        results = retriever.hydrate_results(raw_results)
+            t0 = perf_counter()
+            raw_results = retriever.search_vector(query_vec, k=top_k)
+            metrics["retrieve_s"] = round(perf_counter() - t0, 4)
+            results = retriever.hydrate_results(raw_results)
 
         reranker = self._get_reranker()
         metrics["rerank_enabled"] = reranker is not None
@@ -215,15 +231,17 @@ class RagService:
         metrics["result_count"] = len(results)
         return results, metrics
 
-    def retrieve_results(self, question: str, top_k: int) -> list[SearchResult]:
-        results, _ = self._retrieve_results_with_metrics(question, top_k)
+    def retrieve_results(
+        self, question: str, top_k: int, method: str = "vector"
+    ) -> list[SearchResult]:
+        results, _ = self._retrieve_results_with_metrics(question, top_k, method=method)
         return results
 
     def build_context(self, results: list[SearchResult]) -> str:
         return self._get_prompts().format_context(results)
 
     def build_qa_context(self, results: list[SearchResult]) -> tuple[str, list[SearchResult]]:
-        """为 QA 构建“速度优先”的上下文。
+        """为 QA 构建"速度优先"的上下文。
 
         注意这里不会影响最终返回给前端的 references 数量。
         我们只是裁剪送给 LLM 的上下文，来控制 prompt 体积和响应时延；
@@ -296,10 +314,12 @@ class RagService:
             )
         return references
 
-    def answer_question(self, question: str, top_k: int, temperature: float) -> dict:
-        # QA 日志里单独记录完整链路耗时，方便把“检索慢”和“LLM 慢”区分开。
+    def answer_question(
+        self, question: str, top_k: int, temperature: float, method: str = "vector"
+    ) -> dict:
+        # QA 日志里单独记录完整链路耗时，方便把"检索慢"和"LLM 慢"区分开。
         total_start = perf_counter()
-        results, metrics = self._retrieve_results_with_metrics(question, top_k)
+        results, metrics = self._retrieve_results_with_metrics(question, top_k, method=method)
 
         t0 = perf_counter()
         context, context_results = self.build_qa_context(results)

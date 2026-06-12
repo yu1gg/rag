@@ -138,6 +138,26 @@
           </button>
         </div>
 
+        <div v-if="currentMode === 'qa'" class="retrieval-switcher">
+          <span class="retrieval-switcher__label">检索方法</span>
+          <button
+            class="retrieval-switcher__button"
+            :class="{ 'retrieval-switcher__button--active': retrievalMethod === 'vector' }"
+            type="button"
+            @click="retrievalMethod = 'vector'"
+          >
+            向量检索
+          </button>
+          <button
+            class="retrieval-switcher__button"
+            :class="{ 'retrieval-switcher__button--active': retrievalMethod === 'keyword' }"
+            type="button"
+            @click="retrievalMethod = 'keyword'"
+          >
+            关键词检索
+          </button>
+        </div>
+
         <div class="composer-toolbar">
           <label v-if="currentMode !== 'summary'" class="compact-field">
             <span>Top-K</span>
@@ -345,6 +365,7 @@ const modeToRoute: Record<ToolMode, string> = {
 }
 
 const modes: ToolMode[] = ['qa', 'summary']
+const retrievalMethod = ref<'vector' | 'keyword'>('vector')
 const draft = ref('')
 const topK = ref(5)
 const temperature = ref(0.7)
@@ -489,6 +510,7 @@ function buildQaPayload(): QaPayload | null {
     question,
     top_k: topK.value,
     temperature: temperature.value,
+    method: retrievalMethod.value,
   }
 }
 
@@ -558,6 +580,7 @@ async function handleSubmit(): Promise<void> {
           query: (payload as QaPayload).question,
           topK: (payload as QaPayload).top_k,
           temperature: (payload as QaPayload).temperature,
+          method: (payload as QaPayload).method,
         },
       })
     } else {

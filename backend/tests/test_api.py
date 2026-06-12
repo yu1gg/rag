@@ -8,9 +8,11 @@ from backend.main import create_app
 
 
 class FakeRagService:
-    def answer_question(self, question: str, top_k: int, temperature: float) -> dict:
+    def answer_question(
+        self, question: str, top_k: int, temperature: float, method: str = "vector"
+    ) -> dict:
         return {
-            "answer": f"mock-answer:{question}:{top_k}:{temperature}",
+            "answer": f"mock-answer:{question}:{top_k}:{temperature}:{method}",
             "references": [
                 {
                     "index": 1,
@@ -27,7 +29,9 @@ class FakeRagService:
 
 
 class FailingRagService:
-    def answer_question(self, question: str, top_k: int, temperature: float) -> dict:
+    def answer_question(
+        self, question: str, top_k: int, temperature: float, method: str = "vector"
+    ) -> dict:
         raise ServiceUnavailableError("索引尚未就绪")
 
     def summarize(self, text: str, temperature: float) -> dict:
@@ -104,3 +108,35 @@ def test_service_error_uses_response_envelope():
     payload = response.json()
     assert payload["code"] == 503
     assert payload["message"] == "索引尚未就绪"
+
+
+def test_qa_keyword_method_success_response():
+    with make_client(FakeRagService()) as client:
+        response = client.post(
+            "/api/v1/rag/qa",
+            json={
+                "question": "什么是 Transformer？",
+                "top_k": 3,
+                "temperature": 0.5,
+                "method": "keyword",
+            },
+        )
+
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["code"] == 0
+    assert "mock-answer" in payload["data"]["answer"]
+    assert "keyword" in payload["data"]["answer"]
+
+
+def test_qa_invalid_method_rejected():
+    with make_client(FakeRagService()) as client:
+        response = client.post(
+            "/api/v1/rag/qa",
+            json={
+                "question": "测试",
+                "method": "hybrid",
+            },
+        )
+
+    assert response.status_code == 422

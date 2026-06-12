@@ -17,6 +17,7 @@ def qa(payload: QaRequest, service: RagService = Depends(get_rag_service)) -> di
         question=payload.question,
         top_k=payload.top_k,
         temperature=payload.temperature,
+        method=payload.method,
     )
     return success_response(result)
 

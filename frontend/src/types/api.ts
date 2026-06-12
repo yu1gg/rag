@@ -16,6 +16,7 @@ export interface QaPayload {
   question: string
   top_k?: number
   temperature?: number
+  method?: 'vector' | 'keyword'
 }
 
 export interface QaResult {
