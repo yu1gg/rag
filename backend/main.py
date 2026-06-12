@@ -8,6 +8,8 @@
 
 from __future__ import annotations
 
+from contextlib import asynccontextmanager
+
 if __package__ in (None, ""):
     import sys
     from pathlib import Path
@@ -42,6 +44,20 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """应用生命周期管理：启动时预热 RAG 检索链路。"""
+    if settings.prewarm_rag_on_startup:
+        try:
+            summary = get_rag_service().prewarm_for_serving()
+            logger.info("RAG prewarm summary: %s", summary)
+        except Exception as exc:  # pragma: no cover - startup environment varies
+            logger.warning("RAG prewarm failed: %s", exc)
+    else:
+        logger.info("RAG prewarm disabled by configuration.")
+    yield
+
+
 def create_app() -> FastAPI:
     """创建并配置 FastAPI 应用实例。
 
@@ -55,6 +71,7 @@ def create_app() -> FastAPI:
         version=settings.app_version,
         docs_url="/docs",
         redoc_url=None,
+        lifespan=lifespan,
     )
 
     # 当允许所有来源时，浏览器规范不允许同时带 allow_credentials=True，
@@ -99,20 +116,6 @@ def create_app() -> FastAPI:
 
     # 全部 Ver 2.0 API 都挂在统一前缀下，便于后续版本演进和网关转发。
     app.include_router(api_router, prefix=settings.api_prefix)
-
-    @app.on_event("startup")
-    def prewarm_rag_service() -> None:
-        # 预热只覆盖检索链路，不主动调用外部 LLM。
-        # 这样可以把“索引加载 + 本地模型初始化”的冷启动成本前移到服务启动时，
-        # 同时避免因为外部 API 波动导致后端完全起不来。
-        if not settings.prewarm_rag_on_startup:
-            logger.info("RAG prewarm disabled by configuration.")
-            return
-        try:
-            summary = get_rag_service().prewarm_for_serving()
-            logger.info("RAG prewarm summary: %s", summary)
-        except Exception as exc:  # pragma: no cover - startup environment varies
-            logger.warning("RAG prewarm failed: %s", exc)
 
     @app.get("/", tags=["root"])
     async def root() -> dict:
