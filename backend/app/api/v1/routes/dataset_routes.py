@@ -9,6 +9,6 @@ router = APIRouter(prefix="/datasets", tags=["datasets"])
 
 
 @router.get("/stats")
-async def dataset_stats(service: DatasetService = Depends(get_dataset_service)) -> dict:
+def dataset_stats(service: DatasetService = Depends(get_dataset_service)) -> dict:
     return success_response(service.dataset_stats())
 

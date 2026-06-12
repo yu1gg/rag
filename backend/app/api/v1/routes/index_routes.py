@@ -9,6 +9,6 @@ router = APIRouter(prefix="/index", tags=["index"])
 
 
 @router.get("/status")
-async def index_status(service: IndexService = Depends(get_index_service)) -> dict:
+def index_status(service: IndexService = Depends(get_index_service)) -> dict:
     return success_response(service.index_status())
 

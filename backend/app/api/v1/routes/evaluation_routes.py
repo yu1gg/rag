@@ -9,6 +9,6 @@ router = APIRouter(prefix="/evaluations", tags=["evaluations"])
 
 
 @router.get("/latest")
-async def latest_evaluations(service: EvaluationService = Depends(get_evaluation_service)) -> dict:
+def latest_evaluations(service: EvaluationService = Depends(get_evaluation_service)) -> dict:
     return success_response(service.latest_reports())
 
