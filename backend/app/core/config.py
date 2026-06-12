@@ -72,7 +72,7 @@ class Settings:
         self.app_version = _env("APP_VERSION", "2.0.0")
         self.app_host = _env("APP_HOST", "127.0.0.1")
         self.app_port = _env_int("APP_PORT", 8050)
-        self.api_prefix = "/api/v1"
+        self.api_prefix = _env("API_PREFIX", "/api/v1")
         self.allowed_origins = self._parse_origins(_env("ALLOWED_ORIGINS", "*"))
 
         # LLM 配置：问答和摘要都会走这里，QA 再额外使用更小的 token 上限。
