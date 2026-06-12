@@ -1,0 +1,866 @@
+[
+  {
+    "chunk_id": "chunk_000000",
+    "doc_id": "arxiv_0001",
+    "content": "Data science has become increasingly essential for the production of official statistics, as it enables the automated collection, processing, and analysis of large amounts of data. With such data science practices in place, it enables more timely, more insightful and more flexible reporting. However, the quality and integrity of data-science-driven statistics rely on the accuracy and reliability of the data sources and the machine learning techniques that support them. In particular, changes in data sources are inevitable to occur and pose significant risks that are crucial to address in the context of machine learning for official statistics. This paper gives an overview of the main risks, liabilities, and uncertainties associated with changing data sources in the context of machine learning for official statistics. We provide a checklist of the most prevalent origins and causes of changing data sources; not only on a technical level but also regarding ownership, ethics, regulation, and public perception. Next, we highlight the repercussions of changing data sources on statistical reporting. These include technical effects such as concept drift, bias, availability, validity, accuracy and completeness, but also the neutrality and potential discontinuation of the statistical offering. We offer a few important precautionary measures, such as enhancing robustness in both data sourcing and statistical techniques, and thorough monitoring. In doing so, machine learning-based official statistics can maintain integrity, reliability, consistency, and relevance in policy-making, decision-making, and public discourse.",
+    "char_start": 0,
+    "char_end": 1634,
+    "token_count": 277
+  },
+  {
+    "chunk_id": "chunk_000001",
+    "doc_id": "arxiv_0002",
+    "content": "Modern biology frequently relies on machine learning to provide predictions and improve decision processes. There have been recent calls for more scrutiny on machine learning performance and possible limitations. Here we present a set of community-wide recommendations aiming to help establish standards of supervised machine learning validation in biology. Adopting a structured methods description for machine learning based on data, optimization, model, evaluation (DOME) will aim to help both reviewers and readers to better understand and assess the performance and limitations of a method or outcome. The recommendations are formulated as questions to anyone wishing to pursue implementation of a machine learning algorithm. Answers to these questions can be easily included in the supplementary material of published papers.",
+    "char_start": 0,
+    "char_end": 831,
+    "token_count": 132
+  },
+  {
+    "chunk_id": "chunk_000002",
+    "doc_id": "arxiv_0003",
+    "content": "Online active learning is a paradigm in machine learning that aims to select the most informative data points to label from a data stream. The problem of minimizing the cost associated with collecting labeled observations has gained a lot of attention in recent years, particularly in real-world applications where data is only available in an unlabeled form. Annotating each observation can be time-consuming and costly, making it difficult to obtain large amounts of labeled data. To overcome this issue, many active learning strategies have been proposed in the last decades, aiming to select the most informative observations for labeling in order to improve the performance of machine learning models. These approaches can be broadly divided into two categories: static pool-based and stream-based active learning. Pool-based active learning involves selecting a subset of observations from a closed pool of unlabeled data, and it has been the focus of many surveys and literature reviews. However, the growing availability of data streams has led to an increase in the number of approaches that focus on online active learning, which involves continuously selecting and labeling observations as they arrive in a stream. This work aims to provide an overview of the most recently proposed approaches for selecting the most informative observations from data streams in real time. We review the various techniques that have been proposed and discuss their strengths and limitations, as well as the challenges and opportunities that exist in this area of research.",
+    "char_start": 0,
+    "char_end": 1567,
+    "token_count": 269
+  },
+  {
+    "chunk_id": "chunk_000003",
+    "doc_id": "arxiv_0004",
+    "content": "We describe the new field of mathematical analysis of deep learning. This field emerged around a list of research questions that were not answered within the classical framework of learning theory. These questions concern: the outstanding generalization power of overparametrized neural networks, the role of depth in deep architectures, the apparent absence of the curse of dimensionality, the surprisingly successful optimization performance despite the non-convexity of the problem, understanding what features are learned, why deep architectures perform exceptionally well in physical problems, and which fine aspects of an architecture affect the behavior of a learning task in which way. We present an overview of modern approaches that yield partial answers to these questions. For selected approaches, we describe the main ideas in more detail.",
+    "char_start": 0,
+    "char_end": 852,
+    "token_count": 146
+  },
+  {
+    "chunk_id": "chunk_000004",
+    "doc_id": "arxiv_0005",
+    "content": "Learning curves are a concept from social sciences that has been adopted in the context of machine learning to assess the performance of a learning algorithm with respect to a certain resource, e.g., the number of training examples or the number of training iterations. Learning curves have important applications in several machine learning contexts, most notably in data acquisition, early stopping of model training, and model selection. For instance, learning curves can be used to model the performance of the combination of an algorithm and its hyperparameter configuration, providing insights into their potential suitability at an early stage and often expediting the algorithm selection process. Various learning curve models have been proposed to use learning curves for decision making. Some of these models answer the binary decision question of whether a given algorithm at a certain budget will outperform a certain reference performance, whereas more complex models predict the entire learning curve of an algorithm. We contribute a framework that categorises learning curve approaches using three criteria: the decision-making situation they address, the intrinsic learning curve question they answer and the type of resources they use. We survey papers from the literature and classify them into this framework.",
+    "char_start": 0,
+    "char_end": 1328,
+    "token_count": 221
+  },
+  {
+    "chunk_id": "chunk_000005",
+    "doc_id": "arxiv_0006",
+    "content": "Natural language processing (NLP) can be done using either top-down (theory driven) and bottom-up (data driven) approaches, which we call mechanistic and phenomenological respectively. The approaches are frequently considered to stand in opposition to each other. Examining some recent approaches in deep learning we argue that deep neural networks incorporate both perspectives and, furthermore, that leveraging this aspect of deep learning may help in solving complex problems within language technology, such as modelling language and perception in the domain of spatial cognition.",
+    "char_start": 0,
+    "char_end": 584,
+    "token_count": 101
+  },
+  {
+    "chunk_id": "chunk_000006",
+    "doc_id": "arxiv_0007",
+    "content": "The proliferation of fake news and its propagation on social media has become a major concern due to its ability to create devastating impacts. Different machine learning approaches have been suggested to detect fake news. However, most of those focused on a specific type of news (such as political) which leads us to the question of dataset-bias of the models used. In this research, we conducted a benchmark study to assess the performance of different applicable machine learning approaches on three different datasets where we accumulated the largest and most diversified one. We explored a number of advanced pre-trained language models for fake news detection along with the traditional and deep learning ones and compared their performances from different aspects for the first time to the best of our knowledge. We find that BERT and similar pre-trained models perform the best for fake news detection, especially with very small dataset. Hence, these models are significantly better option for languages with limited electronic contents, i.e., training data. We also carried out several analysis based on the models' performance, article's topic, article's length, and discussed different lessons learned from them. We believe that this benchmark study will help the research community to explore further and news sites/blogs to select the most appropriate fake news detection method.",
+    "char_start": 0,
+    "char_end": 1394,
+    "token_count": 245
+  },
+  {
+    "chunk_id": "chunk_000007",
+    "doc_id": "arxiv_0008",
+    "content": "This article provides the first survey of computational models of emotion in reinforcement learning (RL) agents. The survey focuses on agent/robot emotions, and mostly ignores human user emotions. Emotions are recognized as functional in decision-making by influencing motivation and action selection. Therefore, computational emotion models are usually grounded in the agent's decision making architecture, of which RL is an important subclass. Studying emotions in RL-based agents is useful for three research fields. For machine learning (ML) researchers, emotion models may improve learning efficiency. For the interactive ML and human-robot interaction (HRI) community, emotions can communicate state and enhance user investment. Lastly, it allows affective modelling (AM) researchers to investigate their emotion theories in a successful AI agent class. This survey provides background on emotion theory and RL. It systematically addresses 1) from what underlying dimensions (e.g., homeostasis, appraisal) emotions can be derived and how these can be modelled in RL-agents, 2) what types of emotions have been derived from these dimensions, and 3) how these emotions may either influence the learning efficiency of the agent or be useful as social signals. We also systematically compare evaluation criteria, and draw connections to important RL sub-domains like (intrinsic) motivation and model-based RL. In short, this survey provides both a practical overview for engineers wanting to implement emotions in their RL agents, and identifies challenges and directions for future emotion-RL research.",
+    "char_start": 0,
+    "char_end": 1605,
+    "token_count": 294
+  },
+  {
+    "chunk_id": "chunk_000008",
+    "doc_id": "arxiv_0009",
+    "content": "We seek to enable classic processing of continuous ultra-sparse spatiotemporal data generated by event-based sensors with dense machine learning models. We propose a novel hybrid pipeline composed of asynchronous sensing and synchronous processing that combines several ideas: (1) an embedding based on PointNet models -- the ALERT module -- that can continuously integrate new and dismiss old events thanks to a leakage mechanism, (2) a flexible readout of the embedded data that allows to feed any downstream model with always up-to-date features at any sampling rate, (3) exploiting the input sparsity in a patch-based approach inspired by Vision Transformer to optimize the efficiency of the method. These embeddings are then processed by a transformer model trained for object and gesture recognition. Using this approach, we achieve performances at the state-of-the-art with a lower latency than competitors. We also demonstrate that our asynchronous model can operate at any desired sampling rate.",
+    "char_start": 0,
+    "char_end": 1004,
+    "token_count": 181
+  },
+  {
+    "chunk_id": "chunk_000009",
+    "doc_id": "arxiv_0010",
+    "content": "In this paper, we introduce ChainerRL, an open-source deep reinforcement learning (DRL) library built using Python and the Chainer deep learning framework. ChainerRL implements a comprehensive set of DRL algorithms and techniques drawn from state-of-the-art research in the field. To foster reproducible research, and for instructional purposes, ChainerRL provides scripts that closely replicate the original papers' experimental settings and reproduce published benchmark results for several algorithms. Lastly, ChainerRL offers a visualization tool that enables the qualitative inspection of trained agents. The ChainerRL source code can be found on GitHub: https://github.com/chainer/chainerrl.",
+    "char_start": 0,
+    "char_end": 697,
+    "token_count": 131
+  },
+  {
+    "chunk_id": "chunk_000010",
+    "doc_id": "arxiv_0011",
+    "content": "The ability to explain decisions made by machine learning models remains one of the most significant hurdles towards widespread adoption of AI in highly sensitive areas such as medicine, cybersecurity or autonomous driving. Great interest exists in understanding which features of the input data prompt model decision making. In this contribution, we propose a novel approach to identify relevant features of the input data, inspired by methods from the energy landscapes field, developed in the physical sciences. By identifying conserved weights within groups of minima of the loss landscapes, we can identify the drivers of model decision making. Analogues to this idea exist in the molecular sciences, where coordinate invariants or order parameters are employed to identify critical features of a molecule. However, no such approach exists for machine learning loss landscapes. We will demonstrate the applicability of energy landscape methods to machine learning models and give examples, both synthetic and from the real world, for how these methods can help to make models more interpretable.",
+    "char_start": 0,
+    "char_end": 1100,
+    "token_count": 188
+  },
+  {
+    "chunk_id": "chunk_000011",
+    "doc_id": "arxiv_0012",
+    "content": "We propose unsupervised representation learning and feature extraction from dendrograms. The commonly used Minimax distance measures correspond to building a dendrogram with single linkage criterion, with defining specific forms of a level function and a distance function over that. Therefore, we extend this method to arbitrary dendrograms. We develop a generalized framework wherein different distance measures and representations can be inferred from different types of dendrograms, level functions and distance functions. Via an appropriate embedding, we compute a vector-based representation of the inferred distances, in order to enable many numerical machine learning algorithms to employ such distances. Then, to address the model selection problem, we study the aggregation of different dendrogram-based distances respectively in solution space and in representation space in the spirit of deep representations. In the first approach, for example for the clustering problem, we build a graph with positive and negative edge weights according to the consistency of the clustering labels of different objects among different solutions, in the context of ensemble methods. Then, we use an efficient variant of correlation clustering to produce the final clusters. In the second approach, we investigate the combination of different distances and features sequentially in the spirit of multi-layered architectures to obtain the final features. Finally, we demonstrate the effectiveness of our approach via several numerical studies.",
+    "char_start": 0,
+    "char_end": 1538,
+    "token_count": 255
+  },
+  {
+    "chunk_id": "chunk_000012",
+    "doc_id": "arxiv_0013",
+    "content": "Machine Learning (ML) has recently shown tremendous success in modeling various healthcare prediction tasks, ranging from disease diagnosis and prognosis to patient treatment. Due to the sensitive nature of medical data, privacy must be considered along the entire ML pipeline, from model training to inference. In this paper, we conduct a review of recent literature concerning Privacy-Preserving Machine Learning (PPML) for healthcare. We primarily focus on privacy-preserving training and inference-as-a-service, and perform a comprehensive review of existing trends, identify challenges, and discuss opportunities for future research directions. The aim of this review is to guide the development of private and efficient ML models in healthcare, with the prospects of translating research efforts into real-world settings.",
+    "char_start": 0,
+    "char_end": 827,
+    "token_count": 142
+  },
+  {
+    "chunk_id": "chunk_000013",
+    "doc_id": "arxiv_0014",
+    "content": "We introduce a new second-order inertial optimization method for machine learning called INNA. It exploits the geometry of the loss function while only requiring stochastic approximations of the function values and the generalized gradients. This makes INNA fully implementable and adapted to large-scale optimization problems such as the training of deep neural networks. The algorithm combines both gradient-descent and Newton-like behaviors as well as inertia. We prove the convergence of INNA for most deep learning problems. To do so, we provide a well-suited framework to analyze deep learning loss functions involving tame optimization in which we study a continuous dynamical system together with its discrete stochastic approximations. We prove sublinear convergence for the continuous-time differential inclusion which underlies our algorithm. Additionally, we also show how standard optimization mini-batch methods applied to non-smooth non-convex problems can yield a certain type of spurious stationary points never discussed before. We address this issue by providing a theoretical framework around the new idea of $D$-criticality; we then give a simple asymptotic analysis of INNA. Our algorithm allows for using an aggressive learning rate of $o(1/\\log k)$. From an empirical viewpoint, we show that INNA returns competitive results with respect to state of the art (stochastic gradient descent, ADAGRAD, ADAM) on popular deep learning benchmark problems.",
+    "char_start": 0,
+    "char_end": 1471,
+    "token_count": 274
+  },
+  {
+    "chunk_id": "chunk_000014",
+    "doc_id": "arxiv_0015",
+    "content": "While we pay attention to the latest advances in clinical natural language processing (NLP), we can notice some resistance in the clinical and translational research community to adopt NLP models due to limited transparency, interpretability, and usability. In this study, we proposed an open natural language processing development framework. We evaluated it through the implementation of NLP algorithms for the National COVID Cohort Collaborative (N3C). Based on the interests in information extraction from COVID-19 related clinical notes, our work includes 1) an open data annotation process using COVID-19 signs and symptoms as the use case, 2) a community-driven ruleset composing platform, and 3) a synthetic text data generation workflow to generate texts for information extraction tasks without involving human subjects. The corpora were derived from texts from three different institutions (Mayo Clinic, University of Kentucky, University of Minnesota). The gold standard annotations were tested with a single institution's (Mayo) ruleset. This resulted in performances of 0.876, 0.706, and 0.694 in F-scores for Mayo, Minnesota, and Kentucky test datasets, respectively. The study as a consortium effort of the N3C NLP subgroup demonstrates the feasibility of creating a federated NLP algorithm development and benchmarking platform to enhance multi-institution clinical NLP study and adoption. Although we use COVID-19 as a use case in this effort, our framework is general enough to be applied to other domains of interest in clinical NLP.",
+    "char_start": 0,
+    "char_end": 1553,
+    "token_count": 306
+  },
+  {
+    "chunk_id": "chunk_000015",
+    "doc_id": "arxiv_0016",
+    "content": "Within the natural language processing (NLP) community, active learning has been widely investigated and applied in order to alleviate the annotation bottleneck faced by developers of new NLP systems and technologies. This paper presents the first theoretical analysis of stopping active learning based on stabilizing predictions (SP). The analysis has revealed three elements that are central to the success of the SP method: (1) bounds on Cohen's Kappa agreement between successively trained models impose bounds on differences in F-measure performance of the models; (2) since the stop set does not have to be labeled, it can be made large in practice, helping to guarantee that the results transfer to previously unseen streams of examples at test/application time; and (3) good (low variance) sample estimates of Kappa between successive models can be obtained. Proofs of relationships between the level of Kappa agreement and the difference in performance between consecutive models are presented. Specifically, if the Kappa agreement between two models exceeds a threshold T (where $T>0$), then the difference in F-measure performance between those models is bounded above by $\\frac{4(1-T)}{T}$ in all cases. If precision of the positive conjunction of the models is assumed to be $p$, then the bound can be tightened to $\\frac{4(1-T)}{(p+1)T}$.",
+    "char_start": 0,
+    "char_end": 1352,
+    "token_count": 275
+  },
+  {
+    "chunk_id": "chunk_000016",
+    "doc_id": "arxiv_0017",
+    "content": "Identifying where quantum models may offer practical benefits in near term quantum machine learning (QML) requires moving beyond isolated algorithmic proposals toward systematic and empirical exploration across models, datasets, and hardware constraints. We introduce MerLin, an open-source framework designed as a discovery engine for photonic and hybrid quantum machine learning. MerLin integrates optimized strong simulation of linear optical circuits into standard PyTorch and scikit learn workflows, enabling end-to-end differentiable training of quantum layers. MerLin is designed around systematic benchmarking and reproducibility. As an initial contribution, we reproduce eighteen state-of-the-art photonic and hybrid QML works spanning kernel methods, reservoir computing, convolutional and recurrent architectures, generative models, and modern training paradigms. These reproductions are released as reusable, modular experiments that can be directly extended and adapted, establishing a shared experimental baseline consistent with empirical benchmarking methodologies widely adopted in modern artificial intelligence. By embedding photonic quantum models within established machine learning ecosystems, MerLin allows practitioners to leverage existing tooling for ablation studies, cross-modality comparisons, and hybrid classical-quantum workflows. The framework already implements hardware-aware features, allowing tests on available quantum hardware while enabling exploration beyond its current capabilities, positioning MerLin as a forward-looking co-design tool linking algorithms, benchmarks, and hardware.",
+    "char_start": 0,
+    "char_end": 1626,
+    "token_count": 266
+  },
+  {
+    "chunk_id": "chunk_000017",
+    "doc_id": "arxiv_0018",
+    "content": "We study offline off-dynamics reinforcement learning (RL) to utilize data from an easily accessible source domain to enhance policy learning in a target domain with limited data. Our approach centers on return-conditioned supervised learning (RCSL), particularly focusing on Decision Transformer (DT) type frameworks, which can predict actions conditioned on desired return guidance and complete trajectory history. Previous works address the dynamics shift problem by augmenting the reward in the trajectory from the source domain to match the optimal trajectory in the target domain. However, this strategy can not be directly applicable in RCSL owing to (1) the unique form of the RCSL policy class, which explicitly depends on the return, and (2) the absence of a straightforward representation of the optimal trajectory distribution. We propose the Return Augmented (REAG) method for DT type frameworks, where we augment the return in the source domain by aligning its distribution with that in the target domain. We provide the theoretical analysis demonstrating that the RCSL policy learned from REAG achieves the same level of suboptimality as would be obtained without a dynamics shift. We introduce two practical implementations REAG$_\\text{Dara}^{*}$ and REAG$_\\text{MV}^{*}$ respectively. Thorough experiments on D4RL datasets and various DT-type baselines demonstrate that our methods consistently enhance the performance of DT type frameworks in off-dynamics RL.",
+    "char_start": 0,
+    "char_end": 1476,
+    "token_count": 282
+  },
+  {
+    "chunk_id": "chunk_000018",
+    "doc_id": "arxiv_0019",
+    "content": "Transfer learning is crucial in training deep neural networks on new target tasks. Current transfer learning methods always assume at least one of (i) source and target task label spaces overlap, (ii) source datasets are available, and (iii) target network architectures are consistent with source ones. However, holding these assumptions is difficult in practical settings because the target task rarely has the same labels as the source task, the source dataset access is restricted due to storage costs and privacy, and the target architecture is often specialized to each task. To transfer source knowledge without these assumptions, we propose a transfer learning method that uses deep generative models and is composed of the following two stages: pseudo pre-training (PP) and pseudo semi-supervised learning (P-SSL). PP trains a target architecture with an artificial dataset synthesized by using conditional source generative models. P-SSL applies SSL algorithms to labeled target data and unlabeled pseudo samples, which are generated by cascading the source classifier and generative models to condition them with target samples. Our experimental results indicate that our method can outperform the baselines of scratch training and knowledge distillation.",
+    "char_start": 0,
+    "char_end": 1266,
+    "token_count": 225
+  },
+  {
+    "chunk_id": "chunk_000019",
+    "doc_id": "arxiv_0020",
+    "content": "We introduce the Fourier Learning Machine (FLM), a neural network (NN) architecture designed to represent a multidimensional nonharmonic Fourier series. The FLM uses a simple feedforward structure with cosine activation functions to learn the frequencies, amplitudes, and phase shifts of the series as trainable parameters. This design allows the model to create a problem-specific spectral basis adaptable to both periodic and nonperiodic functions. Unlike previous Fourier-inspired NN models, the FLM is the first architecture able to represent a multidimensional Fourier series with a complete set of basis functions in separable form, doing so by using a standard Multilayer Perceptron-like architecture. A one-to-one correspondence between the Fourier coefficients and amplitudes and phase-shifts is demonstrated, allowing for the translation between a full, separable basis form and the cosine phase-shifted one. Additionally, we evaluate the performance of FLMs on several scientific computing problems, including benchmark Partial Differential Equations (PDEs) and a family of Optimal Control Problems (OCPs). Computational experiments show that the performance of FLMs is comparable, and often superior, to that of established architectures like SIREN and vanilla feedforward NNs.",
+    "char_start": 0,
+    "char_end": 1289,
+    "token_count": 245
+  },
+  {
+    "chunk_id": "chunk_000020",
+    "doc_id": "arxiv_0021",
+    "content": "We investigate the use of Minimax distances to extract in a nonparametric way the features that capture the unknown underlying patterns and structures in the data. We develop a general-purpose and computationally efficient framework to employ Minimax distances with many machine learning methods that perform on numerical data. We study both computing the pairwise Minimax distances for all pairs of objects and as well as computing the Minimax distances of all the objects to/from a fixed (test) object. We first efficiently compute the pairwise Minimax distances between the objects, using the equivalence of Minimax distances over a graph and over a minimum spanning tree constructed on that. Then, we perform an embedding of the pairwise Minimax distances into a new vector space, such that their squared Euclidean distances in the new space equal to the pairwise Minimax distances in the original space. We also study the case of having multiple pairwise Minimax matrices, instead of a single one. Thereby, we propose an embedding via first summing up the centered matrices and then performing an eigenvalue decomposition to obtain the relevant features. In the following, we study computing Minimax distances from a fixed (test) object which can be used for instance in K-nearest neighbor search. Similar to the case of all-pair pairwise Minimax distances, we develop an efficient and general-purpose algorithm that is applicable with any arbitrary base distance measure. Moreover, we investigate in detail the edges selected by the Minimax distances and thereby explore the ability of Minimax distances in detecting outlier objects. Finally, for each setting, we perform several experiments to demonstrate the effectiveness of our framework.",
+    "char_start": 0,
+    "char_end": 1748,
+    "token_count": 320
+  },
+  {
+    "chunk_id": "chunk_000021",
+    "doc_id": "arxiv_0022",
+    "content": "Item Price Elasticity is used to quantify the responsiveness of consumer demand to changes in item prices, enabling businesses to create pricing strategies and optimize revenue management. Sectors such as store retail, e-commerce, and consumer goods rely on elasticity information derived from historical sales and pricing data. This elasticity provides an understanding of purchasing behavior across different items, consumer discount sensitivity, and demand elastic departments. This information is particularly valuable for competitive markets and resource-constrained businesses decision making which aims to maximize profitability and market share. Price elasticity also uncovers historical shifts in consumer responsiveness over time. In this paper, we model item-level price elasticity using large-scale transactional datasets, by proposing a novel elasticity estimation framework which has the capability to work in an absence of treatment control setting. We test this framework by using Machine learning based algorithms listed below, including our newly proposed Monodense deep neural network. (1) Monodense-DL network -- Hybrid neural network architecture combining embedding, dense, and Monodense layers (2) DML -- Double machine learning setting using regression models (3) LGBM -- Light Gradient Boosting Model We evaluate our model on multi-category retail data spanning millions of transactions using a back testing framework. Experimental results demonstrate the superiority of our proposed neural network model within the framework compared to other prevalent ML based methods listed above.",
+    "char_start": 0,
+    "char_end": 1609,
+    "token_count": 267
+  },
+  {
+    "chunk_id": "chunk_000022",
+    "doc_id": "arxiv_0023",
+    "content": "Model-agnostic meta-learning (MAML) is a meta-learning technique to train a model on a multitude of learning tasks in a way that primes the model for few-shot learning of new tasks. The MAML algorithm performs well on few-shot learning problems in classification, regression, and fine-tuning of policy gradients in reinforcement learning, but comes with the need for costly hyperparameter tuning for training stability. We address this shortcoming by introducing an extension to MAML, called Alpha MAML, to incorporate an online hyperparameter adaptation scheme that eliminates the need to tune meta-learning and learning rates. Our results with the Omniglot database demonstrate a substantial reduction in the need to tune MAML training hyperparameters and improvement to training stability with less sensitivity to hyperparameter choice.",
+    "char_start": 0,
+    "char_end": 839,
+    "token_count": 153
+  },
+  {
+    "chunk_id": "chunk_000023",
+    "doc_id": "arxiv_0024",
+    "content": "Generative Adversarial Networks have shown remarkable success in learning a distribution that faithfully recovers a reference distribution in its entirety. However, in some cases, we may want to only learn some aspects (e.g., cluster or manifold structure), while modifying others (e.g., style, orientation or dimension). In this work, we propose an approach to learn generative models across such incomparable spaces, and demonstrate how to steer the learned distribution towards target properties. A key component of our model is the Gromov-Wasserstein distance, a notion of discrepancy that compares distributions relationally rather than absolutely. While this framework subsumes current generative models in identically reproducing distributions, its inherent flexibility allows application to tasks in manifold learning, relational learning and cross-domain learning.",
+    "char_start": 0,
+    "char_end": 873,
+    "token_count": 156
+  },
+  {
+    "chunk_id": "chunk_000024",
+    "doc_id": "arxiv_0025",
+    "content": "Evidential deep learning, built upon belief theory and subjective logic, offers a principled and computationally efficient way to turn a deterministic neural network uncertainty-aware. The resultant evidential models can quantify fine-grained uncertainty using the learned evidence. To ensure theoretically sound evidential models, the evidence needs to be non-negative, which requires special activation functions for model training and inference. This constraint often leads to inferior predictive performance compared to standard softmax models, making it challenging to extend them to many large-scale datasets. To unveil the real cause of this undesired behavior, we theoretically investigate evidential models and identify a fundamental limitation that explains the inferior performance: existing evidential activation functions create zero evidence regions, which prevent the model to learn from training samples falling into such regions. A deeper analysis of evidential activation functions based on our theoretical underpinning inspires the design of a novel regularizer that effectively alleviates this fundamental limitation. Extensive experiments over many challenging real-world datasets and settings confirm our theoretical findings and demonstrate the effectiveness of our proposed approach.",
+    "char_start": 0,
+    "char_end": 1307,
+    "token_count": 208
+  },
+  {
+    "chunk_id": "chunk_000025",
+    "doc_id": "arxiv_0026",
+    "content": "Efficient approximation lies at the heart of large-scale machine learning problems. In this paper, we propose a novel, robust maximum entropy algorithm, which is capable of dealing with hundreds of moments and allows for computationally efficient approximations. We showcase the usefulness of the proposed method, its equivalence to constrained Bayesian variational inference and demonstrate its superiority over existing approaches in two applications, namely, fast log determinant estimation and information-theoretic Bayesian optimisation.",
+    "char_start": 0,
+    "char_end": 542,
+    "token_count": 89
+  },
+  {
+    "chunk_id": "chunk_000026",
+    "doc_id": "arxiv_0027",
+    "content": "Neural Network is a powerful Machine Learning tool that shows outstanding performance in Computer Vision, Natural Language Processing, and Artificial Intelligence. In particular, recently proposed ResNet architecture and its modifications produce state-of-the-art results in image classification problems. ResNet and most of the previously proposed architectures have a fixed structure and apply the same transformation to all input images. In this work, we develop a ResNet-based model that dynamically selects Computational Units (CU) for each input object from a learned set of transformations. Dynamic selection allows the network to learn a sequence of useful transformations and apply only required units to predict the image label. We compare our model to ResNet-38 architecture and achieve better results than the original ResNet on CIFAR-10.1 test set. While examining the produced paths, we discovered that the network learned different routes for images from different classes and similar routes for similar images.",
+    "char_start": 0,
+    "char_end": 1026,
+    "token_count": 178
+  },
+  {
+    "chunk_id": "chunk_000027",
+    "doc_id": "arxiv_0028",
+    "content": "In this paper we consider the problems of supervised classification and regression in the case where attributes and labels are functions: a data is represented by a set of functions, and the label is also a function. We focus on the use of reproducing kernel Hilbert space theory to learn from such functional data. Basic concepts and properties of kernel-based learning are extended to include the estimation of function-valued functions. In this setting, the representer theorem is restated, a set of rigorously defined infinite-dimensional operator-valued kernels that can be valuably applied when the data are functions is described, and a learning algorithm for nonlinear functional data analysis is introduced. The methodology is illustrated through speech and audio signal processing experiments.",
+    "char_start": 0,
+    "char_end": 803,
+    "token_count": 142
+  },
+  {
+    "chunk_id": "chunk_000028",
+    "doc_id": "arxiv_0029",
+    "content": "We present a federated learning framework that is designed to robustly deliver good predictive performance across individual clients with heterogeneous data. The proposed approach hinges upon a superquantile-based learning objective that captures the tail statistics of the error distribution over heterogeneous clients. We present a stochastic training algorithm that interleaves differentially private client filtering with federated averaging steps. We prove finite time convergence guarantees for the algorithm: $O(1/\\sqrt{T})$ in the nonconvex case in $T$ communication rounds and $O(\\exp(-T/κ^{3/2}) + κ/T)$ in the strongly convex case with local condition number $κ$. Experimental results on benchmark datasets for federated learning demonstrate that our approach is competitive with classical ones in terms of average error and outperforms them in terms of tail statistics of the error.",
+    "char_start": 0,
+    "char_end": 894,
+    "token_count": 167
+  },
+  {
+    "chunk_id": "chunk_000029",
+    "doc_id": "arxiv_0030",
+    "content": "The topic of comprehensibility of machine-learned theories has recently drawn increasing attention. Inductive Logic Programming (ILP) uses logic programming to derive logic theories from small data based on abduction and induction techniques. Learned theories are represented in the form of rules as declarative descriptions of obtained knowledge. In earlier work, the authors provided the first evidence of a measurable increase in human comprehension based on machine-learned logic rules for simple classification tasks. In a later study, it was found that the presentation of machine-learned explanations to humans can produce both beneficial and harmful effects in the context of game learning. We continue our investigation of comprehensibility by examining the effects of the ordering of concept presentations on human comprehension. In this work, we examine the explanatory effects of curriculum order and the presence of machine-learned explanations for sequential problem-solving. We show that 1) there exist tasks A and B such that learning A before B has a better human comprehension with respect to learning B before A and 2) there exist tasks A and B such that the presence of explanations when learning A contributes to improved human comprehension when subsequently learning B. We propose a framework for the effects of sequential teaching on comprehension based on an existing definition of comprehensibility and provide evidence for support from data collected in human trials. Empirical results show that sequential teaching of concepts with increasing complexity a) has a beneficial effect on human comprehension and b) leads to human re-discovery of divide-and-conquer problem-solving strategies, and c) studying machine-learned explanations allows adaptations of human problem-solving strategy with better performance.",
+    "char_start": 0,
+    "char_end": 1839,
+    "token_count": 322
+  },
+  {
+    "chunk_id": "chunk_000030",
+    "doc_id": "arxiv_0031",
+    "content": "This research paper delves into the innovative integration of Shannon entropy and rough set theory, presenting a novel approach to generalize the evaluation approach in machine learning. The conventional application of entropy, primarily focused on information uncertainty, is extended through its combination with rough set theory to offer a deeper insight into data's intrinsic structure and the interpretability of machine learning models. We introduce a comprehensive framework that synergizes the granularity of rough set theory with the uncertainty quantification of Shannon entropy, applied across a spectrum of machine learning algorithms. Our methodology is rigorously tested on various datasets, showcasing its capability to not only assess predictive performance but also to illuminate the underlying data complexity and model robustness. The results underscore the utility of this integrated approach in enhancing the evaluation landscape of machine learning, offering a multi-faceted perspective that balances accuracy with a profound understanding of data attributes and model dynamics. This paper contributes a groundbreaking perspective to machine learning evaluation, proposing a method that encapsulates a holistic view of model performance, thereby facilitating more informed decision-making in model selection and application.",
+    "char_start": 0,
+    "char_end": 1346,
+    "token_count": 209
+  },
+  {
+    "chunk_id": "chunk_000031",
+    "doc_id": "arxiv_0032",
+    "content": "Measuring the similarity between data points often requires domain knowledge, which can in parts be compensated by relying on unsupervised methods such as latent-variable models, where similarity/distance is estimated in a more compact latent space. Prevalent is the use of the Euclidean metric, which has the drawback of ignoring information about similarity of data stored in the decoder, as captured by the framework of Riemannian geometry. We propose an extension to the framework of variational auto-encoders allows learning flat latent manifolds, where the Euclidean metric is a proxy for the similarity between data points. This is achieved by defining the latent space as a Riemannian manifold and by regularising the metric tensor to be a scaled identity matrix. Additionally, we replace the compact prior typically used in variational auto-encoders with a recently presented, more expressive hierarchical one---and formulate the learning problem as a constrained optimisation problem. We evaluate our method on a range of data-sets, including a video-tracking benchmark, where the performance of our unsupervised approach nears that of state-of-the-art supervised approaches, while retaining the computational efficiency of straight-line-based approaches.",
+    "char_start": 0,
+    "char_end": 1265,
+    "token_count": 237
+  },
+  {
+    "chunk_id": "chunk_000032",
+    "doc_id": "arxiv_0033",
+    "content": "Handling previously unseen tasks after given only a few training examples continues to be a tough challenge in machine learning. We propose TapNets, neural networks augmented with task-adaptive projection for improved few-shot learning. Here, employing a meta-learning strategy with episode-based training, a network and a set of per-class reference vectors are learned across widely varying tasks. At the same time, for every episode, features in the embedding space are linearly projected into a new space as a form of quick task-specific conditioning. The training loss is obtained based on a distance metric between the query and the reference vectors in the projection space. Excellent generalization results in this way. When tested on the Omniglot, miniImageNet and tieredImageNet datasets, we obtain state of the art classification accuracies under various few-shot scenarios.",
+    "char_start": 0,
+    "char_end": 884,
+    "token_count": 163
+  },
+  {
+    "chunk_id": "chunk_000033",
+    "doc_id": "arxiv_0034",
+    "content": "Metric learning has the aim to improve classification accuracy by learning a distance measure which brings data points from the same class closer together and pushes data points from different classes further apart. Recent research has demonstrated that metric learning approaches can also be applied to trees, such as molecular structures, abstract syntax trees of computer programs, or syntax trees of natural language, by learning the cost function of an edit distance, i.e. the costs of replacing, deleting, or inserting nodes in a tree. However, learning such costs directly may yield an edit distance which violates metric axioms, is challenging to interpret, and may not generalize well. In this contribution, we propose a novel metric learning approach for trees which we call embedding edit distance learning (BEDL) and which learns an edit distance indirectly by embedding the tree nodes as vectors, such that the Euclidean distance between those vectors supports class discrimination. We learn such embeddings by reducing the distance to prototypical trees from the same class and increasing the distance to prototypical trees from different classes. In our experiments, we show that BEDL improves upon the state-of-the-art in metric learning for trees on six benchmark data sets, ranging from computer science over biomedical data to a natural-language processing data set containing over 300,000 nodes.",
+    "char_start": 0,
+    "char_end": 1415,
+    "token_count": 252
+  },
+  {
+    "chunk_id": "chunk_000034",
+    "doc_id": "arxiv_0035",
+    "content": "We propose regression networks for the problem of few-shot classification, where a classifier must generalize to new classes not seen in the training set, given only a small number of examples of each class. In high dimensional embedding spaces the direction of data generally contains richer information than magnitude. Next to this, state-of-the-art few-shot metric methods that compare distances with aggregated class representations, have shown superior performance. Combining these two insights, we propose to meta-learn classification of embedded points by regressing the closest approximation in every class subspace while using the regression error as a distance metric. Similarly to recent approaches for few-shot learning, regression networks reflect a simple inductive bias that is beneficial in this limited-data regime and they achieve excellent results, especially when more aggregate class representations can be formed with multiple shots.",
+    "char_start": 0,
+    "char_end": 955,
+    "token_count": 160
+  },
+  {
+    "chunk_id": "chunk_000035",
+    "doc_id": "arxiv_0036",
+    "content": "A common belief is that intrinsically interpretable deep learning models ensure a correct, intuitive understanding of their behavior and offer greater robustness against accidental errors or intentional manipulation. However, these beliefs have not been comprehensively verified, and growing evidence casts doubt on them. In this paper, we highlight the risks related to overreliance and susceptibility to adversarial manipulation of these so-called \"intrinsically (aka inherently) interpretable\" models by design. We introduce two strategies for adversarial analysis with prototype manipulation and backdoor attacks against prototype-based networks, and discuss how concept bottleneck models defend against these attacks. Fooling the model's reasoning by exploiting its use of latent prototypes manifests the inherent uninterpretability of deep neural networks, leading to a false sense of security reinforced by a visual confirmation bias. The reported limitations of part-prototype networks put their trustworthiness and applicability into question, motivating further work on the robustness and alignment of (deep) interpretable models.",
+    "char_start": 0,
+    "char_end": 1140,
+    "token_count": 197
+  },
+  {
+    "chunk_id": "chunk_000036",
+    "doc_id": "arxiv_0037",
+    "content": "Electronic health record (EHR) data is collected by individual institutions and often stored across locations in silos. Getting access to these data is difficult and slow due to security, privacy, regulatory, and operational issues. We show, using ICU data from 58 different hospitals, that machine learning models to predict patient mortality can be trained efficiently without moving health data out of their silos using a distributed machine learning strategy. We propose a new method, called Federated-Autonomous Deep Learning (FADL) that trains part of the model using all data sources in a distributed manner and other parts using data from specific data sources. We observed that FADL outperforms traditional federated learning strategy and conclude that balance between global and local training is an important factor to consider when design distributed machine learning methods , especially in healthcare.",
+    "char_start": 0,
+    "char_end": 915,
+    "token_count": 166
+  },
+  {
+    "chunk_id": "chunk_000037",
+    "doc_id": "arxiv_0038",
+    "content": "We consider the problem of predicting how the likelihood of an outcome of interest for a patient changes over time as we observe more of the patient data. To solve this problem, we propose a supervised contrastive learning framework that learns an embedding representation for each time step of a patient time series. Our framework learns the embedding space to have the following properties: (1) nearby points in the embedding space have similar predicted class probabilities, (2) adjacent time steps of the same time series map to nearby points in the embedding space, and (3) time steps with very different raw feature vectors map to far apart regions of the embedding space. To achieve property (3), we employ a nearest neighbor pairing mechanism in the raw feature space. This mechanism also serves as an alternative to data augmentation, a key ingredient of contrastive learning, which lacks a standard procedure that is adequately realistic for clinical tabular data, to our knowledge. We demonstrate that our approach outperforms state-of-the-art baselines in predicting mortality of septic patients (MIMIC-III dataset) and tracking progression of cognitive impairment (ADNI dataset). Our method also consistently recovers the correct synthetic dataset embedding structure across experiments, a feat not achieved by baselines. Our ablation experiments show the pivotal role of our nearest neighbor pairing.",
+    "char_start": 0,
+    "char_end": 1414,
+    "token_count": 260
+  },
+  {
+    "chunk_id": "chunk_000038",
+    "doc_id": "arxiv_0039",
+    "content": "Feature engineering is one of the most costly aspects of developing effective machine learning models, and that cost is even greater in specialized problem domains, like malware classification, where expert skills are necessary to identify useful features. Recent work, however, has shown that deep learning models can be used to automatically learn feature representations directly from the raw, unstructured bytes of the binaries themselves. In this paper, we explore what these models are learning about malware. To do so, we examine the learned features at multiple levels of resolution, from individual byte embeddings to end-to-end analysis of the model. At each step, we connect these byte-oriented activations to their original semantics through parsing and disassembly of the binary to arrive at human-understandable features. Through our results, we identify several interesting features learned by the model and their connection to manually-derived features typically used by traditional machine learning models. Additionally, we explore the impact of training data volume and regularization on the quality of the learned features and the efficacy of the classifiers, revealing the somewhat paradoxical insight that better generalization does not necessarily result in better performance for byte-based malware classifiers.",
+    "char_start": 0,
+    "char_end": 1334,
+    "token_count": 223
+  },
+  {
+    "chunk_id": "chunk_000039",
+    "doc_id": "arxiv_0040",
+    "content": "This paper addresses intervention-based causal representation learning (CRL) under a general nonparametric latent causal model and an unknown transformation that maps the latent variables to the observed variables. Linear and general transformations are investigated. The paper addresses both the identifiability and achievability aspects. Identifiability refers to determining algorithm-agnostic conditions that ensure the recovery of the true latent causal variables and the underlying latent causal graph. Achievability refers to the algorithmic aspects and addresses designing algorithms that achieve identifiability guarantees. By drawing novel connections between score functions (i.e., the gradients of the logarithm of density functions) and CRL, this paper designs a score-based class of algorithms that ensures both identifiability and achievability. First, the paper focuses on linear transformations and shows that one stochastic hard intervention per node suffices to guarantee identifiability. It also provides partial identifiability guarantees for soft interventions, including identifiability up to mixing with parents for general causal models and perfect recovery of the latent graph for sufficiently nonlinear causal models. Secondly, it focuses on general transformations and demonstrates that two stochastic hard interventions per node are sufficient for identifiability. This is achieved by defining a differentiable loss function whose global optima ensure identifiability for general CRL. Notably, one does not need to know which pair of interventional environments has the same node intervened. Finally, the theoretical results are empirically validated via experiments on structured synthetic data and image data.",
+    "char_start": 0,
+    "char_end": 1740,
+    "token_count": 297
+  },
+  {
+    "chunk_id": "chunk_000040",
+    "doc_id": "arxiv_0041",
+    "content": "While deep reinforcement learning (RL) has fueled multiple high-profile successes in machine learning, it is held back from more widespread adoption by its often poor data efficiency and the limited generality of the policies it produces. A promising approach for alleviating these limitations is to cast the development of better RL algorithms as a machine learning problem itself in a process called meta-RL. Meta-RL is most commonly studied in a problem setting where, given a distribution of tasks, the goal is to learn a policy that is capable of adapting to any new task from the task distribution with as little data as possible. In this survey, we describe the meta-RL problem setting in detail as well as its major variations. We discuss how, at a high level, meta-RL research can be clustered based on the presence of a task distribution and the learning budget available for each individual task. Using these clusters, we then survey meta-RL algorithms and applications. We conclude by presenting the open problems on the path to making meta-RL part of the standard toolbox for a deep RL practitioner.",
+    "char_start": 0,
+    "char_end": 1112,
+    "token_count": 214
+  },
+  {
+    "chunk_id": "chunk_000041",
+    "doc_id": "arxiv_0042",
+    "content": "Solving complex classification tasks using deep neural networks typically requires large amounts of annotated data. However, corresponding class labels are noisy when provided by error-prone annotators, e.g., crowdworkers. Training standard deep neural networks leads to subpar performances in such multi-annotator supervised learning settings. We address this issue by presenting a probabilistic training framework named multi-annotator deep learning (MaDL). A downstream ground truth and an annotator performance model are jointly trained in an end-to-end learning approach. The ground truth model learns to predict instances' true class labels, while the annotator performance model infers probabilistic estimates of annotators' performances. A modular network architecture enables us to make varying assumptions regarding annotators' performances, e.g., an optional class or instance dependency. Further, we learn annotator embeddings to estimate annotators' densities within a latent space as proxies of their potentially correlated annotations. Together with a weighted loss function, we improve the learning from correlated annotation patterns. In a comprehensive evaluation, we examine three research questions about multi-annotator supervised learning. Our findings show MaDL's state-of-the-art performance and robustness against many correlated, spamming annotators.",
+    "char_start": 0,
+    "char_end": 1376,
+    "token_count": 240
+  },
+  {
+    "chunk_id": "chunk_000042",
+    "doc_id": "arxiv_0043",
+    "content": "In this paper, we develop an alternating direction method of multipliers (ADMM) for deep neural networks training with sigmoid-type activation functions (called \\textit{sigmoid-ADMM pair}), mainly motivated by the gradient-free nature of ADMM in avoiding the saturation of sigmoid-type activations and the advantages of deep neural networks with sigmoid-type activations (called deep sigmoid nets) over their rectified linear unit (ReLU) counterparts (called deep ReLU nets) in terms of approximation. In particular, we prove that the approximation capability of deep sigmoid nets is not worse than that of deep ReLU nets by showing that ReLU activation function can be well approximated by deep sigmoid nets with two hidden layers and finitely many free parameters but not vice-verse. We also establish the global convergence of the proposed ADMM for the nonlinearly constrained formulation of the deep sigmoid nets training from arbitrary initial points to a Karush-Kuhn-Tucker (KKT) point at a rate of order ${\\cal O}(1/k)$. Besides sigmoid activation, such a convergence theorem holds for a general class of smooth activations. Compared with the widely used stochastic gradient descent (SGD) algorithm for the deep ReLU nets training (called ReLU-SGD pair), the proposed sigmoid-ADMM pair is practically stable with respect to the algorithmic hyperparameters including the learning rate, initial schemes and the pro-processing of the input data. Moreover, we find that to approximate and learn simple but important functions the proposed sigmoid-ADMM pair numerically outperforms the ReLU-SGD pair.",
+    "char_start": 0,
+    "char_end": 1602,
+    "token_count": 317
+  },
+  {
+    "chunk_id": "chunk_000043",
+    "doc_id": "arxiv_0044",
+    "content": "We propose an approach to Multitask Learning (MTL) to make deep learning models faster and lighter for applications in which multiple tasks need to be solved simultaneously, which is particularly useful in embedded, real-time systems. We develop a multitask model for both Object Detection and Semantic Segmentation and analyze the challenges that appear during its training. Our multitask network is 1.6x faster, lighter and uses less memory than deploying the single-task models in parallel. We conclude that MTL has the potential to give superior performance in exchange of a more complex training process that introduces challenges not present in single-task models.",
+    "char_start": 0,
+    "char_end": 670,
+    "token_count": 124
+  },
+  {
+    "chunk_id": "chunk_000044",
+    "doc_id": "arxiv_0045",
+    "content": "Inspired by the human visual perception system, hexagonal image processing in the context of machine learning deals with the development of image processing systems that combine the advantages of evolutionary motivated structures based on biological models. While conventional state-of-the-art image processing systems of recording and output devices almost exclusively utilize square arranged methods, their hexagonal counterparts offer a number of key advantages that can benefit both researchers and users. This contribution serves as a general application-oriented approach the synthesis of the therefore designed hexagonal image processing framework, called Hexnet, the processing steps of hexagonal image transformation, and dependent methods. The results of our created test environment show that the realized framework surpasses current approaches of hexagonal image processing systems, while hexagonal artificial neural networks can benefit from the implemented hexagonal architecture. As hexagonal lattice format based deep neural networks, also called H-DNN, can be compared to their square counterparts by transforming classical square lattice based data sets into their hexagonal representation, they can also result in a reduction of trainable parameters as well as result in increased training and test rates.",
+    "char_start": 0,
+    "char_end": 1324,
+    "token_count": 213
+  },
+  {
+    "chunk_id": "chunk_000045",
+    "doc_id": "arxiv_0046",
+    "content": "Contrastive learning operates on a simple yet effective principle: Embeddings of positive pairs are pulled together, while those of negative pairs are pushed apart. In this paper, we propose a unified framework for understanding contrastive learning through the lens of cosine similarity, and present two key theoretical insights derived from this framework. First, in full-batch settings, we show that perfect alignment of positive pairs is unattainable when negative-pair similarities fall below a threshold, and this misalignment can be mitigated by incorporating within-view negative pairs into the objective. Second, in mini-batch settings, smaller batch sizes induce stronger separation among negative pairs in the embedding space, i.e., higher variance in their similarities, which in turn degrades the quality of learned representations compared to full-batch settings. To address this, we propose an auxiliary loss that reduces the variance of negative-pair similarities in mini-batch settings. Empirical results show that incorporating the proposed loss improves performance in small-batch settings.",
+    "char_start": 0,
+    "char_end": 1109,
+    "token_count": 200
+  },
+  {
+    "chunk_id": "chunk_000046",
+    "doc_id": "arxiv_0047",
+    "content": "Machine learning (ML) methods are having a huge impact across all of the sciences. However, ML has a strong ontology - in which only the data exist - and a strong epistemology - in which a model is considered good if it performs well on held-out training data. These philosophies are in strong conflict with both standard practices and key philosophies in the natural sciences. Here we identify some locations for ML in the natural sciences at which the ontology and epistemology are valuable. For example, when an expressive machine learning model is used in a causal inference to represent the effects of confounders, such as foregrounds, backgrounds, or instrument calibration parameters, the model capacity and loose philosophy of ML can make the results more trustworthy. We also show that there are contexts in which the introduction of ML introduces strong, unwanted statistical biases. For one, when ML models are used to emulate physical (or first-principles) simulations, they amplify confirmation biases. For another, when expressive regressions are used to label datasets, those labels cannot be used in downstream joint or ensemble analyses without taking on uncontrolled biases. The question in the title is being asked of all of the natural sciences; that is, we are calling on the scientific communities to take a step back and consider the role and value of ML in their fields; the (partial) answers we give here come from the particular perspective of physics.",
+    "char_start": 0,
+    "char_end": 1478,
+    "token_count": 283
+  },
+  {
+    "chunk_id": "chunk_000047",
+    "doc_id": "arxiv_0048",
+    "content": "Automatic machine learning is an important problem in the forefront of machine learning. The strongest AutoML systems are based on neural networks, evolutionary algorithms, and Bayesian optimization. Recently AlphaD3M reached state-of-the-art results with an order of magnitude speedup using reinforcement learning with self-play. In this work we extend AlphaD3M by using a pipeline grammar and a pre-trained model which generalizes from many different datasets and similar tasks. Our results demonstrate improved performance compared with our earlier work and existing methods on AutoML benchmark datasets for classification and regression tasks. In the spirit of reproducible research we make our data, models, and code publicly available.",
+    "char_start": 0,
+    "char_end": 741,
+    "token_count": 130
+  },
+  {
+    "chunk_id": "chunk_000048",
+    "doc_id": "arxiv_0049",
+    "content": "Network data are ubiquitous in modern machine learning, with tasks of interest including node classification, node clustering and link prediction. A frequent approach begins by learning an Euclidean embedding of the network, to which algorithms developed for vector-valued data are applied. For large networks, embeddings are learned using stochastic gradient methods where the sub-sampling scheme can be freely chosen. Despite the strong empirical performance of such methods, they are not well understood theoretically. Our work encapsulates representation methods using a subsampling approach, such as node2vec, into a single unifying framework. We prove, under the assumption that the graph is exchangeable, that the distribution of the learned embedding vectors asymptotically decouples. Moreover, we characterize the asymptotic distribution and provided rates of convergence, in terms of the latent parameters, which includes the choice of loss function and the embedding dimension. This provides a theoretical foundation to understand what the embedding vectors represent and how well these methods perform on downstream tasks. Notably, we observe that typically used loss functions may lead to shortcomings, such as a lack of Fisher consistency.",
+    "char_start": 0,
+    "char_end": 1253,
+    "token_count": 217
+  },
+  {
+    "chunk_id": "chunk_000049",
+    "doc_id": "arxiv_0050",
+    "content": "From medical charts to national census, healthcare has traditionally operated under a paper-based paradigm. However, the past decade has marked a long and arduous transformation bringing healthcare into the digital age. Ranging from electronic health records, to digitized imaging and laboratory reports, to public health datasets, today, healthcare now generates an incredible amount of digital information. Such a wealth of data presents an exciting opportunity for integrated machine learning solutions to address problems across multiple facets of healthcare practice and administration. Unfortunately, the ability to derive accurate and informative insights requires more than the ability to execute machine learning models. Rather, a deeper understanding of the data on which the models are run is imperative for their success. While a significant effort has been undertaken to develop models able to process the volume of data obtained during the analysis of millions of digitalized patient records, it is important to remember that volume represents only one aspect of the data. In fact, drawing on data from an increasingly diverse set of sources, healthcare data presents an incredibly complex set of attributes that must be accounted for throughout the machine learning pipeline. This chapter focuses on highlighting such challenges, and is broken down into three distinct components, each representing a phase of the pipeline. We begin with attributes of the data accounted for during preprocessing, then move to considerations during model building, and end with challenges to the interpretation of model output. For each component, we present a discussion around data as it relates to the healthcare domain and offer insight into the challenges each may impose on the efficiency of machine learning techniques.",
+    "char_start": 0,
+    "char_end": 1824,
+    "token_count": 305
+  },
+  {
+    "chunk_id": "chunk_000050",
+    "doc_id": "news_0001",
+    "content": "1k Data Breaches Later, the Disclosure Lag Is Worse",
+    "char_start": 0,
+    "char_end": 51,
+    "token_count": 12
+  },
+  {
+    "chunk_id": "chunk_000051",
+    "doc_id": "news_0003",
+    "content": "APC–2 – A professional record cutter for producing original playback discs",
+    "char_start": 0,
+    "char_end": 74,
+    "token_count": 14
+  },
+  {
+    "chunk_id": "chunk_000052",
+    "doc_id": "news_0005",
+    "content": "The Smallest Brain You Can Build: A Perceptron in Python",
+    "char_start": 0,
+    "char_end": 56,
+    "token_count": 14
+  },
+  {
+    "chunk_id": "chunk_000053",
+    "doc_id": "news_0006",
+    "content": "Building from zero after addiction, prison, and a felony",
+    "char_start": 0,
+    "char_end": 56,
+    "token_count": 11
+  },
+  {
+    "chunk_id": "chunk_000054",
+    "doc_id": "news_0007",
+    "content": "Is This the Dawn of the Tokenpocalypse?",
+    "char_start": 0,
+    "char_end": 39,
+    "token_count": 10
+  },
+  {
+    "chunk_id": "chunk_000055",
+    "doc_id": "news_0008",
+    "content": "1worldflag: A blue dot on a transparent background",
+    "char_start": 0,
+    "char_end": 50,
+    "token_count": 11
+  },
+  {
+    "chunk_id": "chunk_000056",
+    "doc_id": "news_0009",
+    "content": "New drug 'functionally cures' many hepatitis B virus infections",
+    "char_start": 0,
+    "char_end": 63,
+    "token_count": 13
+  },
+  {
+    "chunk_id": "chunk_000057",
+    "doc_id": "news_0010",
+    "content": "Playing with Vision Embeddings",
+    "char_start": 0,
+    "char_end": 30,
+    "token_count": 5
+  },
+  {
+    "chunk_id": "chunk_000058",
+    "doc_id": "news_0011",
+    "content": "Algorithmic Monocultures in Hiring",
+    "char_start": 0,
+    "char_end": 34,
+    "token_count": 8
+  },
+  {
+    "chunk_id": "chunk_000059",
+    "doc_id": "news_0012",
+    "content": "Show HN: NoSuggest – Watch YouTube without the recommendation algorithm\n\nNoSuggest is a quiet act of resistance against YouTube algorithms always trying to pull you into a loop of unlimited videos in turn into unlimited screen time. With unending side cards of videos, auto-play, what's next suggestions, YouTube shorts and notifications, users will be doom scrolling for many hours in a day.I faced the same problem. Acknowledging that, not all content in YouTube is bad. There are educational videos, genuine news contents without political bias which is very hard to find outside YouTube and many other good relaxing, entertainment stuff.NoSuggest lets you only follow the YouTube channels you like and removes all types of recommendation YouTube has. So you don't waste time on watching things which you never wanted to watch anyways.UI is very simple. You add your favourite channels in \"Channels\" tab and latest 5 videos per channel excluding shorts would appear in \"Feed\" tab. \"Search\" tab is to search for specific videos to watch and \"Saved\" tab is to bookmark any video you want to watch later. Intention of NoSuggest is to provide whatever is necessary to extract whats good from YouTube all inside NoSuggest and leave out bad parts.NoSuggest works in any devices. Install it as an app (PWA) in android and iPhone, or simply open in browser in laptops. No sign-in, no account creation or no card details. NoSuggest won't even ask your name. Total privacy for the users.Parents can add the channels and save some educational videos and lock it with the pin for kids mode. Kids won't be able access unwanted additive contents inside NoSuggest.Completely free, no string attached. Source available in Github through NoSuggest website.I would love genuine feedback. Thank you very much for your attention on this matter.",
+    "char_start": 0,
+    "char_end": 1827,
+    "token_count": 373
+  },
+  {
+    "chunk_id": "chunk_000060",
+    "doc_id": "news_0013",
+    "content": "Tiny hackable CUDA language model implementation",
+    "char_start": 0,
+    "char_end": 48,
+    "token_count": 7
+  },
+  {
+    "chunk_id": "chunk_000061",
+    "doc_id": "news_0014",
+    "content": "Richard Scolyer Has Died",
+    "char_start": 0,
+    "char_end": 24,
+    "token_count": 6
+  },
+  {
+    "chunk_id": "chunk_000062",
+    "doc_id": "news_0015",
+    "content": "DeepSeek V4 Pro beats GPT-5.5 Pro on precision",
+    "char_start": 0,
+    "char_end": 46,
+    "token_count": 15
+  },
+  {
+    "chunk_id": "chunk_000063",
+    "doc_id": "news_0016",
+    "content": "Show HN: I Derived a Pancake\n\nAfter 25 years of making other people's pancake recipes - always yearning for more tang, more fluff, and more predictability - I decided to derive the pancake recipe from the chemistry.You mark checkboxes for what you have on hand (ricotta, sour cream, kefir, buttermilk, yogurt, cottage cheese, lemon, cream of tartar, etc.) and it computes the best recipe based on targets for acid, fat, salt, sugar, and CO2.My particular favorite are the yeast-raised lemon ricotta kefir pancakes - the best I've ever had.The math is done in a small pure-ESM library: ingredient composition to component masses and acid moles, a stoichiometry layer, and a bisection solver for the target deficits.I'm not a chemist, so if something is off, tell me and I will fix it!",
+    "char_start": 0,
+    "char_end": 783,
+    "token_count": 189
+  },
+  {
+    "chunk_id": "chunk_000064",
+    "doc_id": "news_0017",
+    "content": "Making peace with your unlived dreams (2023)",
+    "char_start": 0,
+    "char_end": 44,
+    "token_count": 11
+  },
+  {
+    "chunk_id": "chunk_000065",
+    "doc_id": "news_0018",
+    "content": "A Matter Wi-Fi Light Bulb in Rust on the Raspberry Pi Pico 2 W",
+    "char_start": 0,
+    "char_end": 62,
+    "token_count": 18
+  },
+  {
+    "chunk_id": "chunk_000066",
+    "doc_id": "news_0019",
+    "content": "A discovery about GCC's unidirectional rotation algorithm",
+    "char_start": 0,
+    "char_end": 57,
+    "token_count": 10
+  },
+  {
+    "chunk_id": "chunk_000067",
+    "doc_id": "news_0020",
+    "content": "Man-Computer Symbiosis J. C. R. Licklider (1960)",
+    "char_start": 0,
+    "char_end": 48,
+    "token_count": 19
+  },
+  {
+    "chunk_id": "chunk_000068",
+    "doc_id": "news_0021",
+    "content": "Do agents.md files help coding agents?\n\nhttps://xcancel.com/rasbt/status/2063649136323252397https://arxiv.org/abs/2602.11988",
+    "char_start": 0,
+    "char_end": 124,
+    "token_count": 38
+  },
+  {
+    "chunk_id": "chunk_000069",
+    "doc_id": "news_0022",
+    "content": "How's Linear so fast? A technical breakdown",
+    "char_start": 0,
+    "char_end": 43,
+    "token_count": 9
+  },
+  {
+    "chunk_id": "chunk_000070",
+    "doc_id": "news_0023",
+    "content": "Trusted Computing Frequently Asked Questions (2003)",
+    "char_start": 0,
+    "char_end": 51,
+    "token_count": 10
+  },
+  {
+    "chunk_id": "chunk_000071",
+    "doc_id": "news_0024",
+    "content": "What is the purpose of the lost+found folder in Linux and Unix? (2014)",
+    "char_start": 0,
+    "char_end": 70,
+    "token_count": 19
+  },
+  {
+    "chunk_id": "chunk_000072",
+    "doc_id": "news_0025",
+    "content": "Show HN: Lathe – Use LLMs to learn a new domain, not skip past it",
+    "char_start": 0,
+    "char_end": 65,
+    "token_count": 21
+  },
+  {
+    "chunk_id": "chunk_000073",
+    "doc_id": "news_0025",
+    "content": "Show HN: Lathe – Use LLMs to learn a new domain, not skip past it\n\nHey HN!Lathe is an experiment in using LLMs to teach me something new, instead of doing the work for me. It generates a hands-on, source-backed tutorial for any technical topic you want to learn. Then you work through it yourself by reading and typing the code by hand (gasp) in a local UI built for exactly that.It's a Go CLI plus LLM agent skills (Claude Code / Cursor / Codex). You prompt something like \"/lathe build a 3D slicer in Erlang\", run `lathe serve` to spin up a local webapp, and read it in your browser. Every tutorial comes with the things that have made self-learning a pleasant experience for me in the past:- table of contents that follows along as you scroll\n- side-notes that nudge you to think\n- exercises for the reader\n- sources backing up the content that you can use to take you deeperTo help make up for the lack of human brainpower behind the tutorial, you can also ask questions about the content, have another LLM verify the tutorial actually compiles and runs, or extend it with another part (no more \"Part 4 of 6\" that hasn't seen an update since 2021).I didn't build lathe to replace human-written tutorials. I built lathe because I _love_ human-written tutorials, but wanted to learn technical domains where no good human-written tutorial exists yet (building a 3D slicer from scratch, making embedded Zig approachable, etc). There's a longer story in the README about how I got started with programming through PSP homebrew tutorials, and why losing that to LLMs bugged me enough to build this.I'm not here to sell you anything (there's nothing close to a VC-backed startup here :D). It's an LLM, and its output is usually good but not perfect by any means. So far, my experience is that because you're the one typing and actually engaged, you catch the weird stuff (and I'm finding that pushing back on it is its own kind of learning). And yes, it's vibecoded, because it's low scope, low risk, and scratching a personal itch. I run it on Claude Code + macOS personally, other setups should work but I haven't been able to verify them yet.If you can find resources to learn something that was written by a human, read that first. But Lathe is here to fill in the gaps when that isn't the case, and I hope it serves as an example where LLMs can help us think better, rather than less.Repo: https://github.com/devenjarvis/latheWould love your feedback if you decide to check it out!",
+    "char_start": 67,
+    "char_end": 2550,
+    "token_count": 583
+  },
+  {
+    "chunk_id": "chunk_000074",
+    "doc_id": "news_0026",
+    "content": "Texas grid flags risks as data centers, crypto sites fail voltage tests",
+    "char_start": 0,
+    "char_end": 71,
+    "token_count": 13
+  },
+  {
+    "chunk_id": "chunk_000075",
+    "doc_id": "news_0027",
+    "content": "The 29th International Obfuscated C Code Contest (IOCCC) 2025 Winners",
+    "char_start": 0,
+    "char_end": 69,
+    "token_count": 18
+  },
+  {
+    "chunk_id": "chunk_000076",
+    "doc_id": "news_0028",
+    "content": "Do we fear the serializable isolation level more than we fear subtle bugs (2024)",
+    "char_start": 0,
+    "char_end": 80,
+    "token_count": 18
+  },
+  {
+    "chunk_id": "chunk_000077",
+    "doc_id": "news_0029",
+    "content": "LLMs are eroding my software engineering career and I don't know what to do",
+    "char_start": 0,
+    "char_end": 75,
+    "token_count": 17
+  },
+  {
+    "chunk_id": "chunk_000078",
+    "doc_id": "news_0030",
+    "content": "Powering up a module from the IBM 604: an electronic calculator from 1948",
+    "char_start": 0,
+    "char_end": 73,
+    "token_count": 18
+  },
+  {
+    "chunk_id": "chunk_000079",
+    "doc_id": "course_0001",
+    "content": "深度学习是机器学习的一个分支,使用多层神经网络从数据中学习层次化的特征表示。与传统机器学习方法不同,深度学习能够自动从原始数据中提取特征,无需人工设计。典型的深度学习架构包括:前馈神经网络(FNN)、卷积神经网络(CNN)、循环神经网络(RNN)及其变体LSTM和GRU。激活函数如ReLU、Sigmoid、Tanh为网络引入非线性表达能力。损失函数用于衡量模型预测与真实标签之间的差异,常见的包括交叉熵损失、均方误差等。",
+    "char_start": 0,
+    "char_end": 211,
+    "token_count": 215
+  },
+  {
+    "chunk_id": "chunk_000080",
+    "doc_id": "course_0002",
+    "content": "Transformer是一种基于自注意力机制的神经网络架构,由Vaswani等人在2017年提出。核心创新包括:多头自注意力机制(Multi-Head Self-Attention),使模型能够关注输入序列中不同位置的关系;位置编码(Positional Encoding),为序列中的每个位置提供位置信息;层归一化(Layer Normalization)和残差连接确保深层网络的稳定训练。Transformer完全抛弃了循环结构,实现了并行计算。Encoder负责理解输入序列,Decoder负责生成输出序列。BERT仅使用Encoder进行预训练,GPT仅使用Decoder进行自回归生成。",
+    "char_start": 0,
+    "char_end": 298,
+    "token_count": 195
+  },
+  {
+    "chunk_id": "chunk_000081",
+    "doc_id": "course_0003",
+    "content": "预训练语言模型通过在大规模语料上进行自监督学习来获取通用语言表示。BERT使用掩码语言模型(MLM)和下一句预测(NSP)两个预训练任务。GPT系列使用自回归语言模型,通过预测下一个token来学习语言规律。预训练-微调范式:先在通用语料上预训练,再在下游任务数据上微调。提示学习(Prompt Learning)进一步缩小了预训练和下游任务之间的差距。指令微调(Instruction Tuning)使模型能够理解和遵循人类指令。",
+    "char_start": 0,
+    "char_end": 216,
+    "token_count": 193
+  },
+  {
+    "chunk_id": "chunk_000082",
+    "doc_id": "course_0004",
+    "content": "卷积神经网络是处理网格结构数据(如图像)最有效的深度学习架构。核心组件包括:卷积层(提取局部特征)、池化层(降采样、保持平移不变性)、全连接层(分类决策)。卷积操作通过共享权重减少参数量,多个卷积核可以提取不同类型的特征(边缘、纹理、形状等)。经典网络架构:LeNet-5、AlexNet、VGGNet、GoogLeNet(Inception)、ResNet。ResNet通过残差连接解决了深层网络的退化问题,使训练152层网络成为可能。",
+    "char_start": 0,
+    "char_end": 219,
+    "token_count": 205
+  },
+  {
+    "chunk_id": "chunk_000083",
+    "doc_id": "course_0005",
+    "content": "循环神经网络(RNN)通过隐藏状态在时间步之间传递信息,适合处理序列数据。然而标准RNN存在梯度消失/爆炸问题,限制了长序列建模能力。长短期记忆网络(LSTM)引入遗忘门、输入门和输出门来控制信息流动。门控循环单元(GRU)是LSTM的简化变体,仅使用两个门,计算效率更高。序列到序列模型(Seq2Seq)通过Encoder-Decoder架构实现输入序列到输出序列的映射,广泛应用于机器翻译、文本摘要等任务。注意力机制的引入解决了信息瓶颈问题。",
+    "char_start": 0,
+    "char_end": 223,
+    "token_count": 205
+  },
+  {
+    "chunk_id": "chunk_000084",
+    "doc_id": "course_0006",
+    "content": "注意力机制的核心思想是让模型在处理输入时动态地关注最相关的部分。计算公式:Attention(Q,K,V) = softmax(QK^T/√dk)V。Query(查询)表示当前需要关注什么,Key(键)表示每个位置的特征标签,Value(值)表示每个位置的实际信息。缩放因子√dk防止点积过大导致梯度消失。自注意力(Self-Attention):Q、K、V都来自同一输入序列,使模型能够捕捉序列内部的长距离依赖关系。多头注意力并行计算多个注意力分布,关注不同子空间的信息。",
+    "char_start": 0,
+    "char_end": 237,
+    "token_count": 193
+  },
+  {
+    "chunk_id": "chunk_000085",
+    "doc_id": "course_0007",
+    "content": "生成对抗网络由生成器(Generator)和判别器(Discriminator)组成。生成器将随机噪声映射为逼真的数据样本,判别器区分真实样本和生成样本。两者通过对抗训练相互提升:生成器努力欺骗判别器,判别器努力区分真假。训练目标是最小化生成器误差的同时最大化判别器准确率。应用场景:图像生成、风格迁移、超分辨率、数据增强。变体包括DCGAN、CycleGAN、StyleGAN、WGAN等。",
+    "char_start": 0,
+    "char_end": 196,
+    "token_count": 180
+  },
+  {
+    "chunk_id": "chunk_000086",
+    "doc_id": "course_0008",
+    "content": "机器学习模型的评估是确保其泛化能力和可靠性的关键步骤。数据划分策略:训练集用于模型参数学习,验证集用于超参数调优,测试集用于最终评估。交叉验证(K-Fold Cross-Validation)充分利用有限数据,减小评估方差。分类任务指标:准确率、精确率、召回率、F1分数、ROC-AUC。回归任务指标:均方误差(MSE)、平均绝对误差(MAE)、决定系数R²。生成任务指标:BLEU(机器翻译)、ROUGE(文本摘要)、困惑度(语言模型)。过拟合的检测与缓解:学习曲线分析、早停法、Dropout、权重衰减(L1/L2正则化)。",
+    "char_start": 0,
+    "char_end": 264,
+    "token_count": 257
+  },
+  {
+    "chunk_id": "chunk_000087",
+    "doc_id": "course_0009",
+    "content": "自然语言处理(NLP)是人工智能的重要分支,旨在使计算机理解和生成人类语言。文本预处理:分词(Tokenization)、词性标注(POS Tagging)、命名实体识别(NER)、依存句法分析。词向量技术:Word2Vec(CBOW/Skip-gram)、GloVe利用全局共现统计信息学习词表示。FastText考虑子词信息,对未登录词有更好的处理能力。端到端深度学习模型逐渐取代了传统的流水线式NLP方法。大规模预训练使NLP模型在各种任务上取得了前所未有的性能。",
+    "char_start": 0,
+    "char_end": 235,
+    "token_count": 200
+  },
+  {
+    "chunk_id": "chunk_000088",
+    "doc_id": "course_0010",
+    "content": "检索增强生成(RAG)结合信息检索和文本生成,解决大模型的幻觉和知识陈旧问题。RAG工作流程:用户提问 → 向量检索相关文档 → 拼接上下文 → LLM生成回答。文档分块策略影响检索精度:太小的块缺乏上下文,太大的块引入噪声。向量数据库(FAISS、Milvus、Pinecone)提供高效相似度搜索。重排序(Reranking)使用更强大的模型对初步检索结果进行二次排序。Chunk重叠(Overlap)确保边界信息不丢失。混合检索结合向量检索和关键词检索(BM25)的优势。RAG广泛应用于智能客服、知识库问答、文档分析和企业搜索等场景。",
+    "char_start": 0,
+    "char_end": 271,
+    "token_count": 252
+  },
+  {
+    "chunk_id": "chunk_000089",
+    "doc_id": "supplement_0091",
+    "content": "自然语言处理(NLP)是人工智能领域中最具挑战性的研究方向之一,旨在让计算机理解、生成和处理人类语言。深度学习技术的引入彻底改变了NLP的研究范式。传统的NLP方法依赖于手工设计的特征和复杂的流水线结构,包括分词、词性标注、句法分析和语义角色标注等多个步骤。每个步骤都需要领域专家的深入参与,且错误会在流水线中累积传播。深度学习通过端到端的学习方式,直接从原始文本中学习有用的表示,大幅简化了NLP系统的设计流程。词向量技术如Word2Vec和GloVe是最早将深度学习成功应用于NLP的案例,它们将离散的词语映射到连续的向量空间,使语义相似的词在向量空间中彼此接近。随后出现的循环神经网络(RNN)和其变体LSTM、GRU,在处理序列数据方面表现出色,被广泛应用于机器翻译、情感分析和文本生成等任务。然而,这些模型在处理长距离依赖时仍然存在局限。2017年,Transformer架构的提出标志着NLP领域的一个转折点。Transformer通过自注意力机制实现了并行计算,克服了RNN的顺序处理限制。BERT、GPT等基于Transformer的预训练语言模型在各种NLP基准测试中取得了突破性成果。BERT采用双向编码器架构,通过掩码语言模型(MLM)和下一句预测(NSP)进行预训练,在11项NLP任务上刷新了记录。GPT系列模型则采用单向解码器架构,通过自回归语言模型进行预训练,展现了惊人的文本生成能力。GPT-3更是展示了少样本学习(Few-shot Learning)的潜力——无需微调,仅通过几个示例提示就能完成翻译、问答、代码生成等多种任务。",
+    "char_start": 0,
+    "char_end": 681,
+    "token_count": 668
+  },
+  {
+    "chunk_id": "chunk_000090",
+    "doc_id": "supplement_0092",
+    "content": "Transformer架构是当代大语言模型的核心基础。其最关键的创新在于自注意力(Self-Attention)机制。给定输入序列X∈R^(n×d),自注意力机制首先通过三个线性变换矩阵W_Q、W_K、W_V将输入映射为查询(Query)、键(Key)和值(Value):Q=XW_Q, K=XW_K, V=XW_V。注意力权重通过缩放点积计算:Attention(Q,K,V)=softmax(QK^T/√d_k)V,其中d_k是键向量的维度,缩放因子√d_k确保点积的方差保持稳定。为了增强模型的表达能力,Transformer引入了多头注意力(Multi-Head Attention),将Q、K、V分别投影到h个不同的子空间,在每个子空间中独立计算注意力,最后将各个头的输出拼接并经线性变换融合。这种设计使模型能够同时关注不同表示子空间中的信息。除了注意力子层外,每个编码器和解码器层还包含一个逐位置的全连接前馈网络(FFN):FFN(x)=max(0, xW_1+b_1)W_2+b_2。这个两层MLP为模型提供了非线性变换能力。位置编码(Positional Encoding)是Transformer的另一个重要组件。由于自注意力机制本身对位置不敏感,需要通过位置编码向模型注入序列顺序信息。原始Transformer使用了正弦和余弦函数来生成位置编码:PE_{(pos,2i)}=sin(pos/10000^{2i/d}), PE_{(pos,2i+1)}=cos(pos/10000^{2i/d})。这种设计使模型能够轻松外推到训练时未见过的序列长度。后续研究还提出了可学习的位置编码和相对位置编码等变体。层归一化(Layer Normalization)和残差连接是确保深层Transformer稳定训练的关键技术。每个子层后都跟随LayerNorm(x+Sublayer(x))操作(后归一化,或称Post-LN)。后来研究发现将层归一化放在子层之前(前归一化,或称Pre-LN)能带来更稳定的训练动态,特别是在训练深层模型时。",
+    "char_start": 0,
+    "char_end": 875,
+    "token_count": 681
+  },
+  {
+    "chunk_id": "chunk_000091",
+    "doc_id": "supplement_0093",
+    "content": "BERT(Bidirectional Encoder Representations from Transformers)由Google在2018年提出,是基于Transformer编码器的预训练语言模型。与之前的模型不同,BERT通过双向上下文来理解语言,这使其能够捕捉到更丰富的语义信息。BERT的预训练包含两个关键任务。第一个是掩码语言模型(MLM):随机遮盖输入中15%的token,让模型根据上下文来预测被遮盖的词。具体实现中,被选中的token有80%的概率被替换为[MASK]标记,10%的概率被替换为随机词,10%的概率保持不变。这种策略避免了预训练和微调之间的不匹配问题(因为微调时不会出现[MASK]标记)。第二个任务是下一句预测(NSP):给定两个句子A和B,判断B是否是A的下一句。这个任务帮助模型理解句子间的关系,对问答和自然语言推理等下游任务很有帮助。(后续的RoBERTa研究发现NSP任务的贡献有限,可以移除。)BERT的输入表示由三部分组成:Token嵌入、Segment嵌入(区分句子A和B)和Position嵌入。特殊标记[CLS]用于汇总整个序列的表示,通常用于分类任务;[SEP]用于分隔不同的句子。BERT在微调阶段通过在预训练模型上添加简单的任务特定层,即可适应各种NLP任务:对于单句分类,使用[CLS]标记的输出表示;对于序列标注(如NER),使用每个token的输出表示;对于问答任务,预测答案片段的起止位置。实践中的关键技巧包括:使用Warmup学习率调度、适当的Batch Size选择(通常在16-32之间)、以及针对不同任务的合适微调轮数(通常2-4轮即可)。",
+    "char_start": 0,
+    "char_end": 710,
+    "token_count": 609
+  },
+  {
+    "chunk_id": "chunk_000092",
+    "doc_id": "supplement_0094",
+    "content": "GPT(Generative Pre-trained Transformer)系列模型由OpenAI开发,代表了自回归语言模型的发展方向。GPT-1(2018年)首次提出了'生成式预训练+判别式微调'的范式。模型使用12层Transformer解码器,在BooksCorpus数据集上进行预训练。GPT-1证明了大规模无监督预训练可以有效提升下游任务性能。GPT-2(2019年)将模型规模扩大到15亿参数(48层),训练数据扩展到WebText(约800万网页)。GPT-2最引人注目的发现是:当模型足够大时,它展现出零样本(Zero-shot)任务迁移能力——无需任何微调,仅通过自然语言提示就能完成翻译、摘要、问答等任务。这一发现开启了提示工程的研究方向。GPT-3(2020年)进一步将参数规模推至1750亿(96层),展示了令人瞩目的少样本学习能力。通过上下文学习(In-Context Learning),GPT-3可以在仅给出几个示例的情况下完成新任务。GPT-3.5系列(2022年)引入了指令微调(Instruction Tuning)和人类反馈强化学习(RLHF),使模型更好地遵循人类意图,产生了ChatGPT对话模型。RLHF包含三个步骤:首先收集人类偏好的比较数据,训练一个奖励模型(Reward Model);然后使用PPO算法微调语言模型以最大化奖励。GPT-4(2023年)引入了多模态能力,可以理解图像输入,并在多项专业考试和学术基准中达到人类水平。MiMo系列(2024年)由小米团队开发,进一步优化了推理效率和中文理解能力,在保持高性能的同时降低了部署成本。",
+    "char_start": 0,
+    "char_end": 698,
+    "token_count": 584
+  },
+  {
+    "chunk_id": "chunk_000093",
+    "doc_id": "supplement_0095",
+    "content": "词向量(Word Embedding)是NLP中最基础也最重要的技术之一,它将离散的词语符号映射到连续的向量空间。最早的词表示方法是One-Hot编码:每个词用一个长度为词汇表大小的向量表示,其中只有一个位置为1,其余为0。这种方法存在严重问题:向量维度随词汇表线性增长,且无法表达词语之间的语义关系——在One-Hot表示中,任意两个不同词的余弦相似度都为零。分布式表示(Distributed Representation)解决了这个问题:每个词用一个低维稠密向量表示,语义相似的词具有相近的向量。这一思想源自Harris的分布假说:出现在相似上下文中的词往往具有相似的含义。Word2Vec(2013年)由Mikolov等人提出,包含两种训练模式:CBOW根据上下文预测中心词,Skip-gram根据中心词预测上下文。Skip-gram配合负采样(Negative Sampling)技术,能在大规模语料上高效训练。GloVe(2014年)结合了全局矩阵分解和局部上下文窗口方法的优点,通过加权最小二乘回归学习词向量。FastText(2016年)将词表示为字符n-gram的集合,能够为未登录词(OOV)生成合理的表示。ELMo(2018年)首次提出了上下文相关的词表示:同一个词在不同句子中会有不同的向量表示,这解决了传统词向量无法处理一词多义的问题。BERT的出现使上下文相关表示成为主流:通过深层Transformer编码器,每个token的表示都融合了整个输入序列的上下文信息。近年来,句嵌入(Sentence Embedding)技术受到广泛关注。Sentence-BERT通过孪生网络结构微调BERT,使得语义相似的句子在向量空间中彼此接近。BGE-M3模型进一步将句嵌入扩展到多语言、多粒度的场景。",
+    "char_start": 0,
+    "char_end": 760,
+    "token_count": 655
+  },
+  {
+    "chunk_id": "chunk_000094",
+    "doc_id": "supplement_0096",
+    "content": "文本分块(Text Chunking)是检索增强生成(RAG)系统中至关重要但常被忽视的环节。分块策略直接影响检索精度和生成质量。过小的块可能缺乏上下文信息,导致检索到的内容语义不完整;过大的块则可能引入噪声,降低检索精度,增加LLM的处理负担。最优的分块大小取决于具体应用场景和模型能力。常见的分块方法包括:固定长度分块——按字符数或token数等分文本,简单高效但可能在句子中间截断。滑动窗口分块——相邻块之间有重叠,确保边界信息不丢失,但增加了存储和计算开销。基于语义的分块——利用句嵌入的相似度变化检测主题边界,在语义连贯的位置切分,但计算成本较高。基于文档结构的分块——利用Markdown标题、段落分隔符等文档结构信息进行切分,保留了原始文档的组织逻辑。实践中通常采用混合策略:以结构分块为主(如按段落、按标题),辅以固定大小约束(如最大512 tokens),并使用重叠滑动窗口(如128 tokens重叠)确保边界连续性。分块时还应考虑embedding模型的最佳输入长度。元数据管理是分块过程中不可忽视的环节。每个文本块应保留其来源文档、位置信息和相关元数据,这样检索结果可以追溯到原始出处,为生成结果提供引用依据。检索后的上下文组织也是关键:简单拼接可能导致LLM混淆;按相关性排序、加入来源标注等方式能帮助LLM更好地利用检索信息。一些高级策略还包括:对检索到的多个块进行摘要后再注入提示词、以及在提示词中明确指示LLM应如何处理来自不同来源的信息。",
+    "char_start": 0,
+    "char_end": 636,
+    "token_count": 631
+  },
+  {
+    "chunk_id": "chunk_000095",
+    "doc_id": "supplement_0097",
+    "content": "向量数据库是AI基础设施的关键组件,专门用于存储和检索高维向量数据。与传统的结构化数据库不同,向量数据库通过近似最近邻(ANN)搜索算法在毫秒级内从数百万甚至数十亿向量中找到最相似的结果。其核心技术挑战在于高维空间中的'维度灾难':随着维度增加,传统索引方法(如KD树)的效率急剧下降。FAISS(Facebook AI Similarity Search)是Meta开源的向量检索库,提供了多种索引类型以适应不同场景需求。IndexFlatIP使用内积进行精确暴力搜索,适合小规模数据集;IndexIVFFlat通过K-means聚类将向量空间划分为多个Voronoi单元,仅在与查询最近的几个单元中搜索,大幅减少计算量;IndexHNSW构建分层的可导航小世界图,在搜索速度和召回率之间取得优秀平衡;Product Quantization(PQ)通过向量压缩降低内存占用,适合超大规模场景。Milvus是云原生向量数据库,提供完整的CRUD操作、数据持久化、分布式部署和企业级特性。它支持多种索引类型(IVF_FLAT、IVF_SQ8、HNSW等)和相似度量(L2、IP、Cosine等),并通过一致性级别配置在可用性和一致性之间灵活权衡。Pinecone是全托管的商业向量数据库服务,免去运维负担,提供自动扩缩容、实时索引更新、元数据过滤等高级功能。在RAG系统中选择向量数据库需考虑:数据规模(决定索引类型)、更新频率(决定是否需要实时索引)、部署环境(本地vs云服务)和成本预算。对于课程项目和原型开发,FAISS的CPU版本已能满足需求。",
+    "char_start": 0,
+    "char_end": 676,
+    "token_count": 590
+  },
+  {
+    "chunk_id": "chunk_000096",
+    "doc_id": "supplement_0098",
+    "content": "重排序(Reranking)是信息检索中的核心技术,旨在对初步检索结果进行精细化的相关性排序。现代RAG系统通常采用两阶段检索架构:第一阶段使用高效的稀疏或稠密检索方法(如BM25、FAISS向量检索)从大规模文档库中快速召回候选集;第二阶段使用更强大但也更耗时的模型对候选集进行精确排序。BM25是最经典的稀疏检索算法,基于词频-逆文档频率(TF-IDF)思想。其核心公式为:score(D,Q)=sum(IDF(q_i)×(f(q_i,D)×(k1+1))/(f(q_i,D)+k1×(1-b+b×|D|/avgdl)))。BM25的优势在于:无需训练、可解释性强、对精确关键词匹配效果好。但其局限也显而易见:无法处理语义相似但用词不同的情况(词汇鸿沟问题)。Cross-Encoder直接将查询和文档拼接后输入预训练模型(如BERT),输出相关性分数。与Bi-Encoder(分别编码查询和文档)不同,Cross-Encoder通过Transformer的自注意力机制让查询和文档在每一层都进行充分的信息交互,因此排序精度显著优于Bi-Encoder。但其计算成本也更高:每对(query, document)都需要完整的前向传播,无法预先计算文档向量。bge-reranker-v2-m3是BGE系列的重排序模型,基于多语言BERT架构训练。它在多个检索基准上展现了先进的重排序能力,特别是在中文和多语言场景下。使用方式:将(query, doc)拼接后输入模型,取最后一层的[CLS]表示经线性层映射为相关性分数。典型实践中,先用Bi-Encoder检索Top-100候选,再用Cross-Encoder重排序选出Top-5最终结果,在某些场景下可比纯向量检索提升10-20%的精度。",
+    "char_start": 0,
+    "char_end": 747,
+    "token_count": 631
+  },
+  {
+    "chunk_id": "chunk_000097",
+    "doc_id": "supplement_0099",
+    "content": "评估是确保AI系统质量和可靠性的关键环节。对于基于大语言模型的应用,评估需要多维度、多层次的综合考量。自动评估是最常用的评估方式,具有成本低、速度快、可复现的优点。常用指标包括:ROUGE系列——ROUGE-N计算n-gram重叠度、ROUGE-L基于最长公共子序列,广泛用于文本摘要评估。BLEU——计算生成文本与参考文本之间的n-gram匹配精度,是机器翻译的事实标准。需要注意,BLEU在句子级别评估时可能不够稳定,更适合在语料级别使用。BERTScore——利用BERT等预训练模型的上下文嵌入,计算生成文本与参考文本在语义空间的相似度,相比ROUGE和BLEU,对同义表达的容忍度更高。METEOR——综合考虑精确率、召回率和词序对齐。检索评估指标包括:Hit@K——前K个检索结果中是否包含相关文档;MRR——第一个相关文档的排名的倒数的平均;NDCG@K——考虑排名位置加权的折损累积增益。自动评估的局限性在于:指标无法完全反映人类对质量的判断,例如一个ROUGE分高的摘要可能在逻辑上不连贯。因此,人工评估仍然是不可或缺的环节。人工评估通常从以下维度进行评分:正确性——生成内容的事实准确度;完整性——是否涵盖了所有关键信息;流畅性——语言表达的自然度和可读性;相关性——回答是否直接针对用户问题;一致性——模型多次生成的结果是否保持稳定。案例分析(Case Study)是深入理解模型行为的重要方法。通过选取成功案例、边界案例和失败案例,从检索质量、提示设计、模型能力等多个角度进行定性和定量分析,识别系统的优势和不足,为后续改进提供具体方向。好的评估报告应包含定量指标、定性分析和可操作的改进建议。",
+    "char_start": 0,
+    "char_end": 709,
+    "token_count": 679
+  },
+  {
+    "chunk_id": "chunk_000098",
+    "doc_id": "supplement_0100",
+    "content": "提示词工程(Prompt Engineering)是设计和优化输入给大语言模型的文本指令的实践,目的是引导模型生成高质量、符合预期的输出。随着LLM能力不断增强,提示词工程已成为AI应用开发的核心技能。基础提示策略包括:角色设定——在提示开头明确模型的角色定位(如'你是一位经验丰富的课程助教'),这会影响模型的语气、知识范围和回答风格。任务描述——清晰简洁地说明需要完成的具体任务。输出格式——明确要求输出的格式(如JSON、Markdown表格、要点列表),减少后处理负担。上下文注入——在提示中提供相关的背景信息或示例,帮助模型更好地理解任务需求。高级提示技术包括:少样本提示(Few-shot Prompting)——提供2-5个输入输出示例,让模型通过类比学习任务模式。思维链提示(Chain-of-Thought, CoT)——引导模型分步推理,'让我们一步一步思考'能显著提升数学和推理任务的准确率。自一致性(Self-Consistency)——生成多条推理路径,取多数共识作为最终答案。ReAct模式——交替进行推理(Reasoning)和行动(Acting),使模型能够在思考过程中调用外部工具。结构化提示——将提示分解为独立的模块化组件,如LangChain的PromptTemplate支持变量插值、模板组合和条件逻辑。在RAG系统中,提示词设计还需考虑:如何将检索到的上下文有效整合到提示中(位置、格式、截断策略),如何指示模型利用(或选择性忽略)检索材料,以及如何处理检索结果为空的边界情况。提示词还需要根据模型迭代更新——随着基础模型升级,提示可能需要相应调整以充分利用新能力。",
+    "char_start": 0,
+    "char_end": 704,
+    "token_count": 601
+  },
+  {
+    "chunk_id": "chunk_000099",
+    "doc_id": "supplement_0101",
+    "content": "优化算法是深度学习训练的核心,决定了模型能否高效收敛到理想的参数解。随机梯度下降(SGD)是最基础的优化算法:θ_{t+1}=θ_t-η∇L(θ_t),其中η是学习率。SGD的随机性来源于每次迭代仅使用一个小批量的数据来估计梯度,这种随机性帮助模型跳出局部最优。动量法(Momentum)通过累积历史梯度来加速收敛:v_t=βv_{t-1}+(1-β)∇L(θ_t), θ_{t+1}=θ_t-ηv_t。类比于物理学中的惯性,动量帮助参数在一致的梯度方向上加速前进,减少震荡。Nesterov动量在动量法的基础上增加了'前瞻'机制,在动量方向上的前瞻位置计算梯度。AdaGrad根据历史梯度的平方和对不同参数使用不同的学习率,适合稀疏特征但学习率单调递减可能过早停止。RMSProp引入指数移动平均来累积历史梯度平方和,避免了AdaGrad的学习率消失问题。Adam结合了Momentum和RMSProp的优点:m_t=β_1m_{t-1}+(1-β_1)∇L, v_t=β_2v_{t-1}+(1-β_2)(∇L)^2,θ_{t+1}=θ_t-η·m̂_t/(√v̂_t+ε)。Adam是目前最广泛使用的优化器,参数β_1=0.9, β_2=0.999, ε=1e-8通常效果很好。AdamW将权重衰减(Weight Decay)从Adam的自适应学习率中解耦出来,θ_{t+1}=θ_t-η·(m̂_t/(√v̂_t+ε)+λθ_t),这种解耦使得学习率和正则化可以独立调节。学习率调度策略对训练效果有重大影响:Warmup策略在训练初期线性增加学习率,避免模型在初始阶段不稳定;Cosine退火使学习率按余弦曲线逐渐衰减;阶梯衰减在预定义的epoch处将学习率乘以衰减因子。",
+    "char_start": 0,
+    "char_end": 740,
+    "token_count": 731
+  },
+  {
+    "chunk_id": "chunk_000100",
+    "doc_id": "supplement_0102",
+    "content": "正则化是防止深度学习模型过拟合的关键技术,通过向学习过程中引入约束或噪声来提升泛化能力。L1正则化向损失函数添加参数绝对值和:L_total=L_data+λΣ|w_i|。L1正则化倾向于产生稀疏解,即许多参数被置为零,天然具有特征选择的效果。L2正则化(权重衰减)添加参数平方和:L_total=L_data+λΣw_i^2。L2正则化使参数趋向于较小的值但不为零,对异常值更稳定。Dropout是深度神经网络中最有效的正则化技术之一。训练时,每个神经元以概率p被保留(通常p=0.5用于全连接层,p=0.8-0.9用于卷积层),以概率1-p被临时丢弃。Dropout迫使网络学习冗余表示,因为每个神经元不能依赖特定其他神经元的存在。测试时所有神经元都参与计算,但输出需乘以p以保持期望值一致。从集成学习的角度看,Dropout相当于每次训练一个随机子网络,测试时近似集成了指数多个子网络。Batch Normalization在提供训练稳定性外,也具有一定的正则化效果——mini-batch统计量的随机性引入了噪声。数据增强是最有效的正则化方法之一:图像领域包括随机裁剪、翻转、旋转、色彩抖动;NLP领域包括同义词替换、回译、随机插入/删除。数据增强通过增加有效训练数据量来减少过拟合。早停法(Early Stopping)监控验证集损失,当验证性能不再提升时停止训练,防止模型在训练集上过拟合。标签平滑(Label Smoothing)将硬标签(one-hot)替换为软标签,减少模型对训练标签的过度自信。混合使用多种正则化方法通常能取得更好的效果,但需要注意各方法之间的相互作用。",
+    "char_start": 0,
+    "char_end": 695,
+    "token_count": 671
+  },
+  {
+    "chunk_id": "chunk_000101",
+    "doc_id": "supplement_0103",
+    "content": "多模态大模型是当前AI研究的最前沿方向,旨在构建能同时处理和理解文本、图像、音频、视频等多种信息模态的统一模型。多模态学习的核心挑战在于不同模态之间的表示鸿沟:文本是离散的符号序列,图像是连续的像素网格,音频是时序的频谱数据。如何将这些异构数据映射到统一的表示空间是多模态模型的首要问题。视觉语言模型(VLM)是多模态模型的重要子类。CLIP通过对比学习在大规模图文对数据上训练,将图像和文本映射到共享的向量空间,使得匹配的图文对具有高相似度。BLIP-2通过轻量级的Q-Former桥接冻结的图像编码器和冻结的LLM,大幅降低了训练成本。LLaVA将视觉编码器的输出投影到LLM的输入空间,使LLM能够'看到'图像并进行视觉推理。GPT-4V和Gemini展示了多模态理解的商业级能力,能够进行复杂的视觉推理、图表理解和场景描述。多模态模型的关键技术包括:模态对齐——确保不同模态的表示在语义上一致;跨模态注意力——让文本关注图像的特定区域,或让图像关注文本的关键词;指令微调——使用多模态指令数据训练模型遵循复杂多模态指令。多模态模型的应用场景广泛:图文检索、视觉问答、图像描述生成、文档理解、UI自动化等。未来发展方向包括更高效的多模态融合架构、视频和3D内容的理解、以及多模态Agent系统的构建。",
+    "char_start": 0,
+    "char_end": 553,
+    "token_count": 562
+  },
+  {
+    "chunk_id": "chunk_000102",
+    "doc_id": "supplement_0104",
+    "content": "将深度学习模型从研究环境部署到生产环境面临算力、延迟和存储等多重约束。模型压缩技术在保持模型性能的同时显著降低资源需求。知识蒸馏(Knowledge Distillation)是经典的模型压缩方法:使用大型教师模型(Teacher)的软输出(Soft Target)来训练小型学生模型(Student)。软标签携带了教师模型的类别间关系知识,比硬标签包含更丰富的监督信息。蒸馏的损失函数为:L=α·L_CE(y,σ(z_s))+(1-α)·L_KL(σ(z_t/T),σ(z_s/T))·T²,其中T是温度参数,控制软标签的平滑程度。高温使输出分布更平滑,揭示更多类别间关系。模型量化通过降低数值精度来减少模型体积和加速推理:训练后量化(PTQ)直接在预训练模型上转换精度,如FP32→INT8,简单但有精度损失;量化感知训练(QAT)在训练过程中模拟量化效果,使模型适应低精度表示。模型剪枝移除不重要的连接或神经元,分为非结构化剪枝(单个权重置零,需稀疏矩阵运算支持)和结构化剪枝(整行/整列/整个滤波器移除,与现有硬件兼容更好)。神经架构搜索(NAS)自动搜索最优的网络结构,在效率和精度之间寻找最佳平衡点。在RAG系统的部署中,嵌入模型(如BGE-M3)的优化尤为重要:使用模型量化可以减少70%的内存占用,批处理推理可以最大化GPU利用率,模型缓存避免重复加载。对于边端设备,ONNX Runtime和TensorRT等推理引擎提供进一步的优化。",
+    "char_start": 0,
+    "char_end": 627,
+    "token_count": 625
+  },
+  {
+    "chunk_id": "chunk_000103",
+    "doc_id": "supplement_0105",
+    "content": "强化学习(Reinforcement Learning, RL)是机器学习的重要分支,研究智能体如何通过与环境交互来学习最优策略。强化学习的核心组件包括:智能体(Agent)、环境(Environment)、状态(State)、动作(Action)和奖励(Reward)。智能体在每个时间步观察当前状态s_t,选择动作a_t,环境返回下一个状态s_{t+1}和奖励r_t。目标是学习策略π(a|s),使累积折扣回报的期望最大化:J(π)=E[Σγ^t·r_t]。值函数方法通过学习状态或状态-动作对的价值来指导决策。Q-learning通过贝尔曼方程迭代更新Q值:Q(s,a)←Q(s,a)+α[r+γ·max_{a'}Q(s',a')-Q(s,a)]。深度Q网络(DQN)使用神经网络近似Q函数,通过经验回放(Experience Replay)和目标网络(Target Network)稳定训练。策略梯度方法直接优化参数化策略。REINFORCE算法使用蒙特卡洛采样估计梯度,Actor-Critic方法结合值函数(Critic)和策略(Actor),降低梯度估计方差。PPO(Proximal Policy Optimization)通过Clip机制限制策略更新幅度,是目前最广泛使用的RL算法之一。人类反馈强化学习(RLHF)是将RL应用于语言模型对齐的关键技术:首先收集人类对模型输出的偏好比较数据,训练奖励模型来预测人类偏好;然后使用PPO算法优化语言模型,使其输出获得高奖励。RLHF的关键挑战包括:奖励模型可能被'黑客'——模型学会输出形式上高分但实质上无意义的内容;人类偏好数据成本高昂;不同标注者的偏好可能不一致。DPO(Direct Preference Optimization)通过直接从偏好数据优化策略,避免了单独训练奖励模型的步骤,简化了RLHF流程。",
+    "char_start": 0,
+    "char_end": 791,
+    "token_count": 660
+  },
+  {
+    "chunk_id": "chunk_000104",
+    "doc_id": "supplement_0106",
+    "content": "迁移学习(Transfer Learning)是将从源任务中学到的知识应用于目标任务的方法,是深度学习取得广泛成功的关键因素之一。迁移学习的核心动机在于:大多数现实场景中标注数据稀缺,而大规模预训练模型提供了可复用的通用知识。预训练-微调范式是最常见的迁移学习形式:首先在大规模通用数据上预训练模型,然后在特定任务的标注数据上微调模型参数。特征迁移利用预训练模型的中间层表示作为下游任务的特征提取器。逐层迁移策略中,底层特征通常更通用(如边缘检测),顶层特征更任务特异(如语义分类)。微调策略对迁移效果有重要影响:全微调更新所有参数,计算成本最高但可能获得最佳效果;部分微调冻结底层,仅训练顶层,减少过拟合风险;逐层解冻从顶层开始逐步解冻各层。对于LLM,参数高效微调(PEFT)技术尤为重要:LoRA(Low-Rank Adaptation)在预训练权重矩阵旁添加低秩分解矩阵,仅训练新增的小参数矩阵,大幅减少可训练参数。Adapter在Transformer层间插入小瓶颈网络,训练时仅更新Adapter参数。Prefix Tuning在输入序列前添加可学习的虚拟token,通过优化这些token来适配下游任务。领域自适应(Domain Adaptation)解决源域和目标域分布不一致的问题,常用方法包括:对抗训练(如DANN)学习域不变的特征表示;最大均值差异(MMD)等分布距离最小化方法;自训练(Self-training)在半监督场景下利用模型预测为未标注数据生成伪标签。",
+    "char_start": 0,
+    "char_end": 644,
+    "token_count": 629
+  },
+  {
+    "chunk_id": "chunk_000105",
+    "doc_id": "supplement_0107",
+    "content": "注意力机制已经从简单的加权求和发展为深度学习中最核心的计算原语之一。加性注意力(Additive Attention,或称Bahdanau注意力)是最早应用于Seq2Seq的注意力形式:e_{ij}=v^T·tanh(W_1·h_i+W_2·s_{j-1}),通过可学习的参数向量v计算编码器状态h_i和解码器状态s_{j-1}之间的对齐分数。点积注意力(Dot-Product Attention)简化了计算:e_{ij}=h_i^T·s_{j-1},计算效率更高。缩放点积注意力(Scaled Dot-Product)进一步引入缩放因子:e_{ij}=h_i^T·s_{j-1}/√d,确保梯度稳定。自注意力使序列中的每个位置都能直接关注所有其他位置,建立了全局依赖关系,这是Transformer成功的关键。稀疏注意力通过限制每个位置的关注范围来降低计算复杂度:滑动窗口注意力仅关注局部窗口内的位置;膨胀滑动窗口周期性跳跃以扩大感受野;全局注意力选择少量特殊token关注全序列。Longformer和BigBird等模型使用稀疏注意力来处理长文档,将O(n²)的复杂度降至O(n)。FlashAttention是最近的重要工程创新,通过优化GPU内存访问模式来加速注意力计算。传统注意力计算需要将完整的QK^T矩阵写入HBM(高带宽内存),而FlashAttention通过分块(Tiling)计算和重计算(Recomputation)策略,在SRAM中完成尽可能多的计算,避免了HBM的IO瓶颈。这使得在A100 GPU上训练速度提升2-4倍,且内存占用显著降低。FlashAttention-2进一步优化了工作分区和并行化策略,使GPU利用率接近理论峰值。这些优化使得在消费级GPU上处理更长的上下文序列成为可能。",
+    "char_start": 0,
+    "char_end": 763,
+    "token_count": 622
+  },
+  {
+    "chunk_id": "chunk_000106",
+    "doc_id": "supplement_0108",
+    "content": "深度学习框架是AI研究和开发的基础工具。PyTorch由Meta AI开发,以动态计算图和Python优先的设计理念著称。动态计算图(Define-by-Run)意味着计算图在每次前向传播时动态构建,这使得调试更加直观——可以使用标准Python调试器(如pdb)在模型代码中设置断点。PyTorch的API设计遵循Python生态的惯例,易于学习和使用。torch.nn.Module提供了组织模型的标准方式,torch.utils.data.DataLoader提供高效数据加载。PyTorch Lighting和HuggingFace Transformers等高层库进一步简化了训练和部署流程。TensorFlow由Google开发,以静态计算图和部署生态为特点。静态计算图(Define-and-Run)在训练前定义完整图,允许编译器级别的图优化(如算子融合、常量折叠)。TensorFlow Serving和TensorFlow Lite提供了从云端到移动端的完整部署方案。TensorFlow 2.x引入Eager Execution,使动态图调试成为默认模式,缩小了与PyTorch的体验差距。JAX由Google Research开发,结合了NumPy风格的API和函数式编程范式。JAX的核心是函数变换:jit用于JIT编译加速、grad用于自动微分、vmap用于自动向量化。这些变换可以任意组合,提供了极大的灵活性。JAX的纯函数式设计使代码更易于并行化和分布式部署。对于课程项目,PyTorch生态(结合Transformers库)是最推荐的选择:文档完善、社区活跃、预训练模型丰富、从研究到部署的路径成熟。TensorFlow在工业界仍有广泛应用。JAX在前沿研究(特别是大规模模型训练)中越来越受欢迎,但学习曲线相对陡峭。",
+    "char_start": 0,
+    "char_end": 775,
+    "token_count": 600
+  },
+  {
+    "chunk_id": "chunk_000107",
+    "doc_id": "supplement_0109",
+    "content": "深度学习模型常被批评为'黑箱'系统,可解释性研究旨在打开这个黑箱,理解模型是如何做出决策的。可解释性对于建立信任、调试错误、确保公平和满足监管要求至关重要。特征归因方法旨在识别输入中对预测贡献最大的部分。Saliency Map计算输出对输入像素的梯度,梯度大的区域被认为更重要。Grad-CAM利用最后一个卷积层的梯度和特征图生成类别激活热力图,在图像分类中广泛使用。Integrated Gradients通过沿从基线到输入的路径积分梯度,满足敏感性和实现不变性等公理性质。LIME(Local Interpretable Model-agnostic Explanations)在模型局部拟合一个简单的可解释模型(如线性模型),通过修改输入并观察输出变化来理解局部行为。SHAP(SHapley Additive exPlanations)基于博弈论中的Shapley值,为每个特征分配公平的贡献分数。对于Transformer模型,注意力权重的可视化是最直观的可解释性方法:通过观察注意力矩阵中哪些token对彼此关注,可以了解模型的信息流动模式。但需要注意,高注意力权重不一定等于高重要性——注意力可能是稀疏或冗余的。探测(Probing)方法通过在模型中间表示上训练简单分类器,检验模型是否学到了某种语言属性(如词性、句法结构)。BERTology研究发现,BERT的中间层表示确实编码了丰富的语言结构信息。机械可解释性(Mechanistic Interpretability)是最近兴起的方向,试图将神经网络分解为可理解的'电路'组件,从底层理解模型的计算逻辑。在RAG系统中,可解释性体现在多个层面:检索步骤的可视化(展示哪些文档块被检索到)、来源标注(引用具体文档)、以及生成过程的归因分析(哪些检索内容影响了哪些生成片段)。",
+    "char_start": 0,
+    "char_end": 773,
+    "token_count": 677
+  }
+]
