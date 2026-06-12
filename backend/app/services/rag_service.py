@@ -6,6 +6,7 @@ LLM 调用、结果格式化"这些步骤串成统一服务，供路由层直接
 
 from __future__ import annotations
 
+import json
 import logging
 from dataclasses import replace
 from functools import lru_cache
@@ -382,8 +383,6 @@ class RagService:
         history: list[dict] | None = None,
     ):
         """流式 QA：先检索，然后逐 chunk 输出 LLM 回答。"""
-        import json
-
         total_start = perf_counter()
         results, metrics = self._retrieve_results_with_metrics(question, top_k, method=method)
 
