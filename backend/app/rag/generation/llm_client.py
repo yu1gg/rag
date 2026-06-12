@@ -51,6 +51,34 @@ class LLMClient:
         messages = [{"role": "user", "content": prompt}]
         return self.chat(messages, **kwargs)
 
+    def chat_stream(
+        self,
+        messages: List[dict],
+        temperature: float | None = None,
+        max_tokens: int | None = None,
+    ):
+        """流式调用 LLM，逐 chunk 返回 delta 文本。
+
+        注意：流式模式下不做应用层重试，因为 stream 不可回放。
+        网络中断由 OpenAI SDK 自身的 connect timeout 覆盖。
+        """
+        response = self.client.chat.completions.create(
+            model=self.model,
+            messages=messages,
+            temperature=temperature if temperature is not None else self.temperature,
+            max_tokens=max_tokens if max_tokens is not None else self.max_tokens,
+            stream=True,
+        )
+        for chunk in response:
+            delta = chunk.choices[0].delta.content if chunk.choices else ""
+            if delta:
+                yield delta
+
+    def answer_stream(self, prompt: str, **kwargs):
+        """流式单轮问答。"""
+        messages = [{"role": "user", "content": prompt}]
+        yield from self.chat_stream(messages, **kwargs)
+
     def summarize_long_text(self, text: str) -> str:
         estimated_tokens = len(text) / 1.5
         if estimated_tokens <= self.max_tokens * 0.7:
