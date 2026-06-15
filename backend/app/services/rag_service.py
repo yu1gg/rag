@@ -287,8 +287,9 @@ class RagService:
         context: str,
         temperature: float,
         max_tokens: int | None = None,
+        history: str = "",
     ) -> str:
-        prompt = self._get_prompts().format_prompt(mode, question, context)
+        prompt = self._get_prompts().format_prompt(mode, question, context, history=history)
         try:
             return self._get_llm().answer(prompt, temperature=temperature, max_tokens=max_tokens)
         except RuntimeError as exc:
@@ -316,7 +317,8 @@ class RagService:
         return references
 
     def answer_question(
-        self, question: str, top_k: int, temperature: float, method: str = "vector"
+        self, question: str, top_k: int, temperature: float,
+        method: str = "vector", history: list[dict] | None = None,
     ) -> dict:
         # QA 日志里单独记录完整链路耗时，方便把"检索慢"和"LLM 慢"区分开。
         total_start = perf_counter()
@@ -329,12 +331,14 @@ class RagService:
         metrics["context_chars"] = len(context)
 
         t0 = perf_counter()
+        history_str = self._format_chat_history(history) if history else ""
         answer = self.generate_answer(
             "qa",
             question,
             context,
             temperature,
             max_tokens=max(1, self.settings.qa_max_tokens),
+            history=history_str,
         )
         metrics["llm_s"] = round(perf_counter() - t0, 4)
         metrics["total_s"] = round(perf_counter() - total_start, 4)
@@ -388,6 +392,12 @@ class RagService:
 
         context, _ = self.build_qa_context(results)
         history_str = self._format_chat_history(history) if history else ""
+
+        if not context.strip():
+            logger.warning(
+                "QA stream: empty context after retrieval, question=%r result_count=%d",
+                question[:80], len(results),
+            )
 
         yield json.dumps({"type": "meta", "metrics": {"result_count": len(results)}}) + "\n"
 
