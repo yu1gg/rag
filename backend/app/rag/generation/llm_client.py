@@ -60,21 +60,28 @@ class LLMClient:
         """流式调用 LLM，逐 chunk 返回 delta 文本。
 
         注意：流式模式下不做应用层重试，因为 stream 不可回放。
-        网络中断由 OpenAI SDK 自身的 connect timeout 覆盖。
         """
-        response = self.client.chat.completions.create(
-            model=self.model,
-            messages=messages,
-            temperature=temperature if temperature is not None else self.temperature,
-            max_tokens=max_tokens if max_tokens is not None else self.max_tokens,
-            stream=True,
-        )
-        for chunk in response:
-            choice = chunk.choices[0] if chunk.choices else None
-            delta = choice.delta.content if (choice and choice.delta) else ""
-            if not delta:
-                continue
-            yield delta
+        import logging
+        logger = logging.getLogger(__name__)
+
+        try:
+            response = self.client.chat.completions.create(
+                model=self.model,
+                messages=messages,
+                temperature=temperature if temperature is not None else self.temperature,
+                max_tokens=max_tokens if max_tokens is not None else self.max_tokens,
+                stream=True,
+                stream_options={"include_usage": True},
+            )
+            for chunk in response:
+                choice = chunk.choices[0] if chunk.choices else None
+                delta = choice.delta.content if (choice and choice.delta) else ""
+                if not delta:
+                    continue
+                yield delta
+        except Exception as exc:
+            logger.error("chat_stream interrupted: %s", exc)
+            raise
 
     def answer_stream(self, prompt: str, **kwargs):
         """流式单轮问答。"""
