@@ -127,7 +127,7 @@
             </div>
 
             <div class="chat-message__bubble">
-              <p>{{ message.text }}</p>
+              <div class="chat-bubble-content" v-html="renderMarkdown(message.text)"></div>
               <div
                 v-if="message.status === 'loading'"
                 class="chat-message__loading"
@@ -278,6 +278,7 @@
 import { computed, nextTick, onMounted, reactive, ref, watch } from 'vue'
 import { RouterLink, useRoute, useRouter } from 'vue-router'
 
+import { marked } from 'marked'
 import { getErrorMessage } from '../api/error'
 import { fetchQaStream, fetchSummary } from '../api/rag'
 import { fetchDatasetStats, fetchHealth, fetchIndexStatus } from '../api/state'
@@ -392,6 +393,10 @@ const pipelineStage = computed(() => {
 
 function normalizeMode(value: unknown): ToolMode {
   return value === 'summary' ? value : 'qa'
+}
+
+function renderMarkdown(text: string): string {
+  return marked.parse(text, { breaks: true, async: false }) as string
 }
 
 function formatTime(value: string): string {
