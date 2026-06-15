@@ -88,3 +88,62 @@ input, textarea { font-family: inherit; }
   margin-top: 20px;
   line-height: 1.7;
 }
+
+/* ===== Header ===== */
+.workspace-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--graphite);
+}
+
+.workspace-header__title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.workspace-header__center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.workspace-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-link {
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding: 4px 10px;
+  border-radius: 6px;
+  transition: color 0.15s, background 0.15s;
+}
+.header-link:hover { color: var(--ink); background: var(--highlighter); }
+
+.mode-switcher {
+  display: flex;
+  gap: 2px;
+  background: var(--graphite);
+  border-radius: 8px;
+  padding: 3px;
+}
+
+.mode-switcher__button {
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--muted);
+  transition: all 0.15s;
+}
+.mode-switcher__button--active {
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
