@@ -631,3 +631,71 @@ input, textarea { font-family: inherit; }
   transition: all 0.15s;
 }
 .ghost-button:hover { background: var(--graphite); color: var(--ink); }
+
+/* ===== Home Page ===== */
+.home-page {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  text-align: center;
+  gap: 20px;
+  padding: 40px;
+}
+
+.home-title {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.home-subtitle {
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.home-card {
+  padding: 28px 24px;
+  border: 1px solid var(--graphite);
+  border-radius: 8px;
+  text-align: left;
+  transition: all 0.15s;
+}
+
+.home-card:hover {
+  border-color: var(--cinnabar);
+  background: rgba(193, 41, 46, 0.03);
+}
+
+.home-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.home-card p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.home-footer {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 16px;
+}
+
+.home-footer code {
+  font-family: var(--font-mono);
+  background: var(--graphite);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
