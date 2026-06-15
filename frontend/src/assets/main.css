@@ -90,6 +90,53 @@ input, textarea { font-family: inherit; }
   line-height: 1.7;
 }
 
+/* ===== Custom Scrollbar (Marginalia themed, auto-hide) ===== */
+.chat-stage,
+.workspace-sidebar,
+.workspace-info {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  transition: scrollbar-color 0.3s;
+}
+
+.chat-stage:hover,
+.workspace-sidebar:hover,
+.workspace-info:hover {
+  scrollbar-color: var(--graphite) transparent;
+}
+
+.chat-stage::-webkit-scrollbar,
+.workspace-sidebar::-webkit-scrollbar,
+.workspace-info::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-stage::-webkit-scrollbar-track,
+.workspace-sidebar::-webkit-scrollbar-track,
+.workspace-info::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-stage::-webkit-scrollbar-thumb,
+.workspace-sidebar::-webkit-scrollbar-thumb,
+.workspace-info::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 3px;
+  transition: background 0.3s;
+}
+
+.chat-stage:hover::-webkit-scrollbar-thumb,
+.workspace-sidebar:hover::-webkit-scrollbar-thumb,
+.workspace-info:hover::-webkit-scrollbar-thumb {
+  background: var(--graphite);
+}
+
+.chat-stage::-webkit-scrollbar-thumb:hover,
+.workspace-sidebar::-webkit-scrollbar-thumb:hover,
+.workspace-info::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
 /* ===== Header ===== */
 .workspace-header {
   display: flex;
