@@ -2,48 +2,55 @@
   <div class="workspace-shell">
     <aside
       class="workspace-sidebar"
-      :class="{ 'workspace-sidebar--open': mobileSessionsOpen }"
+      :class="{
+        'workspace-sidebar--collapsed': sidebarCollapsed,
+        'workspace-sidebar--open': mobileSessionsOpen
+      }"
     >
-      <div class="sidebar-head">
-        <div>
-          <p class="eyebrow">Workspace</p>
-          <h2>本地会话</h2>
-        </div>
-        <button class="ghost-button" type="button" @click="handleNewSession">
-          新对话
-        </button>
+      <div class="sidebar-toggle" @click="sidebarCollapsed = !sidebarCollapsed">
+        {{ sidebarCollapsed ? '▶' : '◀' }}
       </div>
-
-      <p class="sidebar-note">最近 20 个会话会自动保存在当前浏览器。</p>
-
-      <div class="session-list">
-        <button
-          v-for="session in sessions"
-          :key="session.id"
-          class="session-item"
-          :class="{ 'session-item--active': session.id === activeSessionId }"
-          type="button"
-          @click="handleSelectSession(session.id)"
-        >
-          <div class="session-item__body">
-            <div class="session-item__meta">
-              <span class="mode-badge mode-badge--muted">
-                {{ modeLabelMap[session.lastMode] }}
-              </span>
-              <time>{{ formatTime(session.updatedAt) }}</time>
-            </div>
-            <strong>{{ session.title }}</strong>
-            <p>{{ buildSessionPreview(session) }}</p>
+      <template v-if="!sidebarCollapsed">
+        <div class="sidebar-head">
+          <div>
+            <h2 class="sidebar-head__title">会话</h2>
           </div>
-          <span
-            class="session-item__delete"
-            title="删除会话"
-            @click.stop="handleDeleteSession(session.id)"
+          <button class="sidebar-new-btn" type="button" @click="handleNewSession">
+            +
+          </button>
+        </div>
+
+        <p class="sidebar-note">最近 20 个会话会自动保存在当前浏览器。</p>
+
+        <div class="session-list">
+          <button
+            v-for="session in sessions"
+            :key="session.id"
+            class="session-item"
+            :class="{ 'session-item--active': session.id === activeSessionId }"
+            type="button"
+            @click="handleSelectSession(session.id)"
           >
-            ×
-          </span>
-        </button>
-      </div>
+            <div class="session-item__body">
+              <div class="session-item__meta">
+                <span class="mode-badge mode-badge--muted">
+                  {{ modeLabelMap[session.lastMode] }}
+                </span>
+                <time>{{ formatTime(session.updatedAt) }}</time>
+              </div>
+              <strong>{{ session.title }}</strong>
+              <p>{{ buildSessionPreview(session) }}</p>
+            </div>
+            <span
+              class="session-item__delete"
+              title="删除会话"
+              @click.stop="handleDeleteSession(session.id)"
+            >
+              ×
+            </span>
+          </button>
+        </div>
+      </template>
     </aside>
 
     <section class="workspace-main">
@@ -321,6 +328,7 @@ const temperature = ref(0.7)
 const validationError = ref('')
 const isSubmitting = ref(false)
 const mobileSessionsOpen = ref(false)
+const sidebarCollapsed = ref(false)
 const statusLoading = ref(false)
 const messageListRef = ref<HTMLElement | null>(null)
 
