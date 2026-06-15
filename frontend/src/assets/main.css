@@ -308,3 +308,65 @@ input, textarea { font-family: inherit; }
   background: rgba(193, 41, 46, 0.08);
   color: var(--cinnabar);
 }
+
+/* ===== Marginalia Panel (Right) ===== */
+.detail-block {
+  margin-top: 20px;
+}
+
+.detail-block__meta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--graphite);
+}
+
+.system-status {
+  padding-top: 20px;
+  border-top: 1px solid var(--graphite);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: auto;
+}
+
+.system-status__label { margin-right: 4px; }
+
+.status-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--graphite);
+  flex-shrink: 0;
+}
+.status-dot--ok { background: #16a34a; }
+
+.summary-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.summary-stat {
+  padding: 14px;
+  border: 1px solid var(--graphite);
+  border-radius: 6px;
+  text-align: center;
+}
+
+.summary-stat__label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.summary-stat strong {
+  font-size: 1.15rem;
+}

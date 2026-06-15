@@ -220,113 +220,49 @@
     </section>
 
     <aside class="workspace-info">
-      <section class="info-card">
-        <div class="info-card__header">
-          <div>
-            <p class="section-tag">Signals</p>
-            <h2>系统状态</h2>
-          </div>
-          <button class="ghost-button" type="button" @click="refreshStatus" :disabled="statusLoading">
-            {{ statusLoading ? '刷新中...' : '刷新' }}
-          </button>
-        </div>
-
-        <div class="status-stack">
-          <article class="status-panel">
-            <div class="status-panel__head">
-              <h3>Health</h3>
-              <span v-if="healthState.data" class="status-dot" :class="{ 'status-dot--ok': healthState.data.index_ready }"></span>
-            </div>
-            <p v-if="healthState.error" class="status-panel__error">{{ healthState.error }}</p>
-            <template v-else-if="healthState.data">
-              <p>status: {{ healthState.data.status }}</p>
-              <p>version: {{ healthState.data.version }}</p>
-              <p>index_ready: {{ healthState.data.index_ready ? 'true' : 'false' }}</p>
-            </template>
-            <p v-else class="empty-state">等待加载状态信息。</p>
-          </article>
-
-          <article class="status-panel">
-            <div class="status-panel__head">
-              <h3>Index</h3>
-              <span
-                v-if="indexState.data"
-                class="status-dot"
-                :class="{ 'status-dot--ok': indexState.data.index_ready }"
-              ></span>
-            </div>
-            <p v-if="indexState.error" class="status-panel__error">{{ indexState.error }}</p>
-            <template v-else-if="indexState.data">
-              <p>vector_count: {{ indexState.data.vector_count }}</p>
-              <p>metadata_count: {{ indexState.data.metadata_count }}</p>
-            </template>
-            <p v-else class="empty-state">等待加载索引状态。</p>
-          </article>
-
-          <article class="status-panel">
-            <div class="status-panel__head">
-              <h3>Dataset</h3>
-              <span v-if="datasetState.data" class="status-dot status-dot--ok"></span>
-            </div>
-            <p v-if="datasetState.error" class="status-panel__error">{{ datasetState.error }}</p>
-            <template v-else-if="datasetState.data">
-              <p>documents: {{ datasetState.data.documents_count }}</p>
-              <p>qa_pairs: {{ datasetState.data.qa_pairs_count }}</p>
-              <p>chunks: {{ datasetState.data.chunks_count }}</p>
-            </template>
-            <p v-else class="empty-state">等待加载数据集统计。</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="info-card">
-        <div class="info-card__header">
-          <div>
-            <p class="section-tag">Detail</p>
-            <h2>当前结果详情</h2>
-          </div>
-        </div>
-
-        <div v-if="selectedDetailMessage" class="detail-block">
-          <div class="detail-block__meta">
-            <span class="mode-badge">{{ modeLabelMap[selectedDetailMessage.mode] }}</span>
-            <span>{{ selectedDetailMessage.status === 'error' ? '错误' : selectedDetailMessage.status === 'loading' ? '处理中' : '已完成' }}</span>
-            <time>{{ formatTime(selectedDetailMessage.createdAt) }}</time>
-          </div>
-
-          <template v-if="selectedDetailMessage.mode === 'summary'">
-            <div class="summary-stats">
-              <article>
-                <span>输入长度</span>
-                <strong>{{ selectedDetailMessage.meta.inputLength ?? 0 }}</strong>
-              </article>
-              <article>
-                <span>摘要长度</span>
-                <strong>{{ selectedDetailMessage.meta.outputLength ?? 0 }}</strong>
-              </article>
-            </div>
-            <p class="detail-note">
-              Summary 模式不会展示 references，右侧只保留长度统计和模式说明。
-            </p>
-          </template>
-
-          <template v-else>
-            <p class="detail-note">
-              QA 模式展示用于生成答案的参考片段。
-            </p>
-            <ReferenceList
-              :items="selectedDetailMessage.meta.references ?? []"
-              :empty-text="selectedDetailMessage.status === 'loading'
-                ? '正在等待后端返回参考片段。'
-                : '当前结果没有可展示的参考片段。'"
-            />
-          </template>
-        </div>
-
-        <p v-else class="empty-state">
-          还没有助手结果。发送第一条消息后，这里会跟随显示最新结果的详情。
+      <div>
+        <h2>批注来源</h2>
+        <p class="info-subtitle">
+          {{ selectedDetailMessage ? '点击消息的回看详情' : '最新回答的参考来源' }}
         </p>
-      </section>
+      </div>
+
+      <div v-if="selectedDetailMessage" class="detail-block">
+        <div class="detail-block__meta">
+          <span class="mode-badge">{{ modeLabelMap[selectedDetailMessage.mode] }}</span>
+          <time>{{ formatTime(selectedDetailMessage.createdAt) }}</time>
+        </div>
+
+        <template v-if="selectedDetailMessage.mode === 'summary'">
+          <div class="summary-stats">
+            <div class="summary-stat">
+              <span class="summary-stat__label">原文长度</span>
+              <strong>{{ selectedDetailMessage.meta.inputLength ?? 0 }}</strong>
+            </div>
+            <div class="summary-stat">
+              <span class="summary-stat__label">摘要长度</span>
+              <strong>{{ selectedDetailMessage.meta.outputLength ?? 0 }}</strong>
+            </div>
+          </div>
+        </template>
+
+        <ReferenceList
+          v-else
+          :items="selectedDetailMessage.meta.references ?? []"
+          empty-text="该回答没有关联的参考来源。"
+        />
+      </div>
+
+      <p v-else class="empty-state">
+        还没有助手结果。发送第一条消息后，这里会跟随显示最新结果的批注来源。
+      </p>
+
+      <div class="system-status">
+        <span class="status-dot" :class="{ 'status-dot--ok': healthState.data?.index_ready }"></span>
+        <span class="system-status__label">索引就绪</span>
+        <span class="status-dot" :class="{ 'status-dot--ok': indexState.data?.index_ready }" style="margin-left: 12px"></span>
+        <span class="system-status__label">{{ indexState.data?.vector_count ?? 0 }} 向量</span>
+      </div>
     </aside>
   </div>
 </template>
