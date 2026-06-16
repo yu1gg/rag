@@ -44,4 +44,8 @@ class Chunk:
     char_start: int
     char_end: int
     token_count: int
+    doc_title: str = ""
+    source: str = ""
+    url: str = ""
+    date: str = ""
 

@@ -50,6 +50,10 @@ class Chunker:
                         char_start=current_char_start,
                         char_end=current_char_start + len(current_text),
                         token_count=token_count,
+                        doc_title=doc.title,
+                        source=doc.source,
+                        url=doc.url or "",
+                        date=doc.date or "",
                     )
                 )
                 chunk_idx += 1
@@ -75,6 +79,10 @@ class Chunker:
                     char_start=current_char_start,
                     char_end=current_char_start + len(current_text),
                     token_count=token_count,
+                    doc_title=doc.title,
+                    source=doc.source,
+                    url=doc.url or "",
+                    date=doc.date or "",
                 )
             )
 
