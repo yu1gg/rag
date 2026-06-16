@@ -56,21 +56,20 @@
     <section class="workspace-main">
       <div class="chat-stage">
         <div v-if="!activeSession?.messages.length" class="welcome-panel">
-          <p class="section-tag">Start Here</p>
-          <h2>默认是聊天界面，不再是工具表单页</h2>
+          <h2>开始对话</h2>
           <p>
-            输入框上方可以切换 <code>QA</code> 和 <code>Summary</code>
-            两种模式。当前模式决定这次发送会调用哪个后端接口。
+            发送第一条消息开始使用
+            <strong>智能问答</strong>或<strong>文本摘要</strong>。
           </p>
 
           <div class="welcome-grid">
             <article>
-              <h3>QA</h3>
-              <p>适合知识问答，主区展示答案，右侧展示参考片段。</p>
+              <h3>智能问答</h3>
+              <p>输入问题，基于知识库检索相关内容，生成带来源标注的答案。</p>
             </article>
             <article>
-              <h3>Summary</h3>
-              <p>适合长文本压缩，右侧展示输入/输出长度和模式说明。</p>
+              <h3>文本摘要</h3>
+              <p>上传或粘贴长文本，自动提取核心主题、关键要点与详细摘要。</p>
             </article>
           </div>
         </div>
