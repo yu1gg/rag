@@ -20,7 +20,17 @@ class VectorStore:
     def size(self) -> int:
         return self.index.ntotal
 
-    def add(self, chunk_ids: List[str], vectors: np.ndarray, contents: List[str], doc_ids: List[str]):
+    def add(
+        self,
+        chunk_ids: List[str],
+        vectors: np.ndarray,
+        contents: List[str],
+        doc_ids: List[str],
+        doc_titles: List[str] | None = None,
+        sources: List[str] | None = None,
+        urls: List[str] | None = None,
+        dates: List[str] | None = None,
+    ):
         if vectors.shape[0] == 0:
             return
 
@@ -32,11 +42,20 @@ class VectorStore:
         self.index.add(vectors)
 
         for i, (chunk_id, content, doc_id) in enumerate(zip(chunk_ids, contents, doc_ids)):
-            self.metadata[start_id + i] = {
+            meta = {
                 "chunk_id": chunk_id,
                 "doc_id": doc_id,
                 "content": content,
             }
+            if doc_titles:
+                meta["doc_title"] = doc_titles[i]
+            if sources:
+                meta["source"] = sources[i]
+            if urls:
+                meta["url"] = urls[i]
+            if dates:
+                meta["date"] = dates[i]
+            self.metadata[start_id + i] = meta
 
     def search(self, query_vec: np.ndarray, k: int = 5) -> List[Tuple[int, float]]:
         if self.index.ntotal == 0:

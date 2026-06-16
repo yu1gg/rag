@@ -21,6 +21,10 @@ class IndexService:
         chunk_ids = [chunk.chunk_id for chunk in chunks]
         contents = [chunk.content for chunk in chunks]
         doc_ids = [chunk.doc_id for chunk in chunks]
+        doc_titles = [chunk.doc_title for chunk in chunks]
+        sources = [chunk.source for chunk in chunks]
+        urls = [chunk.url for chunk in chunks]
+        dates = [chunk.date for chunk in chunks]
 
         embedder = Embedder(
             model_name=self.settings.embedding_model,
@@ -29,7 +33,7 @@ class IndexService:
         vectors = embedder.encode(contents, batch_size=self.settings.embedding_batch_size)
 
         store = VectorStore(dim=embedder.dim)
-        store.add(chunk_ids, vectors, contents, doc_ids)
+        store.add(chunk_ids, vectors, contents, doc_ids, doc_titles, sources, urls, dates)
         store.save(self.settings.faiss_index_path, self.settings.chunk_meta_path)
         return self.index_status()
 
