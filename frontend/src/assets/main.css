@@ -80,9 +80,9 @@ input, textarea { font-family: inherit; }
   display: grid;
   grid-template-columns: 240px minmax(0, 1fr) 320px;
   gap: 0;
-  height: 100vh;
+  height: calc(100vh - 52px);
   max-width: 1540px;
-  margin: 0 auto;
+  margin: 52px auto 0;
   overflow: hidden;
 }
 
@@ -1001,6 +1001,9 @@ input, textarea { font-family: inherit; }
     display: none;
   }
 }
+
+/* ===== Global AppHeader offset ===== */
+.app-header-spacer { height: 52px; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
