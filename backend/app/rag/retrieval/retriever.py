@@ -40,6 +40,8 @@ class Retriever:
                     doc_id=meta.get("doc_id", ""),
                     content=meta.get("content", ""),
                     score=score,
+                    doc_title=meta.get("doc_title", ""),
+                    source=meta.get("source", ""),
                 )
             )
         return results

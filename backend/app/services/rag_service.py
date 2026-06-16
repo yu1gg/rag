@@ -312,6 +312,8 @@ class RagService:
                     "doc_id": result.doc_id,
                     "score": result.score,
                     "excerpt": excerpt,
+                    "doc_title": result.doc_title,
+                    "source": result.source,
                 }
             )
         return references

@@ -20,6 +20,10 @@ class _ChunkRecord:
     chunk_id: str
     doc_id: str
     content: str
+    doc_title: str = ""
+    source: str = ""
+    url: str = ""
+    date: str = ""
 
 
 class KeywordRetriever:
@@ -48,6 +52,10 @@ class KeywordRetriever:
                     chunk_id=meta.get("chunk_id", ""),
                     doc_id=meta.get("doc_id", ""),
                     content=content,
+                    doc_title=meta.get("doc_title", ""),
+                    source=meta.get("source", ""),
+                    url=meta.get("url", ""),
+                    date=meta.get("date", ""),
                 )
             )
 
@@ -100,6 +108,8 @@ class KeywordRetriever:
                     doc_id=rec.doc_id,
                     content=rec.content,
                     score=norm,
+                    doc_title=rec.doc_title,
+                    source=rec.source,
                 )
             )
         return results
