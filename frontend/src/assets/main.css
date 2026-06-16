@@ -619,6 +619,37 @@ input, textarea { font-family: inherit; }
   border-top: 1px solid var(--graphite);
 }
 
+.upload-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.upload-bar__input {
+  display: none;
+}
+
+.upload-bar__button {
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  color: var(--muted);
+  border: 1px solid var(--graphite);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.upload-bar__button:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.upload-bar__hint {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
 .retrieval-switcher {
   display: flex;
   gap: 2px;

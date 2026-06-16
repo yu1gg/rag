@@ -204,6 +204,24 @@
           </p>
         </div>
 
+        <div v-if="currentMode === 'summary'" class="upload-bar">
+          <input
+            ref="fileInput"
+            type="file"
+            accept=".txt,.md,.text,text/plain"
+            class="upload-bar__input"
+            @change="handleFileUpload"
+          />
+          <button
+            type="button"
+            class="upload-bar__button"
+            @click="fileInput?.click()"
+          >
+            📎 上传文件
+          </button>
+          <span class="upload-bar__hint">.txt .md</span>
+        </div>
+
         <p v-if="validationError" class="composer-error">{{ validationError }}</p>
 
         <div class="composer-box">
@@ -324,6 +342,7 @@ const modeToRoute: Record<ToolMode, string> = {
 const modes: ToolMode[] = ['qa', 'summary']
 const retrievalMethod = ref<'vector' | 'keyword'>('vector')
 const draft = ref('')
+const fileInput = ref<HTMLInputElement | null>(null)
 const topK = ref(5)
 const temperature = ref(0.7)
 const validationError = ref('')
@@ -615,6 +634,30 @@ async function handleSubmit(): Promise<void> {
   } finally {
     await scrollToBottom()
   }
+}
+
+function handleFileUpload(event: Event): void {
+  const input = event.target as HTMLInputElement
+  const file = input.files?.[0]
+  if (!file) return
+
+  if (file.size > 1024 * 1024) {
+    validationError.value = '文件不能超过 1MB。'
+    return
+  }
+
+  const reader = new FileReader()
+  reader.onload = () => {
+    const text = reader.result as string
+    draft.value = draft.value ? `${draft.value}\n\n${text}` : text
+    validationError.value = ''
+  }
+  reader.onerror = () => {
+    validationError.value = '文件读取失败，请重试。'
+  }
+  reader.readAsText(file)
+  // 重置 input 以便重复选择同一文件
+  input.value = ''
 }
 
 function handleKeydown(event: KeyboardEvent): void {
