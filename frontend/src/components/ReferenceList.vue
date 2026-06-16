@@ -101,8 +101,8 @@ function renderMarkdown(text: string): string {
 }
 
 .reference-card:hover {
-  border-color: rgba(193, 41, 46, 0.4);
-  background: rgba(193, 41, 46, 0.02);
+  border-color: rgba(45, 90, 110, 0.4);
+  background: rgba(45, 90, 110, 0.02);
   transform: translateX(2px);
 }
 
@@ -120,7 +120,7 @@ function renderMarkdown(text: string): string {
 }
 
 .reference-card:hover .reference-card__bar {
-  background: rgba(193, 41, 46, 0.3);
+  background: rgba(45, 90, 110, 0.3);
 }
 
 .reference-card__body {
@@ -298,7 +298,7 @@ function renderMarkdown(text: string): string {
   margin: 0.8em 0;
   padding: 8px 16px;
   border-left: 3px solid var(--cinnabar);
-  background: rgba(193, 41, 46, 0.04);
+  background: rgba(45, 90, 110, 0.04);
   border-radius: 0 4px 4px 0;
   color: var(--muted);
 }

@@ -54,39 +54,6 @@
     </aside>
 
     <section class="workspace-main">
-      <header class="workspace-header">
-        <button
-          class="ghost-button ghost-button--mobile"
-          type="button"
-          @click="mobileSessionsOpen = !mobileSessionsOpen"
-        >
-          {{ mobileSessionsOpen ? '收起会话' : '打开会话' }}
-        </button>
-        <h1 class="workspace-header__title">project_X</h1>
-
-        <div class="workspace-header__center">
-          <PipelineIndicator
-            :stage="pipelineStage"
-            :active="isSubmitting"
-          />
-        </div>
-
-        <div class="workspace-header__actions">
-          <div class="mode-switcher">
-            <button
-              v-for="mode in modes"
-              :key="mode"
-              class="mode-switcher__button"
-              :class="{ 'mode-switcher__button--active': currentMode === mode }"
-              @click="handleModeSwitch(mode)"
-            >
-              {{ modeLabelMap[mode] }}
-            </button>
-          </div>
-          <a class="header-link" :href="docsUrl" target="_blank" rel="noreferrer">API</a>
-        </div>
-      </header>
-
       <div class="chat-stage">
         <div v-if="!activeSession?.messages.length" class="welcome-panel">
           <p class="section-tag">Start Here</p>
@@ -311,7 +278,6 @@ import { getErrorMessage } from '../api/error'
 import { fetchQaStream, fetchSummary } from '../api/rag'
 import { fetchDatasetStats, fetchHealth, fetchIndexStatus } from '../api/state'
 import ReferenceList from '../components/ReferenceList.vue'
-import PipelineIndicator from '../components/PipelineIndicator.vue'
 import { appTitle } from '../stores/app'
 import { useChatWorkspace } from '../stores/chatWorkspace'
 import type {
@@ -410,14 +376,6 @@ const selectedDetailMessage = computed<ChatMessage | null>(() => {
 const docsUrl = computed(() => {
   const apiBase = import.meta.env.VITE_API_BASE_URL ?? 'http://127.0.0.1:8050/api/v1'
   return apiBase.replace(/\/api\/v1\/?$/, '/docs')
-})
-
-const pipelineStage = computed(() => {
-  if (!activeSession.value?.messages.length) return 0
-  const last = activeSession.value.messages[activeSession.value.messages.length - 1]
-  if (last.role === 'user' || last.status === 'loading') return 1
-  if (last.status === 'success') return 3
-  return 0
 })
 
 function normalizeMode(value: unknown): ToolMode {
