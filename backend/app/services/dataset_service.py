@@ -9,6 +9,7 @@ from backend.app.rag.data.cleaner import Deduplicator, TextCleaner
 from backend.app.rag.data.collector import (
     ArxivCollector,
     CourseMaterialCollector,
+    DeepSeekDocsCollector,
     NewsCollector,
     QAPairCollector,
 )
@@ -45,7 +46,9 @@ class DatasetService:
             qa_pairs_path=self.settings.qa_pairs_path,
         ).collect()
 
-        all_docs = arxiv_docs + news_docs + course_docs
+        deepseek_docs = DeepSeekDocsCollector().collect()
+
+        all_docs = arxiv_docs + news_docs + course_docs + deepseek_docs
         current_chars = sum(doc.char_count for doc in all_docs)
         if len(all_docs) < self.TARGET_DOCS or current_chars < self.TARGET_CHARS:
             shortfall_chars = max(0, self.TARGET_CHARS - current_chars)

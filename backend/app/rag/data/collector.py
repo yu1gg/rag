@@ -296,3 +296,91 @@ class QAPairCollector:
             topic_idx += 1
         return qa_pairs
 
+
+class DeepSeekDocsCollector:
+    """爬取 DeepSeek API 文档 (https://api-docs.deepseek.com/zh-cn)。"""
+
+    BASE = "https://api-docs.deepseek.com/zh-cn"
+
+    PAGES = [
+        ("deepseek_0001", "首次调用 API", "/"),
+        ("deepseek_0002", "模型与价格", "/quick_start/pricing"),
+        ("deepseek_0003", "Token 用量计算", "/quick_start/token_usage"),
+        ("deepseek_0004", "限速与隔离", "/quick_start/rate_limit"),
+        ("deepseek_0005", "错误码", "/quick_start/error_codes"),
+        ("deepseek_0006", "思考模式", "/guides/thinking_mode"),
+        ("deepseek_0007", "多轮对话", "/guides/multi_round_chat"),
+        ("deepseek_0008", "对话前缀续写", "/guides/chat_prefix_completion"),
+        ("deepseek_0009", "FIM 补全", "/guides/fim_completion"),
+        ("deepseek_0010", "JSON Output", "/guides/json_mode"),
+        ("deepseek_0011", "Tool Calls", "/guides/tool_calls"),
+        ("deepseek_0012", "上下文硬盘缓存", "/guides/kv_cache"),
+        ("deepseek_0013", "Anthropic API", "/guides/anthropic_api"),
+        ("deepseek_0014", "API 文档", "/api/deepseek-api"),
+        ("deepseek_0015", "新闻", "/news/news260424"),
+        ("deepseek_0016", "常见问题", "/faq"),
+        ("deepseek_0017", "更新日志", "/updates"),
+        ("deepseek_0018", "接入 Agent 工具", "/quick_start/agent_integrations/claude_code"),
+        ("deepseek_0019", "Langcli", "/quick_start/langcli"),
+        ("deepseek_0020", "推理模式 (Reasoning)", "/guides/reasoning"),
+    ]
+
+    def __init__(self, timeout: int = 30):
+        self.timeout = timeout
+
+    def collect(self) -> list[Document]:
+        from bs4 import BeautifulSoup
+
+        today = __import__("datetime").date.today().isoformat()
+        docs: list[Document] = []
+
+        for doc_id, title, path in self.PAGES:
+            url = f"{self.BASE}{path}"
+            try:
+                response = requests.get(url, timeout=self.timeout, headers={
+                    "User-Agent": "Mozilla/5.0 (compatible; DeepSeekDocsBot/1.0)"
+                })
+                response.raise_for_status()
+            except Exception as exc:
+                import logging
+                logging.getLogger(__name__).warning(
+                    "DeepSeekDocsCollector: failed to fetch %s: %s", url, exc
+                )
+                continue
+
+            soup = BeautifulSoup(response.text, "html.parser")
+
+            content_parts = []
+            main = soup.find("main") or soup.find("article") or soup
+            for el in main.find_all(["h1", "h2", "h3", "h4", "p", "pre", "li", "code"]):
+                text = el.get_text(strip=True)
+                if not text:
+                    continue
+                if el.name in ("h1", "h2", "h3", "h4"):
+                    prefix = "#" * (3 - int(el.name[1]) + 1) if el.name[1] in "234" else "##"
+                    content_parts.append(f"{prefix} {text}")
+                elif el.name == "pre":
+                    content_parts.append(f"```\n{text}\n```")
+                else:
+                    content_parts.append(text)
+
+            content = "\n\n".join(content_parts)
+            if len(content) < 100:
+                import logging
+                logging.getLogger(__name__).warning(
+                    "DeepSeekDocsCollector: content too short (%d chars) for %s",
+                    len(content), title
+                )
+                continue
+
+            docs.append(Document(
+                id=doc_id,
+                title=title,
+                content=content,
+                source="deepseek_docs",
+                url=url,
+                date=today,
+            ))
+
+        return docs
+
