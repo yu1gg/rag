@@ -9,7 +9,8 @@ from backend.main import create_app
 
 class FakeRagService:
     def answer_question(
-        self, question: str, top_k: int, temperature: float, method: str = "vector"
+        self, question: str, top_k: int, temperature: float,
+        method: str = "vector", history: list[dict] | None = None,
     ) -> dict:
         return {
             "answer": f"mock-answer:{question}:{top_k}:{temperature}:{method}",
@@ -30,7 +31,8 @@ class FakeRagService:
 
 class FailingRagService:
     def answer_question(
-        self, question: str, top_k: int, temperature: float, method: str = "vector"
+        self, question: str, top_k: int, temperature: float,
+        method: str = "vector", history: list[dict] | None = None,
     ) -> dict:
         raise ServiceUnavailableError("索引尚未就绪")
 

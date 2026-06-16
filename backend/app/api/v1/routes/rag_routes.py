@@ -19,6 +19,7 @@ def qa(payload: QaRequest, service: RagService = Depends(get_rag_service)) -> di
         top_k=payload.top_k,
         temperature=payload.temperature,
         method=payload.method,
+        history=payload.history,
     )
     return success_response(result)
 
@@ -46,6 +47,7 @@ def qa_stream(
             top_k=payload.top_k,
             temperature=payload.temperature,
             method=payload.method,
+            history=payload.history,
         ):
             yield f"data: {line}\n\n"
         yield "data: [DONE]\n\n"
