@@ -80,16 +80,26 @@ class KeywordRetriever:
 
         top_indices = scores.argsort()[::-1][:k]
 
+        # 归一化：最高分映射到 1.0，其他按比例缩放
+        max_score = float(scores[top_indices[0]]) if len(top_indices) > 0 else 1.0
+
         results: List[SearchResult] = []
         for idx in top_indices:
-            score = float(scores[idx])
+            raw = float(scores[idx])
+            # 绝对分数太低说明没有关键词命中，直接跳过
+            if raw <= 0:
+                continue
+            norm = round(raw / max_score, 4) if max_score > 0 else 0.0
+            # 归一化后低于 10% 的弱匹配也跳过，避免噪声
+            if norm < 0.1:
+                continue
             rec = self._records[idx]
             results.append(
                 SearchResult(
                     chunk_id=rec.chunk_id,
                     doc_id=rec.doc_id,
                     content=rec.content,
-                    score=round(score, 4),
+                    score=norm,
                 )
             )
         return results
