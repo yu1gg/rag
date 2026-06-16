@@ -348,6 +348,7 @@ class DeepSeekDocsCollector:
                 )
                 continue
 
+            response.encoding = "utf-8"
             soup = BeautifulSoup(response.text, "html.parser")
 
             content_parts = []
