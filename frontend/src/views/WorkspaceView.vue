@@ -271,12 +271,12 @@
           </div>
           <div v-if="selectedDetailMessage.meta.coreTheme" class="summary-core">
             <span class="summary-core__label">核心主题</span>
-            <p class="summary-core__text">{{ selectedDetailMessage.meta.coreTheme }}</p>
+            <p class="summary-core__text" v-html="renderMarkdown(selectedDetailMessage.meta.coreTheme)"></p>
           </div>
           <div v-if="(selectedDetailMessage.meta.keyPoints as string[])?.length" class="summary-points">
             <span class="summary-points__label">关键要点</span>
             <ul class="summary-points__list">
-              <li v-for="(pt, i) in (selectedDetailMessage.meta.keyPoints as string[])" :key="i">{{ pt }}</li>
+              <li v-for="(pt, i) in (selectedDetailMessage.meta.keyPoints as string[])" :key="i" v-html="renderMarkdown(pt)"></li>
             </ul>
           </div>
         </template>
