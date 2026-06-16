@@ -10,6 +10,10 @@ export interface ReferenceItem {
   doc_id: string
   score: number
   excerpt: string
+  doc_title?: string
+  source?: string
+  url?: string
+  date?: string
 }
 
 export interface QaPayload {
@@ -17,6 +21,7 @@ export interface QaPayload {
   top_k?: number
   temperature?: number
   method?: 'vector' | 'keyword'
+  history?: { role: 'user' | 'assistant'; content: string }[]
 }
 
 export interface QaResult {

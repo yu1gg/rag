@@ -12,7 +12,20 @@
           <span class="reference-score">{{ (item.score * 100).toFixed(0) }}%</span>
         </div>
         <p class="reference-excerpt">{{ item.excerpt }}</p>
-        <div class="reference-id">chunk: {{ item.chunk_id }}</div>
+        <div class="reference-source">
+          <span v-if="item.doc_title" class="reference-source__title">{{ item.doc_title }}</span>
+          <span class="reference-source__meta">
+            <span v-if="item.source">{{ item.source }}</span>
+            <span v-if="item.date"> · {{ item.date }}</span>
+            <a
+              v-if="item.url"
+              :href="item.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="reference-source__link"
+            >&nearr; 查看原文</a>
+          </span>
+        </div>
       </div>
     </article>
   </div>
@@ -92,9 +105,35 @@ defineProps<{
   color: var(--ink);
 }
 
-.reference-id {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
+.reference-source {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--graphite);
+  display: grid;
+  gap: 4px;
+}
+
+.reference-source__title {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.reference-source__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 0.75rem;
   color: var(--muted);
+}
+
+.reference-source__link {
+  color: var(--cinnabar);
+  text-decoration: none;
+  font-weight: 500;
+}
+.reference-source__link:hover {
+  text-decoration: underline;
 }
 </style>
