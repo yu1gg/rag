@@ -314,6 +314,8 @@ class RagService:
                     "excerpt": excerpt,
                     "doc_title": result.doc_title,
                     "source": result.source,
+                    "url": result.url,
+                    "date": result.date,
                 }
             )
         return references

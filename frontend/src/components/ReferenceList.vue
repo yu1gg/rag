@@ -4,6 +4,8 @@
       v-for="item in items"
       :key="item.chunk_id"
       class="reference-card"
+      :class="{ 'reference-card--expanded': expandedId === item.chunk_id }"
+      @click="expandedId = expandedId === item.chunk_id ? '' : item.chunk_id"
     >
       <div class="reference-card__dot"></div>
       <div class="reference-card__body">
@@ -17,14 +19,15 @@
           <span class="reference-source__meta">
             <span v-if="item.source">{{ item.source }}</span>
             <span v-if="item.date"> · {{ item.date }}</span>
-            <a
-              v-if="item.url"
-              :href="item.url"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="reference-source__link"
-            >&nearr; 查看原文</a>
           </span>
+          <a
+            v-if="item.url"
+            :href="item.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="reference-source__link"
+            @click.stop
+          >&nearr; 查看原文</a>
         </div>
       </div>
     </article>
@@ -33,12 +36,15 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import type { ReferenceItem } from '../../types/api'
 
 defineProps<{
   items: ReferenceItem[]
   emptyText: string
 }>()
+
+const expandedId = ref('')
 </script>
 
 <style scoped>
@@ -53,11 +59,18 @@ defineProps<{
   padding: 14px;
   border: 1px solid var(--graphite);
   border-radius: 6px;
-  transition: border-color 0.15s;
+  transition: border-color 0.15s, background 0.15s;
+  cursor: pointer;
 }
 
 .reference-card:hover {
   border-color: var(--cinnabar);
+  background: rgba(193, 41, 46, 0.03);
+}
+
+.reference-card--expanded {
+  border-color: var(--cinnabar);
+  background: rgba(193, 41, 46, 0.05);
 }
 
 .reference-card__dot {
@@ -129,9 +142,14 @@ defineProps<{
 }
 
 .reference-source__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
   color: var(--cinnabar);
   text-decoration: none;
   font-weight: 500;
+  font-size: 0.82rem;
 }
 .reference-source__link:hover {
   text-decoration: underline;

@@ -110,6 +110,8 @@ class KeywordRetriever:
                     score=norm,
                     doc_title=rec.doc_title,
                     source=rec.source,
+                    url=rec.url,
+                    date=rec.date,
                 )
             )
         return results

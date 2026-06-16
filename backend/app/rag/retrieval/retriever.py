@@ -17,6 +17,8 @@ class SearchResult:
     score: float
     doc_title: str = ""
     source: str = ""
+    url: str = ""
+    date: str = ""
 
 
 class Retriever:
@@ -42,6 +44,8 @@ class Retriever:
                     score=score,
                     doc_title=meta.get("doc_title", ""),
                     source=meta.get("source", ""),
+                    url=meta.get("url", ""),
+                    date=meta.get("date", ""),
                 )
             )
         return results
