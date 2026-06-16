@@ -12,6 +12,8 @@ export interface ChatMessageMeta {
   topK?: number
   temperature?: number
   method?: string
+  coreTheme?: string
+  keyPoints?: string[]
 }
 
 export interface ChatMessage {

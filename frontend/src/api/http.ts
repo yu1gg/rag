@@ -6,11 +6,12 @@ const API_BASE_URL =
 export async function request<T>(
   path: string,
   init?: RequestInit,
+  timeoutMs = 30000,
 ): Promise<ApiEnvelope<T>> {
   let response: Response
   try {
     response = await fetch(`${API_BASE_URL}${path}`, {
-      signal: AbortSignal.timeout(30000),
+      signal: AbortSignal.timeout(timeoutMs),
       headers: {
         'Content-Type': 'application/json',
         ...(init?.headers ?? {}),

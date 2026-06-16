@@ -261,13 +261,23 @@
         <template v-if="selectedDetailMessage.mode === 'summary'">
           <div class="summary-stats">
             <div class="summary-stat">
-              <span class="summary-stat__label">原文长度</span>
+              <span class="summary-stat__label">原文</span>
               <strong>{{ selectedDetailMessage.meta.inputLength ?? 0 }}</strong>
             </div>
             <div class="summary-stat">
-              <span class="summary-stat__label">摘要长度</span>
+              <span class="summary-stat__label">摘要</span>
               <strong>{{ selectedDetailMessage.meta.outputLength ?? 0 }}</strong>
             </div>
+          </div>
+          <div v-if="selectedDetailMessage.meta.coreTheme" class="summary-core">
+            <span class="summary-core__label">核心主题</span>
+            <p class="summary-core__text">{{ selectedDetailMessage.meta.coreTheme }}</p>
+          </div>
+          <div v-if="(selectedDetailMessage.meta.keyPoints as string[])?.length" class="summary-points">
+            <span class="summary-points__label">关键要点</span>
+            <ul class="summary-points__list">
+              <li v-for="(pt, i) in (selectedDetailMessage.meta.keyPoints as string[])" :key="i">{{ pt }}</li>
+            </ul>
           </div>
         </template>
 
@@ -412,6 +422,27 @@ const pipelineStage = computed(() => {
 
 function normalizeMode(value: unknown): ToolMode {
   return value === 'summary' ? value : 'qa'
+}
+
+interface ParsedSummary {
+  coreTheme: string
+  keyPoints: string[]
+  detail: string
+}
+
+function parseSummary(text: string): ParsedSummary {
+  const core = text.match(/【核心主题】\s*[:：]?\s*(.*?)(?=【关键要点】|【详细摘要】|$)/s)
+  const points = text.match(/【关键要点】\s*[:：]?\s*(.*?)(?=【详细摘要】|$)/s)
+  const detail = text.match(/【详细摘要】\s*[:：]?\s*(.*)/s)
+
+  return {
+    coreTheme: core?.[1]?.trim() || '',
+    keyPoints: points?.[1]
+      ?.split(/[;；\n]/)
+      .map(s => s.replace(/^[-\d.]+\s*/, '').trim())
+      .filter(Boolean) || [],
+    detail: detail?.[1]?.trim() || text,
+  }
 }
 
 function renderMarkdown(text: string): string {
@@ -615,13 +646,16 @@ async function handleSubmit(): Promise<void> {
     } else {
       const response = await fetchSummary(payload as SummaryPayload)
       const summary = response.data?.summary?.trim() ?? ''
+      const parsed = parseSummary(summary)
       updateMessage(session.id, pendingMessage.id, {
-        text: summary || '摘要接口已返回，但摘要为空。',
+        text: parsed.detail || summary || '摘要接口已返回，但摘要为空。',
         status: 'success',
         meta: {
           inputLength: (payload as SummaryPayload).text.length,
           outputLength: summary.length,
           temperature: (payload as SummaryPayload).temperature,
+          coreTheme: parsed.coreTheme,
+          keyPoints: parsed.keyPoints,
         },
       })
     }

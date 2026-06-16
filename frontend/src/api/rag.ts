@@ -21,7 +21,7 @@ export function fetchSummary(
   return request<SummaryResult>('/rag/summary', {
     method: 'POST',
     body: JSON.stringify(payload),
-  })
+  }, 120000)
 }
 
 export async function* fetchQaStream(
@@ -36,7 +36,3 @@ export async function* fetchQaStream(
     yield JSON.parse(line) as QaStreamEvent
   }
 }
-
-
-
-
