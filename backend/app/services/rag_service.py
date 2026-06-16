@@ -299,12 +299,10 @@ class RagService:
 
     @staticmethod
     def _build_references(results: list[SearchResult]) -> list[dict]:
-        # 对引用内容做轻量截断，避免接口返回过长文本把前端消息区撑爆。
         references = []
         for idx, result in enumerate(results, 1):
-            excerpt = result.content.strip()
-            if len(excerpt) > 300:
-                excerpt = excerpt[:300].rstrip() + "..."
+            full = result.content.strip()
+            excerpt = full[:300].rstrip() + "..." if len(full) > 300 else full
             references.append(
                 {
                     "index": idx,
@@ -312,6 +310,7 @@ class RagService:
                     "doc_id": result.doc_id,
                     "score": result.score,
                     "excerpt": excerpt,
+                    "full_content": full,
                     "doc_title": result.doc_title,
                     "source": result.source,
                     "url": result.url,

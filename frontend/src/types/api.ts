@@ -10,6 +10,7 @@ export interface ReferenceItem {
   doc_id: string
   score: number
   excerpt: string
+  full_content?: string
   doc_title?: string
   source?: string
   url?: string
